@@ -1,0 +1,10 @@
+@startuml
+
+component AJB
+actor Spieler
+
+AJB -left- Spieler
+component HighscoreSpeicher
+AJB -- HighscoreSpeicher
+
+@enduml

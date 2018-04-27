@@ -1,0 +1,10 @@
+@startuml
+
+component AJB
+actor Spieler
+
+AJB -up- "Eingabesysteme" Spieler
+component HighscoreSpeicher
+AJB -- "Leseoperation" HighscoreSpeicher
+
+@enduml

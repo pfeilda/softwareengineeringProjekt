@@ -1,0 +1,32 @@
+@startuml
+package elements {
+    class Label {
+        -title: string
+        -acronym: string
+        ~Label(string title, string acronym)
+        +getTitle():string
+        +getAcronym():string
+    }
+
+    interface Element{
+        -charge
+        +getCharge()#todo check if really needed
+        +react(Element element)
+        +getLabel():Label
+    }
+    Element "1" -right-> "1" Label : label >
+
+    class Atom implements Element {
+        -ordinal: int
+        ~Atom(int ordinal, Label label)
+        +getOrdinal():int
+    }
+
+    class Ion implements Element{
+
+    }
+    Ion "1" --> "1..*" Atom
+
+}
+
+@enduml
