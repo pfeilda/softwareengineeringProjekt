@@ -13,7 +13,7 @@ Welcome to Softwareengineering's documentation!
    Design/Aufgabenstellung.rst
    Design/Randbedingung.rst
    Design/Kontextabgrenzung.rst
-   Design/Lösungsstrategie.rst
+   Design/Lösungsstrategien.rst
 
 
 Indices and tables
