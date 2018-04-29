@@ -14,6 +14,7 @@ Welcome to Softwareengineering's documentation!
    Design/Randbedingung.rst
    Design/Kontextabgrenzung.rst
    Design/Lösungsstrategien.rst
+   Design/Bausteinsicht.rst
 
 
 Indices and tables
