@@ -1,0 +1,44 @@
+@startuml
+package elements {
+    class Label {
+        -title: string
+        -acronym: string
+        ~Label(string title, string acronym)
+        +getTitle():string
+        +getAcronym():string
+    }
+
+    abstract class Element{
+        +interact(Element element)
+        +getLabel():Label
+    }
+    Element -left-> Label
+
+    class Atom extends Element {
+        -ordinal: int
+        ~Atom(int ordinal, Label label)
+        +getOrdinal():int
+    }
+
+    class Ion extends Element implements Charge{
+    }
+    Ion "0..*" --> "1..*" Atom
+
+    class Molekül extends Element{
+    }
+    Molekül "0..*" -left- "0..*" Ion
+    Molekül "0..*" --> "0..*" Atom
+
+    class Substanzen{
+    }
+    Substanzen "0..*" -down-> "0..*" Element
+    Substanzen ..|> Charge
+    Substanzen -down-|> Element
+
+    interface Charge{
+        +getCharge():int
+    }
+}
+
+@enduml
+
