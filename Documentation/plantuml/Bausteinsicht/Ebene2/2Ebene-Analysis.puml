@@ -1,0 +1,9 @@
+@startuml
+
+namespace ajb{
+    namespace analysis{
+        class Element
+    }
+}
+
+@enduml

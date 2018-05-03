@@ -1,0 +1,20 @@
+@startuml
+
+namespace ajb{
+    namespace gui{
+    }
+    namespace parts{
+    }
+    namespace equipment{
+    }
+    namespace analysis{
+    }
+    namespace miscellaneous{
+    }
+    namespace tests{
+    }
+}
+!include Ebene2/2Ebene-Analysis.puml
+!include Ebene2/2Ebene-Parts.puml
+
+@enduml

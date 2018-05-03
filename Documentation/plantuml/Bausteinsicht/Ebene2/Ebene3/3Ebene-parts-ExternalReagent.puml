@@ -1,0 +1,15 @@
+@startuml
+!include ../2Ebene-Parts.puml
+hide ajb.analysis
+hide ajb.parts.ProbeContainer
+hide ajb.parts.AbstractPart
+
+namespace ajb.parts{
+    BunsenBurner -up-|> ExternalReagent
+    Centrifuge -up-|> ExternalReagent
+    BoilingStone -up-|> ExternalReagent
+    Filter -up-|> ExternalReagent
+    AgingProcess -up-|> ExternalReagent
+}
+
+@enduml
