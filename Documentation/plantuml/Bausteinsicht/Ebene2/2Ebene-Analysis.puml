@@ -2,7 +2,50 @@
 
 namespace ajb{
     namespace analysis{
-        class Element
+        abstract class Element{
+            -label: String
+            +Element(String label)
+            +getLabel():String
+            +{abstract} experimentalProof(Substance assay):boolean
+            +{abstract} alter():void
+        }
+
+        class Molecule extends Element{
+            +getIons():Ion[]
+        }
+        Molecule "*" --> "- 1..* ions" Ion
+
+        class Ion extends Element{
+            -charge:int
+            +getCharge()
+            +getAtoms(): Atoms[]
+        }
+        Ion "*" --> "- 1..* atoms" Atom
+
+        class Atom extends Element{
+            -elementSymbol: String
+            -ordinal: int
+            ~Atom(String label, String elementSymbol, int ordinal)
+            +getElementSymbol():String
+            +getOrdinal():int
+        }
+
+        abstract class Substance {
+            -volume: double
+            -aggregateState: double
+            +getVolume():int
+            +getAggregateState():int
+            +add(Element element)
+        }
+        Substance " *" --> "- 1..* elements" Element
+
+        class Assay{
+        }
+        Assay -down-|> Substance
+
+        class Reagent{
+        }
+        Reagent -down-|> Substance
     }
 }
 

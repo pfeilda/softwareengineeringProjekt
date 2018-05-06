@@ -1,0 +1,15 @@
+@startuml
+!include ../2Ebene-Parts.puml
+hide ajb.analysis
+hide ajb.parts.ExternalReagent
+hide ajb.parts.AbstractPart
+
+namespace ajb.parts{
+        class Beaker extends SubstanceContainer
+
+        class TestTube extends SubstanceContainer
+
+        class ErlenmeyerFlask extends SubstanceContainer
+}
+
+@enduml
