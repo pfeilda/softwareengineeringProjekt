@@ -1,0 +1,27 @@
+@startuml
+!include 2Ebene-Analysis.puml
+
+namespace ajb{
+    namespace parts {
+        interface AbstractPart{
+            +interact(Element Element)
+        }
+
+        abstract class ProbeContainer implements AbstractPart {
+            # {final} maxVolume: double
+            #currentVolume: double = 0
+            +clear();
+            +fill(Element element);
+            +ProbeContainer(double maxVolume)
+        }
+        ProbeContainer " # probe" -up-> .ajb.analysis.Element
+
+        abstract class ExternalReagent implements AbstractPart{
+            #countdown:Time
+            #state
+
+        }
+        ExternalReagent " # " -- ProbeContainer
+    }
+}
+@enduml
