@@ -17,9 +17,11 @@ namespace ajb{
         ProbeContainer " # probe" -up-> .ajb.analysis.Element
 
         abstract class ExternalReagent implements AbstractPart{
+            #countdown:Time
+            #state
 
         }
-        ExternalReagent " # 0..*" -- " # 0..*" ProbeContainer
+        ExternalReagent " # " -- ProbeContainer
     }
 }
 @enduml
