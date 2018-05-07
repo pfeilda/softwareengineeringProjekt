@@ -1,13 +1,13 @@
 @startuml
 
 namespace ajb{
-    namespace analysis{
+    namespace particles{
         abstract class Element{
             -label: String
             +Element(String label)
             +getLabel():String
             +{abstract} experimentalProof(Substance assay):boolean
-            +{abstract} alter():void
+'            +{abstract} alter():void
         }
 
         class Molecule extends Element{
@@ -29,19 +29,31 @@ namespace ajb{
             +getElementSymbol():String
             +getOrdinal():int
         }
+    }
+    namespace analysis{
 
         abstract class Substance {
             -volume: double
             -aggregateState: double
             +getVolume():int
             +getAggregateState():int
-            +add(Element element)
+            +add(Element element):boolean
         }
-        Substance " *" --> "- 1..* elements" Element
+        Substance " *" --> "- 1..* elements" .ajb.particles.Element
 
         class Assay{
+            +alter():boolean
         }
         Assay -down-|> Substance
+
+        class Analysis{
+            - foundElements: ajb.particles.Element[]
+            + evaluate():boolean
+            + markAsFound(ajb.particles.Element element):void
+            + unmarkAsFound(ajb.particles.Element element):void
+        }
+        Analysis --> "- 1..* startElements" .ajb.particles.Element
+        Analysis --> "- 1..* assays" Assay
 
         class Reagent{
         }

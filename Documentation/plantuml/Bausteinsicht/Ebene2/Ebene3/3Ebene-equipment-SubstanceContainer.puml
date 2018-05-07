@@ -1,10 +1,10 @@
 @startuml
-!include ../2Ebene-Parts.puml
+!include ../2Ebene-equipment.puml
 hide ajb.analysis
-hide ajb.parts.ExternalReagent
-hide ajb.parts.AbstractPart
+hide ajb.equipment.ExternalReagent
+hide ajb.equipment.AbstractPart
 
-namespace ajb.parts{
+namespace ajb.equipment{
         class Beaker extends SubstanceContainer
 
         class TestTube extends SubstanceContainer

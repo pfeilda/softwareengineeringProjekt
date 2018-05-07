@@ -1,10 +1,10 @@
 @startuml
-!include ../2Ebene-Parts.puml
+!include ../2Ebene-equipment.puml
 hide ajb.analysis
-hide ajb.parts.SubstanceContainer
-hide ajb.parts.AbstractPart
+hide ajb.equipment.SubstanceContainer
+hide ajb.equipment.AbstractPart
 
-namespace ajb.parts{
+namespace ajb.equipment{
     BunsenBurner .up.|> ExternalReagent
     Centrifuge .up.|> ExternalReagent
     BoilingStone .up.|> ExternalReagent

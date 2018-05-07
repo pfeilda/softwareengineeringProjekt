@@ -3,18 +3,19 @@
 namespace ajb{
     namespace gui{
     }
-    namespace parts{
+    namespace particles{
     }
     namespace equipment{
     }
     namespace analysis{
     }
     namespace miscellaneous{
+        class HighScoreUtility
     }
     namespace tests{
     }
 }
 !include Ebene2/2Ebene-Analysis.puml
-!include Ebene2/2Ebene-Parts.puml
+!include Ebene2/2Ebene-equipment.puml
 
 @enduml

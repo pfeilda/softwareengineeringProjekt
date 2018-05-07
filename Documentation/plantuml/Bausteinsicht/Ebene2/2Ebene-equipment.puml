@@ -2,7 +2,7 @@
 !include 2Ebene-Analysis.puml
 
 namespace ajb{
-    namespace parts {
+    namespace equipment {
         interface AbstractPart{
             +interact(Element Element)
         }
@@ -20,7 +20,7 @@ namespace ajb{
             +fill(Element element);
             +SubstanceContainer(double maxVolume)
         }
-        SubstanceContainer " # assay" -up-> .ajb.analysis.Substance
+        SubstanceContainer " # substance" -up-> .ajb.analysis.Substance
 
     }
 }
