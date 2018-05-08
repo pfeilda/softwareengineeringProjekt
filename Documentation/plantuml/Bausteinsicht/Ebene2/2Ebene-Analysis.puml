@@ -11,7 +11,7 @@ namespace ajb{
             ~Substance()
             +{abstract}alter(ExternalReagent reagent)
             +{abstract}react(Substance substance)
-            #{abstract}alter()
+            +{abstract}alter()
             +getPhysicalState()
             +addTemperature(double temperature)
             +addPressure(double pressure)
