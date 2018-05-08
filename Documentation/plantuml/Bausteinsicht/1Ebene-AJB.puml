@@ -16,7 +16,7 @@ namespace ajb{
     }
 }
 !include Ebene2/2Ebene-Particles.puml
-!include Ebene2/2Ebene-analysis.puml
+!include Ebene2/2Ebene-Analysis.puml
 !include Ebene2/2Ebene-equipment.puml
 
 @enduml
