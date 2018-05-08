@@ -15,6 +15,12 @@ Welcome to Softwareengineering's documentation!
    Design/Kontextabgrenzung.rst
    Design/Lösungsstrategien.rst
    Design/Bausteinsicht.rst
+   Design/Laufzeitsicht.rst
+   Design/Verteilungssicht.rst
+   Design/Konzepte.rst
+   Design/Entscheidungen.rst
+   Design/Szenarien.rst
+   Design/Risiken.rst
 
 
 Indices and tables
