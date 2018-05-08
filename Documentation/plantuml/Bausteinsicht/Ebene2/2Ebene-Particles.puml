@@ -1,0 +1,47 @@
+@startuml
+
+!include 2Ebene-miscellaneous.puml
+
+namespace ajb{
+    namespace particles{
+        abstract class Element{
+            -label: String
+            ~Element(String label)
+            +getLabel():String
+            +{abstract} experimentalProof(Substance assay):boolean
+'            +{abstract} alter():void
+        }
+
+        class Molecule extends Element{
+            ~Molecule(Ion[] ions)
+            +getIons():Ion[]
+        }
+        Molecule "*" --> "- 1..* ions" Ion
+
+        class Ion extends Element{
+            ~Ion(int charge, Atoms[] atom)
+            -charge:int
+            +getCharge()
+            +getAtoms(): Atoms[]
+        }
+        Ion "*" --> "- 1..* atoms" Atom
+
+        class Atom extends Element{
+            -elementSymbol: String
+            -ordinal: int
+            ~Atom(String label, String elementSymbol, int ordinal)
+            +getElementSymbol():String
+            +getOrdinal():int
+        }
+
+        class ParticleFactory implements .ajb.miscellaneous.FactorySingleton{
+            +getMoleculeWithIons(Ions[] ions):Molecule
+            +getIonForAtomsWithCharge(Charge charge, Atom[] atoms):Ion
+            +getAtomForElementSymbol(String elementSymbol):Atom
+            +getAtomForLabel(String label):Atom
+            +getAtomForOrdinal(int Ordinal):Atom
+        }
+    }
+}
+
+@enduml

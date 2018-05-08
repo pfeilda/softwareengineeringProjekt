@@ -1,0 +1,26 @@
+@startuml
+namespace ajb{
+    namespace miscellaneous{
+        class HighScoreUtility{
+            +addHighScore(Highscore score)
+            +readHighScores()
+            +writeHighScores()
+            +printToGui(JList jlist)
+        }
+        HighScoreUtility "1" --> " 0..* highscores" Score
+
+        class Score {
+            -name: String
+            -score: int
+            -time: LocalTime
+            +Score(String name, int score, Localtime time)
+            +toString()
+        }
+
+        interface FactorySingleton{
+            +{static} Factory getInstance()
+        }
+    }
+}
+
+@enduml

@@ -1,53 +1,43 @@
 @startuml
 
+!include 2Ebene-Particles.puml
+!include 2Ebene-miscellaneous.puml
+hide ajb.particles.Atom
+hide ajb.particles.Ion
+hide ajb.particles.Molecule
+
 namespace ajb{
-    namespace particles{
-        abstract class Element{
-            -label: String
-            +Element(String label)
-            +getLabel():String
-            +{abstract} experimentalProof(Substance assay):boolean
-'            +{abstract} alter():void
-        }
-
-        class Molecule extends Element{
-            +getIons():Ion[]
-        }
-        Molecule "*" --> "- 1..* ions" Ion
-
-        class Ion extends Element{
-            -charge:int
-            +getCharge()
-            +getAtoms(): Atoms[]
-        }
-        Ion "*" --> "- 1..* atoms" Atom
-
-        class Atom extends Element{
-            -elementSymbol: String
-            -ordinal: int
-            ~Atom(String label, String elementSymbol, int ordinal)
-            +getElementSymbol():String
-            +getOrdinal():int
-        }
-    }
     namespace analysis{
-
-        abstract class Substance {
-            -volume: double
-            -aggregateState: double
-            +getVolume():int
-            +getAggregateState():int
-            +add(Element element):boolean
+        abstract class Substance{
+'           todo check for visibility maybe private possible
+            #volume:double
+            #temperature:double
+            #pressure:double
+            #physicalState:int
+            ~Substance()
+            +{abstract}alter(ExternalReagent reagent)
+            +{abstract}react(Substance substance)
+            #{abstract}alter()
+            +getPhysicalState()
+            +addTemperature(double temperature)
+            +addPressure(double pressure)
+            +addElement(Element element)
         }
-        Substance " *" --> "- 1..* elements" .ajb.particles.Element
+        Substance --> .ajb.particles.Element
 
         class Assay{
-            +alter():boolean
+            +evaluate(Element element):boolean
         }
-        Assay -down-|> Substance
+        Assay --|> Substance
+        Assay " *" --> " 1..*" Substance
+
+        class Reagent
+        Reagent -down-|> Substance
 
         class Analysis{
             - foundElements: ajb.particles.Element[]
+            ~ Analysis(Assay primeSubstance)
+            + getScore(): ajb.miscellaneous.Score
             + evaluate():boolean
             + markAsFound(ajb.particles.Element element):void
             + unmarkAsFound(ajb.particles.Element element):void
@@ -55,10 +45,11 @@ namespace ajb{
         Analysis --> "- 1..* startElements" .ajb.particles.Element
         Analysis --> "- 1..* assays" Assay
 
-        class Reagent{
+        class AnalysisFactory implements .ajb.miscellaneous.FactorySingleton {
+            +getReagentFromElements(ajb.particles.Element[] element): Reagent
+            +generateRandomAnalysisContainingElements(ajb.particles.Element[] possibleElements):Analyse
+            +getAssayWithSubstances(Substance[] substances)
         }
-        Reagent -down-|> Substance
     }
 }
-
 @enduml

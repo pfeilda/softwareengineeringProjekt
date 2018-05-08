@@ -1,27 +1,39 @@
 @startuml
-!include 2Ebene-Analysis.puml
+!include 2Ebene-analysis.puml
+!include 2Ebene-miscellaneous.puml
 
 namespace ajb{
     namespace equipment {
         interface AbstractPart{
-            +interact(Element Element)
+            +fill(Object fillObject)
         }
 
         interface ExternalReagent implements AbstractPart{
 '            #countdown:Time
 '            #state
+            fill(SubstanceContainer substanceContainer)
         }
-        ExternalReagent " # interactor" --> SubstanceContainer
+        ExternalReagent --> SubstanceContainer
 
         abstract class SubstanceContainer implements AbstractPart {
             # {final} maxVolume: double
             #currentVolume: double = 0
             +clear();
-            +fill(Element element);
+            +fill(Substance substance);
             +SubstanceContainer(double maxVolume)
         }
         SubstanceContainer " # substance" -up-> .ajb.analysis.Substance
 
+        class EquipmentFactory implements .ajb.miscellaneous.FactorySingleton {
+            +getSubstanceContainer(String substanceContainerClass):SubstanceContainer
+            +getSubstanceContainer(Class substanceContainerClass):SubstanceContainer
+            +getSubstanceContaienr(String substanceContainerClass, ajb.analysis.Substance substance):SubstanceContainer
+            +getSubstanceContaienr(Class substanceContainerClass, ajb.analysis.Substance substance):SubstanceContainer
+            +getExternalReagent(String ExternalReagentClass):ExternalReagent
+            +getExternalReagent(Class ExternalReagentClass):ExternalReagent
+            +getExternalReagent(String ExternalReagentClass, SubstanceContainer substanceContainer):ExternalReagent
+            +getExternalReagent(Class ExternalReagentClass, SubstanceContainer substanceContainer):ExternalReagent
+        }
     }
 }
 
