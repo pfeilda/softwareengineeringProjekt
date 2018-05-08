@@ -17,8 +17,8 @@ namespace ajb{
             +toString()
         }
 
-        interface FactorySingleton{
-            +{static} Factory getInstance()
+        interface Singleton{
+            +{static} Singleton getInstance()
         }
     }
 }

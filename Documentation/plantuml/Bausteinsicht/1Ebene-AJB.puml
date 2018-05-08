@@ -1,9 +1,6 @@
 @startuml
 
 namespace ajb{
-    namespace gui{
-        class Window
-    }
     namespace particles{
     }
     namespace equipment{
@@ -12,11 +9,23 @@ namespace ajb{
     }
     namespace miscellaneous{
     }
+    namespace gui{
+        class Window extends .javax.swing.JFrame
+    }
     namespace tests{
+        namespace tdd{
+        }
+        namespace unit{
+        }
     }
 }
+
+
 !include Ebene2/2Ebene-Particles.puml
 !include Ebene2/2Ebene-Analysis.puml
 !include Ebene2/2Ebene-equipment.puml
+!include Ebene2/2Ebene-miscellaneous.puml
+!include Ebene2/Ebene3/3Ebene-equipment-SubstanceContainer.puml
+!include Ebene2/Ebene3/3Ebene-parts-ExternalReagent.puml
 
 @enduml

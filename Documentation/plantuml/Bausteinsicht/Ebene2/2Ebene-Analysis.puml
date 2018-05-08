@@ -1,11 +1,5 @@
 @startuml
 
-!include 2Ebene-Particles.puml
-!include 2Ebene-miscellaneous.puml
-hide ajb.particles.Atom
-hide ajb.particles.Ion
-hide ajb.particles.Molecule
-
 namespace ajb{
     namespace analysis{
         abstract class Substance{
@@ -45,7 +39,7 @@ namespace ajb{
         Analysis --> "- 1..* startElements" .ajb.particles.Element
         Analysis --> "- 1..* assays" Assay
 
-        class AnalysisFactory implements .ajb.miscellaneous.FactorySingleton {
+        class AnalysisFactory implements .ajb.miscellaneous.Singleton {
             +getReagentFromElements(ajb.particles.Element[] element): Reagent
             +generateRandomAnalysisContainingElements(ajb.particles.Element[] possibleElements):Analyse
             +getAssayWithSubstances(Substance[] substances)

@@ -1,7 +1,5 @@
 @startuml
 
-!include 2Ebene-miscellaneous.puml
-
 namespace ajb{
     namespace particles{
         abstract class Element{
@@ -34,7 +32,7 @@ namespace ajb{
             +getOrdinal():int
         }
 
-        class ParticleFactory implements .ajb.miscellaneous.FactorySingleton{
+        class ParticleFactory implements .ajb.miscellaneous.Singleton{
             +getMoleculeWithIons(Ions[] ions):Molecule
             +getIonForAtomsWithCharge(Charge charge, Atom[] atoms):Ion
             +getAtomForElementSymbol(String elementSymbol):Atom

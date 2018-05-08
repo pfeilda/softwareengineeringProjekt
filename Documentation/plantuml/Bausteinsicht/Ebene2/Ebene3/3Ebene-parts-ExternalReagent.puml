@@ -1,8 +1,4 @@
 @startuml
-!include ../2Ebene-equipment.puml
-hide ajb.analysis
-hide ajb.equipment.SubstanceContainer
-hide ajb.equipment.AbstractPart
 
 namespace ajb.equipment{
     BunsenBurner .up.|> ExternalReagent
