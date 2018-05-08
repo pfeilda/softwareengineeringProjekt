@@ -1,0 +1,7 @@
+@startuml
+
+Window -> AlterManager: Add AbstractPart
+AlterManager -> AlterManager: Call Alter Method of every part
+Window -> AlterManager: remove AbstractPart
+
+@enduml
