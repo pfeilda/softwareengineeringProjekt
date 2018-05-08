@@ -18,7 +18,7 @@ Welcome to Softwareengineering's documentation!
    Design/Laufzeitsicht.rst
    Design/Verteilungssicht.rst
    Design/Konzepte.rst
-   Design/Entscheidungen.rst
+   Design/Entscheidung.rst
    Design/Szenarien.rst
    Design/Risiken.rst
 
