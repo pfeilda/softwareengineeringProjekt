@@ -2,11 +2,11 @@
 actor User
 User -> Window: teste Probe auf Element
 Window -> Assay: teste Element
-Assay -> Window: gebe Ergebniss zurück
+Assay --> Window: gebe Ergebniss zurück
 Window -> User: Ergebniss darstellen
 User -> Window: Element als gefunden markieren
 Window -> Analysis: markiere Elemente als gefunden
 Window -> Analysis: bekomme markierte Elemente
-Analysis -> Window: markierte Elemente
+Analysis --> Window: markierte Elemente
 Window -> User: aktualisiere gefundene Elemente
 @enduml

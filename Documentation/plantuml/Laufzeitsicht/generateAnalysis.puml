@@ -1,0 +1,14 @@
+@startuml
+
+Window -> Window: Ermittle zu benutzende Elementen
+Window -> AnalysisFactory: Generiere Analyse mit den zu benutzenden Elementen
+AnalysisFactory -> AnalysisFactory: wähle Elemente zufällig aus
+loop für jedes ausgewählte Element
+    AnalysisFactory -> AnalysisFactory: erstelle ein Reagent für die Elemente
+end
+AnalysisFactory -> AnalysisFactory: erstelle eine Probe mit den Elementen
+AnalysisFactory -> AnalysisFactory: erstelle eine Analyse mit der Probe
+
+AnalysisFactory --> Window: Analyse
+
+@enduml

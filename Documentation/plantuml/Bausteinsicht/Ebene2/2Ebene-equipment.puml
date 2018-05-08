@@ -34,7 +34,7 @@ namespace ajb{
         }
 
         class AlterManager implements .ajb.miscellaneous.Singleton {
-            -parts: List
+            -parts: List<ajb.analysis.Substance>
             ~AlterManager()
             +addPart(AbstractPart part)
             +removePart(AbstractPart part)

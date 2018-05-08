@@ -42,7 +42,7 @@ namespace ajb{
         class AnalysisFactory implements .ajb.miscellaneous.Singleton {
             +getReagentFromElements(ajb.particles.Element[] element): Reagent
             +generateRandomAnalysisContainingElements(ajb.particles.Element[] possibleElements):Analyse
-            +getAssayWithSubstances(Substance[] substances)
+            +getAssayWithSubstances(Substance[] substances): Assay
         }
     }
 }

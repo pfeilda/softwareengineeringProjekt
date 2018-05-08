@@ -1,0 +1,13 @@
+@startuml
+
+Window -> AlterManager: Füge AbstractPart hinzu
+
+loop AlterManager führt immer nach \n einer Zeit x wiederholt aus
+    loop führe für jedes Element aus
+        AlterManager -> AlterManager: Call Alter
+    end
+end
+
+Window -> AlterManager: remove AbstractPart
+
+@enduml
