@@ -36,9 +36,19 @@ Das Projekt soll in folgende Teile gegliedert werden:
 .. [#] **S** ingle **r** responsibility **p** rinciple
 .. [#] **O** pen **c** losed **p** rinciple
 .. [#] **L** iskov **s** ubstition **p** rinciple
-.. [#] Gang of Four
-.. [#] Test Driven Development
+.. [#] **G** ang **o** f **F** our
+.. [#] **T** est **D** riven **D** evelopment
 
 
 Spielablauf
 ###########
+
+Der Spielablauf sieht wie folgt aus:
+zu allererst muss der Anwender auswählen welche Elemente in der Probe enthalten sein sollen. Mithilfe dieser Information
+stößt die Oberfläche die Generierung einer Analyse an. Dann wird die Ansicht für eine Probe gezeigt. Mit dieser Probe
+kann der Anwender interagieren. Mithilfe der Reagenzien können verschiedene Aktionen ausgelöst werden. Diese sollen
+helfen eine Reaktion zu ermöglichen welche angibt ob ein Element enthalten ist oder nicht. Der Anwender kann die
+Elemente dann als gefunden oder nicht gefunden markieren. Wenn der Anwender der Meinung ist alle Elemente gefunden zu
+haben, kann er die Analyse auswerten lassen. Je nach Zeit und korrekt gefunden Elementen wird der erreichte Score
+errechnet. Dieser Score wird dann samt Namen in die Highscore Liste aufgenommen. Am Ende wird der Nutzer wieder auf den
+Startview weitergeleitet von wo aus er die Highscore Liste ansehen kann bzw. ein neues Spiel starten kann.
