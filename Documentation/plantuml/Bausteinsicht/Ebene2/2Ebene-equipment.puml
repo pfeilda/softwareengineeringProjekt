@@ -38,6 +38,7 @@ namespace ajb{
             ~AlterManager()
             +addPart(AbstractPart part)
             +removePart(AbstractPart part)
+            ~alter()
             ~startRunner()
         }
     }
