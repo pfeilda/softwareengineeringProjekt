@@ -1,5 +1,5 @@
 @startuml
-
+hide members
 namespace ajb{
     namespace particles{
     }
@@ -13,19 +13,35 @@ namespace ajb{
         class Window extends .javax.swing.JFrame
     }
     namespace tests{
-        namespace tdd{
-        }
-        namespace unit{
-        }
+        'namespace tdd{
+        '}
+        'namespace unit{
+        '}
     }
 }
 
 
 !include Ebene2/2Ebene-Particles.puml
+hide ajb.particles.Atom
+hide ajb.particles.Ion
+hide ajb.particles.Molecule
 !include Ebene2/2Ebene-Analysis.puml
+hide ajb.analysis.Reagent
+hide ajb.analysis.Assay
 !include Ebene2/2Ebene-equipment.puml
+hide ajb.equipment.AbstractPart
+hide ajb.equipment.ExternalReagent
 !include Ebene2/2Ebene-miscellaneous.puml
+hide ajb.miscellaneous.HighScoreUtility
+hide ajb.miscellaneous.Score
 !include Ebene2/Ebene3/3Ebene-equipment-SubstanceContainer.puml
+hide ajb.equipment.Beaker
+hide ajb.equipment.TestTube
+hide ajb.equipment.ErlenmeyerFlask
 !include Ebene2/Ebene3/3Ebene-parts-ExternalReagent.puml
+hide ajb.equipment.BunsenBurner
+hide ajb.equipment.Filter
+hide ajb.equipment.BoilingStone
+hide ajb.equipment.Centrifuge
 
 @enduml

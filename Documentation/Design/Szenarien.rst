@@ -1,2 +1,2 @@
-Szenarien
-=========
+Qualitätsszenarien
+==================
