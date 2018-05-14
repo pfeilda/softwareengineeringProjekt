@@ -19,6 +19,14 @@ Main Features
 * Highscore Möglichkeit
 * Abbildung verschiedener Nasschemischer Verfahren (Bspw. Zentrifugieren, Filtrieren)
 
+UseCases
+++++++++
+
+Im HauptUseCase wird die Anwendung von einer an Chemie interessierten Person genutzt, um erlerntes Wissen zu überprüfen
+bzw. zu festigen.
+
+Als weiteren UseCase kann man anführen, das sich die Nutzer gegenseitig überbieten können, wenn sie einen besseren
+Highscore erzielen.
 
 Qualitätsziele
 ##############
@@ -26,8 +34,8 @@ Qualitätsziele
 +--------------------------------------+-------------------------------------------------------------------------------+
 |Ziel                                  |Erläuterung                                                                    |
 +======================================+===============================================================================+
-|Realitätsgetreue Abbildung des Anionen|Dieses Ziel soll sicherstellen, dass der Spieler keine falschen Inhalte        |
-|und Kationen Trennungsgang sowie      |vermittelt bekommt. Mithilfe der Dokumentation auf Chemgapedia [#]_ soll die   |
+|Realitätsgetreue Abbildung            |Dieses Ziel soll sicherstellen, dass der Spieler keine falschen Inhalte        |
+|des Kationen Trennungsgang sowie      |vermittelt bekommt. Mithilfe der Dokumentation auf Chemgapedia [#]_ soll die   |
 |der Einzelnachweise. (Korrektheit)    |Korrektheit sichergestellt werden.                                             |
 +--------------------------------------+-------------------------------------------------------------------------------+
 |Angemessene Reaktionszeiten           |Um Spieler nicht zu verärgern sollte das Spiel durchschnittlich innerhalb von  |
