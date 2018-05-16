@@ -1,17 +1,27 @@
 package com.pfeilda.ajb.particles;
 
-public class Atom extends Element{
-    private String elementSymbol;
-    private int ordinal;
+import java.util.ArrayList;
 
-    public Atom(String label, String elementSymbol, int ordinal) {
+public class Atom extends Element {
+    private final String elementSymbol;
+    private final int ordinal;
+
+    Atom(final String label, final String elementSymbol, final int ordinal) {
         super(label);
         this.elementSymbol = elementSymbol;
         this.ordinal = ordinal;
     }
 
+    public String getElementSymbol() {
+        return this.elementSymbol;
+    }
+
+    public int getOrdinal() {
+        return this.ordinal;
+    }
+
     @Override
     public boolean experimentalProof() {
-        return false;
+        return true;
     }
 }

@@ -1,4 +1,4 @@
-package com.pfeilda.ajb.test;
+package com.pfeilda.ajb.miscellaneous;
 
 public interface TestInterface {
     @org.junit.Test
