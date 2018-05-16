@@ -1,5 +1,6 @@
-package com.pfeilda.ajb;
+package com.pfeilda.ajb.test;
 
+import com.pfeilda.ajb.Atom;
 import org.junit.Assert;
 import org.junit.Test;
 
