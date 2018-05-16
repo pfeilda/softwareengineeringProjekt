@@ -3,10 +3,10 @@ maven_build:
 
 build:
   stage: build
-    script:
-      - mvn compile
+  script:
+    - mvn compile
 
 test:
   stage: test
-    script:
-      - mvn test
+  script:
+    - mvn test
