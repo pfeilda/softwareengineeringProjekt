@@ -35,8 +35,6 @@ und von dort aus auf die anderen zu schließen.
 Decorator Pattern
 #################
 
-TODO entfernen eines Dekorator?
-
 Im `equipment` Paket wird das Decorator Pattern verwendet um dem `SubstanceContainer` neue Funktionalitäten zuzuweisen.
 So kann bei Objekten vom Typ `Substance`, welche sich in einem `SubstanceContainer` befinden, mithilfe der verschiedenen
 `ExternalReagent` Dekorierern das Alterungsverhalten verändert werden.
