@@ -3,7 +3,7 @@ stages:
   - test
 
 maven_build:
-  image: maven3-jdk-8
+  image: maven:3-jdk-8
   stage: build
   script: mvn clean install -U
   artifacts:
