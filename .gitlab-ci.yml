@@ -7,5 +7,7 @@ build:
 
 test:
   stage: test
+  only:
+    - master
   script:
     - mvn test
