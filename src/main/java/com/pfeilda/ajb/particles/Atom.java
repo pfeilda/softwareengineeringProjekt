@@ -1,5 +1,7 @@
 package com.pfeilda.ajb.particles;
 
+import com.pfeilda.ajb.analysis.AbstractSubstance;
+
 import java.util.ArrayList;
 
 public class Atom extends Element {
@@ -21,7 +23,12 @@ public class Atom extends Element {
     }
 
     @Override
-    public boolean experimentalProof() {
+    public boolean experimentalProof(final AbstractSubstance abstractSubstance) {
         return true;
+    }
+
+    //todo remove mock
+    public boolean experimentalProof(final boolean mock) {
+        return mock;
     }
 }

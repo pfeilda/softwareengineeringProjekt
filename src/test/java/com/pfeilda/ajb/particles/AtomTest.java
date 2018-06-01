@@ -30,13 +30,13 @@ public class AtomTest implements TestInterface {
     @Test
     public final void experimentalProofSuccess() {
         final Atom atom = this.genereateInstanceOfTestClass();
-        Assert.assertTrue(atom.experimentalProof());
+        Assert.assertTrue(atom.experimentalProof(true));
     }
 
     @Test
     public final void experimentalProofFails() {
         final Atom atom = this.genereateInstanceOfTestClass();
-        Assert.assertFalse(atom.experimentalProof());
+        Assert.assertFalse(atom.experimentalProof(false));
     }
 
     @Test
