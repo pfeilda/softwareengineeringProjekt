@@ -3,25 +3,36 @@ package com.pfeilda.ajb.analysis;
 import com.pfeilda.ajb.miscellaneous.AlterInterface;
 import com.pfeilda.ajb.miscellaneous.Volume;
 import com.pfeilda.ajb.miscellaneous.VolumeInterface;
+import com.pfeilda.ajb.particles.Element;
+
+import java.util.ArrayList;
 
 /* PhysicalState Decorator */
 public abstract class Substance implements AlterInterface, VolumeInterface {
-    private final Volume volume;
-    private final double temperature;
-    private final double pressure;
+    private final Volume volume = new Volume(0);
+    private double temperature = 0;
+    private double pressure = 0;
     private boolean isValid = true;
+    protected final ArrayList<Element> elements = new ArrayList<Element>();
 
-    Substance(final Volume volume, final double temperature, final double pressure) {
-        this.volume = volume;
-        this.temperature = temperature;
-        this.pressure = pressure;
+    Substance(final Substance[] substances) {
+        for (final Substance substance :
+                substances) {
+            substance.addTo(this);
+        }
     }
 
     public abstract void alter();
 
-    public abstract void react(Substance substance);
+    abstract void add(Element element);
 
-    public abstract void add(Substance substance);
+    public void addTo(final Substance substance) {
+        substance.add(this.getVolume());
+        for (final Element element :
+                this.elements) {
+            substance.add(element);
+        }
+    }
 
     public void add(final Volume volume) {
         this.volume.add(volume.get());

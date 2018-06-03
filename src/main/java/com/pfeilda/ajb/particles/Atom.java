@@ -29,4 +29,19 @@ public class Atom extends Element {
     public boolean experimentalProof(final boolean mock) {
         return mock;
     }
+
+    @Override
+    public boolean equals(final Object obj) {
+        if (obj instanceof Atom) {
+            if (super.equals(obj)) {
+                final Atom atom = (Atom) obj;
+                if (this.getElementSymbol().equals(atom.getElementSymbol())) {
+                    if (this.getOrdinal() == atom.getOrdinal()) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }

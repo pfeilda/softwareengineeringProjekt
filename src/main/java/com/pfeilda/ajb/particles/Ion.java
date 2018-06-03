@@ -2,6 +2,8 @@ package com.pfeilda.ajb.particles;
 
 import com.pfeilda.ajb.analysis.Substance;
 
+import java.util.Arrays;
+
 public class Ion extends Element {
     private final Atom[] atoms;
     private final int charge;
@@ -20,5 +22,28 @@ public class Ion extends Element {
     //todo remove mock
     public boolean experimentalProof(final boolean mock) {
         return mock;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        if (obj instanceof Ion) {
+            final Ion ion = (Ion) obj;
+            if (super.equals(ion)) {
+                if (ion.containSameAtoms(this.atoms)) {
+                    if (ion.hasSameCharge(this.charge)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean containSameAtoms(final Atom[] atoms) {
+        return Arrays.equals(atoms, this.atoms);
+    }
+
+    public boolean hasSameCharge(final int charge) {
+        return this.charge == charge;
     }
 }

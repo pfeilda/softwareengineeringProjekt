@@ -2,28 +2,57 @@ package com.pfeilda.ajb.equipment;
 
 import com.pfeilda.ajb.analysis.Substance;
 import com.pfeilda.ajb.miscellaneous.Volume;
-import com.pfeilda.ajb.miscellaneous.VolumeInterface;
 
-public abstract class SubstanceContainer implements VolumeInterface, PartInterface {
-    protected final double maxVolume = 0;
+public abstract class SubstanceContainer implements PartInterface {
+    private final Volume maxVolume;
     private final Substance substance;
+    private boolean isCleared = false;
 
-    public SubstanceContainer(final Substance substance) {
+    public SubstanceContainer(final Substance substance, final Volume maxVolume) {
         this.substance = substance;
+        this.maxVolume = maxVolume;
     }
 
-    public void add(final Volume volume) {
-        this.substance.add(volume);
-        if (this.substance.getVolume().get() > this.maxVolume) {
-            this.substance.destroy();
+    public Volume getMaxVolume() {
+        return this.maxVolume;
+    }
+
+    public boolean isCleared() {
+        return this.isCleared;
+    }
+
+    public void clear() {
+        this.isCleared = true;
+    }
+
+    private void decant(final SubstanceContainer substanceContainer) {
+        if (this.isAllowed()) {
+            substanceContainer.add(this.substance);
+            substanceContainer.clear();
         }
     }
 
-    public void add(final SubstanceContainer substanceContainer) {
-        substanceContainer.add(this.substance);
+    public void addTo(final SubstanceContainer substanceContainer) {
+        substanceContainer.decant(substanceContainer);
     }
 
     public void add(final Substance substance) {
-        this.substance.add(substance);
+        if (this.isAllowed()) {
+            this.substance.addTo(substance);
+            this.validateVolume();
+        }
+    }
+
+    private boolean isAllowed() {
+        if (this.isCleared() || !this.substance.isValid()) {
+            return false;
+        }
+        return true;
+    }
+
+    private void validateVolume() {
+        if (this.maxVolume.get() < this.substance.getVolume().get()) {
+            this.substance.destroy();
+        }
     }
 }

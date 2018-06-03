@@ -17,4 +17,10 @@ public abstract class Element {
      * todo template method verschiedene aufrufe ergeben das ergebniss
      */
     public abstract boolean experimentalProof(Substance substance);
+
+    @Override
+    public boolean equals(final Object obj) {
+        final Element element = (Element) obj;
+        return element.getLabel().equals(this.label);
+    }
 }
