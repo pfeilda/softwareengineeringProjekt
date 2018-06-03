@@ -1,8 +1,6 @@
 package com.pfeilda.ajb.particles;
 
-import com.pfeilda.ajb.analysis.AbstractSubstance;
-
-import java.util.ArrayList;
+import com.pfeilda.ajb.analysis.Substance;
 
 public class Atom extends Element {
     private final String elementSymbol;
@@ -23,7 +21,7 @@ public class Atom extends Element {
     }
 
     @Override
-    public boolean experimentalProof(final AbstractSubstance abstractSubstance) {
+    public boolean experimentalProof(final Substance substance) {
         return true;
     }
 

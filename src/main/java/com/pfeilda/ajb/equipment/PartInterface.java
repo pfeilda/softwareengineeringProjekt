@@ -1,11 +1,7 @@
 package com.pfeilda.ajb.equipment;
 
-import com.pfeilda.ajb.analysis.AbstractSubstance;
+import com.pfeilda.ajb.miscellaneous.AlterInterface;
 
-public interface PartInterface {
-    public void alter();
-
-    public void add(AbstractSubstance substance);
-
-    public AbstractSubstanceContainer getSubstanceContainer();
+public interface PartInterface extends AlterInterface {
+    public void add(SubstanceContainer substanceContainer);
 }

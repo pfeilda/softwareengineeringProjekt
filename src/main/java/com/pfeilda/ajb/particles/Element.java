@@ -1,6 +1,6 @@
 package com.pfeilda.ajb.particles;
 
-import com.pfeilda.ajb.analysis.AbstractSubstance;
+import com.pfeilda.ajb.analysis.Substance;
 
 public abstract class Element {
     private final String label;
@@ -16,5 +16,5 @@ public abstract class Element {
     /**
      * todo template method verschiedene aufrufe ergeben das ergebniss
      */
-    public abstract boolean experimentalProof(AbstractSubstance abstractSubstance);
+    public abstract boolean experimentalProof(Substance substance);
 }

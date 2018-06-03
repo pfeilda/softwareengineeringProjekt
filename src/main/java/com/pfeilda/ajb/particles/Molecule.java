@@ -2,14 +2,16 @@ package com.pfeilda.ajb.particles;
 
 import com.pfeilda.ajb.analysis.Substance;
 
-public class Ion extends Element {
-    private final Atom[] atoms;
-    private final int charge;
+public class Molecule extends Element {
+    private final Ion[] ions;
 
-    public Ion(final String label, final Atom[] atoms, final int charge) {
+    public Molecule(final String label, final Ion[] ions) {
         super(label);
-        this.atoms = atoms;
-        this.charge = charge;
+        this.ions = ions;
+    }
+
+    public Ion[] getIons() {
+        return this.ions;
     }
 
     @Override
