@@ -1,12 +1,15 @@
 package com.pfeilda.ajb.particles;
 
 import com.pfeilda.ajb.analysis.Substance;
+import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.util.Arrays;
 
 public class Ion extends Element {
-    private final Atom[] atoms;
+    @JsonProperty
     private final int charge;
+    @JsonProperty
+    private final Atom[] atoms;
 
     public Ion(final String label, final Atom[] atoms, final int charge) {
         super(label);

@@ -42,10 +42,14 @@ public class ParticleFactoryTest implements TestInterface {
     }
 
     @Test
+    public void generationOfAtoms() {
+        final Atom particle = ParticleFactory.getInstance().getAtom(this.atoms.get(0).getOrdinal());
+        Assert.assertTrue(this.atoms.get(0).equals(particle));
+    }
+
+    @Test
     public void generationOfMolecules() {
         final Molecule particle = ParticleFactory.getInstance().getMolecule(this.molecule.getLabel());
-        final boolean test = this.molecule.equals(particle);
-        System.out.println(test);
-        Assert.assertTrue(test);
+        Assert.assertTrue(this.molecule.equals(particle));
     }
 }
