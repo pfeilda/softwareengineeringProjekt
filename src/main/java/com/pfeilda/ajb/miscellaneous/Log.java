@@ -4,8 +4,8 @@ import com.sun.istack.internal.NotNull;
 
 public class Log {
     public static void log(
-            @NotNull final String throwObject,
-            @NotNull final Exception exception,
+            final String throwObject,
+            final Exception exception,
             final String message
     ) {
         System.err.printf(
