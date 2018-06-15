@@ -1,10 +1,12 @@
 @startuml
 
 component AJB
+component Elementespeicher
 actor Spieler
-
-AJB -left- Spieler
 component HighscoreSpeicher
+
+Spieler -- AJB
+AJB -- Elementespeicher
 AJB -- HighscoreSpeicher
 
 @enduml
