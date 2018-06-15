@@ -2,12 +2,12 @@ Lösungsstrategien
 =================
 
 Um den Anforderungen gerecht zu werden verschiedene Architekturansätze implementiert.
-Diese werden in den Nachfolgenden Punkten genauer erläutert und den verschiedenen Anforderungen zugeordnet.
-Konkret sollen die **SOLID** [#]_ Prinzipien Anwendung finden. Dies soll durch den Einsatz verschiedene Design Patterns, welche
-durch die GOF beschrieben wurden [#]_, erleichtert werden. Beispielsweise soll das `Composite` Pattern eingesetzt
-werden. Wie genau und an welcher Stelle wird nachfolgenden beschrieben. Außerdem soll Maven eingesetzt werden um
-automatisierte Build bzw. Test Prozesse zu ermöglichen. Sowie nach der Veröffentlichung anderen Entwicklern erleichtern
-sich eine Entwicklungsumgebung mit dem Projekt einzurichten.
+Diese werden in den nachfolgenden Punkten genauer erläutert und den verschiedenen Anforderungen zugeordnet.
+Konkret sollen die **SOLID** [1]_ Prinzipien Anwendung finden. Dies soll durch den Einsatz verschiedener Design Patterns
+, welche beispielsweise durch die GOF [#]_ beschrieben wurden, erleichtert werden. Beispielsweise soll das `Composite`
+Pattern eingesetzt werden. Wie genau und an welcher Stelle wird nachfolgend beschrieben. Außerdem soll Maven
+eingesetzt werden um automatisierte Build bzw. Test Prozesse zu ermöglichen. Sowie nach der Veröffentlichung anderen
+Entwicklern erleichtern sich eine Entwicklungsumgebung mit dem Projekt einzurichten.
 
 
 Grundlegender Aufbau
@@ -19,7 +19,8 @@ realisiert.
 Um eine einfach Erweiterbarkeit zu gewährleisten und den **SOLID** [1]_ Pinzipien, vorallem dem **SRP** [#]_ und dem
 **OCP** [#]_ gerecht zu werden muss das Projekt zerteilt bzw. gegliedert werden. Eine denkbare Erweiterung wäre ein
 neuer Probenbehälter. Wenn nun die Teile der Anwendung sauber getrennt sind und das **LSP** [#]_ erfüllt wird, dann kann
-dieser einfach durch erweitern einer Klasse hinzugefügt werden ohne die anderen Teile der Anwendung verändern zu müssen.
+dieser einfach durch Erweitern einer Klasse hinzugefügt werden.
+Dies geschieht ohne andere Teile der Anwendung verändern zu müssen.
 
 Das Projekt soll in folgende Teile gegliedert werden:
 
@@ -44,10 +45,10 @@ Spielablauf
 ###########
 
 Der Spielablauf sieht wie folgt aus:
-zu allererst muss der Anwender auswählen welche Elemente in der Probe enthalten sein sollen. Mithilfe dieser Information
+Zu Beginn muss der Anwender auswählen welche Elemente in der Probe enthalten sein sollen. Mithilfe dieser Information
 stößt die Oberfläche die Generierung einer Analyse an. Dann wird die Ansicht für eine Probe gezeigt. Mit dieser Probe
 kann der Anwender interagieren. Mithilfe der Reagenzien können verschiedene Aktionen ausgelöst werden. Diese sollen
-helfen eine Reaktion zu ermöglichen welche angibt ob ein Element enthalten ist oder nicht. Der Anwender kann die
+helfen eine Reaktion auszulösen, welche angibt ob ein Element enthalten ist oder nicht. Der Anwender kann die
 Elemente dann als gefunden oder nicht gefunden markieren. Wenn der Anwender der Meinung ist alle Elemente gefunden zu
 haben, kann er die Analyse auswerten lassen. Je nach Zeit und korrekt gefunden Elementen wird der erreichte Score
 errechnet. Dieser Score wird dann samt Namen in die Highscore Liste aufgenommen. Am Ende wird der Nutzer wieder auf den
