@@ -1,12 +1,15 @@
 package com.pfeilda.ajb.particles;
 
 import com.pfeilda.ajb.analysis.Substance;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Atom extends Element {
     private final String elementSymbol;
     private final int ordinal;
 
-    Atom(final String label, final String elementSymbol, final int ordinal) {
+    Atom(@JsonProperty("name") final String label, @JsonProperty("symbol") final String elementSymbol, @JsonProperty("ordinal") final int ordinal) {
         super(label);
         this.elementSymbol = elementSymbol;
         this.ordinal = ordinal;
