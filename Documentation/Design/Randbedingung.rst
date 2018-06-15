@@ -59,7 +59,7 @@ Organisatorische Randbedingungen
 |                                           |soll das Template arc42 verwendet werden.                                 |
 +-------------------------------------------+--------------------------------------------------------------------------+
 |Testumgebung                               |Für Unittest soll JUnit verwendet werden. Genauso wie für das Test Driven |
-|                                           | Development.                                                             |
+|                                           |Development.                                                              |
 +-------------------------------------------+--------------------------------------------------------------------------+
 |Entwicklungsumgebung und Werkzeuge         |Ein Whiteboard soll zusammen mit POST ITs dazu genutzt werden um Gedanken |
 |                                           |zu ordnen und erste Entwürfe zu zeichnen.                                 |
