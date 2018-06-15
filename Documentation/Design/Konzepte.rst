@@ -63,9 +63,9 @@ wenn die `Substance` altert auch die Temperatur erhöht.
 Observer
 ########
 
-Im Paket `Equipment` gibt es einen AlterManger. Dieser fungiert als Subjekt. Dort werden alle SubstanzContainer
-als "Observer" Objekte eingehängt. In einem definierten Abstand wird die `alter` Funktion des AlterManager aufgerufen.
-Dies bewirkt das alle Subjekte altern.
+Im Paket `Equipment` gibt es einen AlterManger. Dieser fungiert als `Subjekt`. Dort werden alle SubstanzContainer
+als `Observer` Objekte eingehängt. In einem definierten Abstand wird die `alter` Funktion des AlterManager aufgerufen.
+Dies bewirkt das alle eingehängten Subjekte altern.
 
 Beispiel
 ********
