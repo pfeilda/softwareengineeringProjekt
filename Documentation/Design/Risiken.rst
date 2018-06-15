@@ -5,7 +5,7 @@ Fehleinschätzung des Aufwands
 #############################
 
 Da bisher noch keine bzw. wenig Erfahrungswerte im Umsetzen solcher Projekte existieren, ist es möglich das der Aufwand
-falsch geschätz wurde. Besonders wie hoch der Aufwand die Test zu schreiben ist, kann aufgrund mangelnder Erfahrung,
+falsch geschätzt wurde. Besonders wie hoch der Aufwand die Test zu schreiben ist, kann aufgrund mangelnder Erfahrung,
 nur grob geschätzt werden.
 
 Risikominimierung
