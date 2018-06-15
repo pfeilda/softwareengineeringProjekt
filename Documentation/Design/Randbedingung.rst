@@ -59,16 +59,16 @@ Organisatorische Randbedingungen
 |                                           |soll das Template arc42 verwendet werden.                                 |
 +-------------------------------------------+--------------------------------------------------------------------------+
 |Testumgebung                               |Für Unittest soll JUnit verwendet werden. Genauso wie für das Test Driven |
-|                                           |Development. Die Oberfläche soll mithilfe von Screenshots getestet werden.|
+|                                           | Development.                                                             |
 +-------------------------------------------+--------------------------------------------------------------------------+
 |Entwicklungsumgebung und Werkzeuge         |Ein Whiteboard soll zusammen mit POST ITs dazu genutzt werden um Gedanken |
 |                                           |zu ordnen und erste Entwürfe zu zeichnen.                                 |
 |                                           |                                                                          |
 |                                           |Als IDE soll IntelliJ IDEA verwendet werden. Denn dieser IDE kann für die |
 |                                           |JAVA Entwicklung verwendet werden. Desweiteren gibt es Möglichkeiten um   |
-|                                           |reStructuredText, Git und PlantUML zu verwenden.                          |
+|                                           |reStructuredText, Git und draw.io bzw. PlantUML zu verwenden.             |
 +-------------------------------------------+--------------------------------------------------------------------------+
-|Zeitplan und Projektablauf                 |Das Designdokument muss bis zum 30. Juni 2018 fertig sein. Für die Abgabe |
+|Zeitplan und Projektablauf                 |Das Designdokument muss bis zum 20. Juni 2018 fertig sein. Für die Abgabe |
 |                                           |des Projekts ist nach aktuellem Stand ein Termin von vier Wochen nach der |
 |                                           |Abgabe des Projektes angesetzt.                                           |
 +-------------------------------------------+--------------------------------------------------------------------------+
