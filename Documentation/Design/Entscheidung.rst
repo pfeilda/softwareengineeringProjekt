@@ -33,7 +33,7 @@ nachfragen muss wie der Status der Probe ist.
 Fazit
 *****
 
-Es wird eine Mischung der Möglichkeiten 2 und 3 realisiert. Da diese Kombination weniger Resourcen benötig als das
+Es wird eine Mischung der Möglichkeiten 2 und 3 realisiert. Da diese Kombination weniger Resourcen benötigt als das
 werfen einer Exception und man direkt sowie später ermitteln kann, ob eine Interaktion fehlgeschlagen ist.
 
 
@@ -43,13 +43,13 @@ Abbildung von Anteilen der Element in einer Substance
 Grundfrage
 **********
 
-Ist es wichtig zu wissen, wieviel von welchem Element sich in einer Probe befindet?
+Ist es wichtig zu wissen, wieviel von welchem Element sich in einer Probe befinden?
 
 Ansätze
 *******
 
-Dafür sprechen würde, das man eine genauere Abbildung der Wirklichkeit schafft. Durch das Abbilden dieser Möglichkeit
-kann zum Beispiel agebildet werden das man je nach Menge der verschiedenen Elemente unterschiedlich lange
+Dafür sprechen würde, dass man eine genauere Abbildung der Wirklichkeit schafft. Durch das Abbilden dieser Möglichkeit
+kann zum Beispiel agebildet werden, dass man je nach Menge der verschiedenen Elemente unterschiedlich lange
 Alterungszeiten abbilden kann.
 
 Dagegen spricht, dass die Implementierung einer Stoffmengen Abbildung die Komplexität der Interaktionen mit der Probe
@@ -73,7 +73,7 @@ Wie sollen Feststoffe von Flüssigkeiten getrennt werden?
 Ansätze
 *******
 
-Die Zentrifuge bzw. Filter soll die Stoffe trennen können. Das Problem ist, das ich man nicht weiß wie genau die Stoffe
+Die Zentrifuge bzw. Filter soll die Stoffe trennen können. Das Problem ist, dass man nicht weiß wie genau die Stoffe
 in Verbindung stehen.
 
 Eine Möglichkeit wäre es einen Double Wert im SubstanceContainer zu Speichern welcher angibt wie homogen die Mischung
