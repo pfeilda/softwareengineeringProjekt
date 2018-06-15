@@ -2,9 +2,13 @@
 
 component AJB
 actor Spieler
-
-AJB -up- "Eingabesysteme" Spieler
 component HighscoreSpeicher
+component Jackson
+component ElementSpeicher
+
 AJB -- "Leseoperation" HighscoreSpeicher
+AJB --- "konvertiert JSON to Objects" Jackson
+AJB ---- "Leseoperation" ElementSpeicher
+AJB --- "Eingabesysteme" Spieler
 
 @enduml
