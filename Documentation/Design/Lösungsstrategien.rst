@@ -4,7 +4,7 @@ Lösungsstrategien
 Um den Anforderungen gerecht zu werden verschiedene Architekturansätze implementiert.
 Diese werden in den nachfolgenden Punkten genauer erläutert und den verschiedenen Anforderungen zugeordnet.
 Konkret sollen die **SOLID** [1]_ Prinzipien Anwendung finden. Dies soll durch den Einsatz verschiedener Design Patterns
-, welche beispielsweise durch die GOF [#]_ beschrieben wurden, erleichtert werden. Beispielsweise soll das `Composite`
+, welche beispielsweise durch die **GOF** [#]_ beschrieben wurden, erleichtert werden. Beispielsweise soll das `Composite`
 Pattern eingesetzt werden. Wie genau und an welcher Stelle wird nachfolgend beschrieben. Außerdem soll Maven
 eingesetzt werden um automatisierte Build bzw. Test Prozesse zu ermöglichen. Sowie nach der Veröffentlichung anderen
 Entwicklern erleichtern sich eine Entwicklungsumgebung mit dem Projekt einzurichten.
@@ -16,7 +16,7 @@ Grundlegender Aufbau
 AJB ist, wie eigentlich alle Maven Projekte, ein Java Programm in der eine `main` Funktion den Einstieg in das Programm
 realisiert.
 
-Um eine einfach Erweiterbarkeit zu gewährleisten und den **SOLID** [1]_ Pinzipien, vorallem dem **SRP** [#]_ und dem
+Um eine einfache Erweiterbarkeit zu gewährleisten und den **SOLID** [1]_ Pinzipien, vorallem dem **SRP** [#]_ und dem
 **OCP** [#]_ gerecht zu werden muss das Projekt zerteilt bzw. gegliedert werden. Eine denkbare Erweiterung wäre ein
 neuer Probenbehälter. Wenn nun die Teile der Anwendung sauber getrennt sind und das **LSP** [#]_ erfüllt wird, dann kann
 dieser einfach durch Erweitern einer Klasse hinzugefügt werden.
@@ -27,9 +27,9 @@ Das Projekt soll in folgende Teile gegliedert werden:
 #. Grafikoberfläche
 #. Teilchen (Hier sollen alle Substanzen, Moleküle und Atome enthalten sein.)
 #. Geräte (In diesem Teil sollen die Geräte wie zum Beispiel die Zentrifuge oder Probenbehälter abgebildet werden.)
-#. Analyse (Hierbei handelt es sich um den Teil welcher die Logik für die Analys sowie die Proben enthält.)
-#. Sonstiges (Alle Dinge die sonst keinem Punkt zu geordnet werden können sind hier zu finden z.B. der Highscore.)
-#. Tests (Um nach **TDD** [#]_ entwickeln zu können muss es natürlich einen Abschnitt geben, welcher die Tests enthält.)
+#. Analyse (Hierbei handelt es sich um den Teil welcher die Logik für die Analyse sowie die Proben enthält.)
+#. Sonstiges (Alle Dinge, welche sonst keinem Punkt zu geordnet werden können, sind hier zu finden z.B. der Highscore.)
+#. Tests (Um nach **TDD** [#]_ entwickeln zu können, muss es natürlich einen Abschnitt geben, welcher die Tests enthält.)
 
 
 .. [1] **S** ingle responsibility principle - **O** pen closed principle - **L** iskov substition principle -
