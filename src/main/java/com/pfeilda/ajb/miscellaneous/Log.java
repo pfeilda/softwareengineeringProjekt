@@ -1,7 +1,5 @@
 package com.pfeilda.ajb.miscellaneous;
 
-import com.sun.istack.internal.NotNull;
-
 public class Log {
     public static void log(
             final String throwObject,
