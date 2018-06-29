@@ -18,7 +18,8 @@ Eventualfallplanung
 *******************
 
 Für diesen Fall gibt es keine Alternative. Das Projekt muss rechtzeitig fertig gestellt werden. Eventuell muss das
-teilweise fertig gestellt abgegeben werden. Dies hat den Nachteil, dass es mit einem starken Notenabzug einhergeht.
+Projekt teilweise fertig gestellt abgegeben werden. Dies hat den Nachteil, dass es mit einem starken Notenabzug
+einhergeht.
 
 
 Fehler beim Schreiben und Lesen der Highscores
@@ -31,9 +32,9 @@ Risikominimierung
 *****************
 
 Durch das Verwenden der Sprache Java und der von ihr zur Verfügung gestellten Schnittstellen soll das Risiko minimiert
-werden. Denn Java bietet eine Schnittstelle welche auf jedem Betriebssystem gleich bzw. ähnlich verhalten.
+werden. Denn Java bietet eine Schnittstelle, welche auf jedem Betriebssystem gleich bzw. ähnlich verhalten.
 
 Eventualfallplanung
 *******************
 
-Falls trotzdem Probleme auftreten sollten muss für jedes System eine Implementierung geschrieben werden.
+Falls trotzdem Probleme auftreten sollten, muss für jedes System eine Implementierung geschrieben werden.

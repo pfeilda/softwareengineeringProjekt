@@ -1,19 +1,19 @@
 Lösungsstrategien
 =================
 
-Um den Anforderungen gerecht zu werden verschiedene Architekturansätze implementiert.
-Diese werden in den nachfolgenden Punkten genauer erläutert und den verschiedenen Anforderungen zugeordnet.
-Konkret sollen die **SOLID** [1]_ Prinzipien Anwendung finden. Dies soll durch den Einsatz verschiedener Design Patterns
-, welche beispielsweise durch die **GOF** [#]_ beschrieben wurden, erleichtert werden. Beispielsweise soll das `Composite`
-Pattern eingesetzt werden. Wie genau und an welcher Stelle wird nachfolgend beschrieben. Außerdem soll Maven
-eingesetzt werden um automatisierte Build bzw. Test Prozesse zu ermöglichen. Sowie nach der Veröffentlichung anderen
-Entwicklern erleichtern sich eine Entwicklungsumgebung mit dem Projekt einzurichten.
+Diese Lösungsstrategien werden verwendet, um den Anforderungen gerecht zu werden und verschiedene Architekturansätze
+mit einbeziehen.Diese werden in den nachfolgenden Punkten genauer erläutert und den verschiedenen Anforderungen
+zugeordnet. Konkret sollen die **SOLID** [1]_ Prinzipien Anwendung finden. Dies soll durch den Einsatz verschiedener
+Design Patterns, welche beispielsweise durch die **GOF** [#]_ beschrieben wurden, erleichtert werden. Beispielsweise
+soll das `Composite` Pattern eingesetzt werden. Wie genau und an welcher Stelle wird nachfolgend beschrieben. Außerdem
+soll Maven eingesetzt werden um automatisierte Build bzw. Test Prozesse zu ermöglichen. Sowie nach der Veröffentlichung
+anderen Entwicklern erleichtern sich eine Entwicklungsumgebung mit dem Projekt einzurichten.
 
 
 Grundlegender Aufbau
 ####################
 
-AJB ist, wie eigentlich alle Maven Projekte, ein Java Programm in der eine `main` Funktion den Einstieg in das Programm
+AJB ist, wie alle Maven Projekte, ein Java Programm in der eine `main` Funktion den Einstieg in das Programm
 realisiert.
 
 Um eine einfache Erweiterbarkeit zu gewährleisten und den **SOLID** [1]_ Pinzipien, vorallem dem **SRP** [#]_ und dem
@@ -52,4 +52,4 @@ helfen eine Reaktion auszulösen, welche angibt ob ein Element enthalten ist ode
 Elemente dann als gefunden oder nicht gefunden markieren. Wenn der Anwender der Meinung ist alle Elemente gefunden zu
 haben, kann er die Analyse auswerten lassen. Je nach Zeit und korrekt gefunden Elementen wird der erreichte Score
 errechnet. Dieser Score wird dann samt Namen in die Highscore Liste aufgenommen. Am Ende wird der Nutzer wieder auf den
-Startview weitergeleitet von wo aus er die Highscore Liste ansehen kann bzw. ein neues Spiel starten kann.
+Startview weitergeleitet, von wo aus er die Highscore Liste ansehen kann bzw. ein neues Spiel starten kann.

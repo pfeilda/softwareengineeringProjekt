@@ -6,7 +6,7 @@ In diesem Teil der Dokumentation sollen verschiedene Konzepte bzw. Aspekte der A
 Score Berechnung
 ################
 
-Wie schon beschrieben soll der Score abhängig von verschiedenen Faktoren berechnet werden. Zu diesen Faktoren zählen
+Wie schon beschrieben, soll der Score abhängig von verschiedenen Faktoren berechnet werden. Zu diesen Faktoren zählen
 die Zeit, die Anzahl an falsch bzw. korrekt analysierten Elementen sowie die Menge an Proben mit denen falsch
 interagiert wurde. Da sich diese ändern könnte, sollte die Berechnung mithilfe des `Strategy` Pattern implementiert
 werden.
@@ -41,7 +41,7 @@ Grund wurde der Erzeugunsprozess ausgelagert in eine Fabrik Klasse.
 Beispiel
 ********
 
-Als Beispiel kann man die Erstellung von Atomen im `particles` Paket betrachten. Denn Atome sind nur dann valide wenn
+Als Beispiel kann man die Erstellung von Atomen im `particles` Paket betrachten. Denn Atome sind nur dann valide, wenn
 die Kombination aus Ordnungszahl, Elementsymbol und Name stimmt. Dies könnte streng genommen auch der Konstruktor der
 Atom Klasse erledigen. Jedoch ist dabei auch zu betrachten, dass es ausreicht eins der angeführten Attribute zu kennen
 und von dort aus auf die anderen zu schließen.
@@ -49,15 +49,15 @@ und von dort aus auf die anderen zu schließen.
 Decorator Pattern
 #################
 
-Im `equipment` Paket wird das Decorator Pattern verwendet um dem `SubstanceContainer` neue Funktionalitäten zuzuweisen.
-So kann bei Objekten vom Typ `Substance`, welche sich in einem `SubstanceContainer` befinden, mithilfe der verschiedenen
-`ExternalReagent` Dekorierern das Alterungsverhalten verändert werden.
+Im `Ausrüstungs` Paket wird das Decorator Pattern verwendet um dem `Ausrüstungsteil` neue Funktionalitäten zuzuweisen.
+So kann bei Objekten vom Typ `zu analysisierende Substanz` oder `Reagenz, welche sich in einem `Ausrüstungsteil`
+befindet, mithilfe der verschiedenen `Ausrüstungsteil` Dekorierern Bspw. das Alterungsverhalten verändert werden.
 
 Beispiel
 ********
 
-Ein `SubstanceContainer` wird mit dem `BunsenBurner` Dekorierer ausgezeichnet. Durch diese Auszeichnung wird jedesmal,
-wenn die `Substance` altert auch die Temperatur erhöht.
+Ein `Ausrüstungsteil` wird mit dem `Ausrüstungsteil` `Bunsenbrenner` dekoriert. Durch diese Auszeichnung wird jedesmal,
+wenn die `zu analysisierende Substanz` oder das `Reagenz` altert auch die Temperatur erhöht.
 
 
 Observer

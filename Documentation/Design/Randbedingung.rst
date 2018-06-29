@@ -26,11 +26,11 @@ Technische Randbedingung
 |                                           |Für die Ausgabe soll ein Bildschirm genutzt werden um eine GUI            |
 |                                           |darzustellen.                                                             |
 +-------------------------------------------+--------------------------------------------------------------------------+
-|Programmiersprache                         |Um weiter oben genannte Anforderungen zu erfüllen soll als                |
+|Programmiersprache                         |Um weiter oben genannte Anforderungen zu erfüllen, soll als               |
 |                                           |Programmiersprache Java in der Version 9 verwendet werden.                |
 +-------------------------------------------+--------------------------------------------------------------------------+
 |Drittbibliotheken                          |Wenn fremde Bibliotheken oder ähnliches eingesetzt wird, muss darauf      |
-|                                           |geachtet werden das diese frei verfügbar sind. Das soll sicher stellen,   |
+|                                           |geachtet werden, dass diese frei verfügbar sind. Das soll sicher stellen, |
 |                                           |dass die Hürde die Software ausführen zu können so niedrig wie möglich    |
 |                                           |ist.                                                                      |
 +-------------------------------------------+--------------------------------------------------------------------------+
