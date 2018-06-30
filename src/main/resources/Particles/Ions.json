@@ -1,0 +1,16 @@
+[
+  {
+    "label": "Hydrogen",
+    "charge": 1,
+    "atoms": [
+      1
+    ]
+  },
+  {
+    "label": "Oxid",
+    "charge": -2,
+    "atoms": [
+      8
+    ]
+  }
+]

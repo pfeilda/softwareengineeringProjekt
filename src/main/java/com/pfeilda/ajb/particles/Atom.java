@@ -1,26 +1,30 @@
 package com.pfeilda.ajb.particles;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.pfeilda.ajb.analysis.Substance;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Atom extends Element {
+public class Atom extends Element implements Comparable {
     private final String elementSymbol;
-    private final int ordinal;
+    private final int atomicNumber;
 
-    Atom(@JsonProperty("name") final String label, @JsonProperty("symbol") final String elementSymbol, @JsonProperty("ordinal") final int ordinal) {
+    Atom(
+            @JsonProperty("name") final String label,
+            @JsonProperty("symbol") final String elementSymbol,
+            @JsonProperty("number") final int atomicNumber
+    ) {
         super(label);
         this.elementSymbol = elementSymbol;
-        this.ordinal = ordinal;
+        this.atomicNumber = atomicNumber;
     }
 
     public String getElementSymbol() {
         return this.elementSymbol;
     }
 
-    public int getOrdinal() {
-        return this.ordinal;
+    public int getAtomicNumber() {
+        return this.atomicNumber;
     }
 
     @Override
@@ -39,12 +43,17 @@ public class Atom extends Element {
             if (super.equals(obj)) {
                 final Atom atom = (Atom) obj;
                 if (this.getElementSymbol().equals(atom.getElementSymbol())) {
-                    if (this.getOrdinal() == atom.getOrdinal()) {
+                    if (this.getAtomicNumber() == atom.getAtomicNumber()) {
                         return true;
                     }
                 }
             }
         }
         return false;
+    }
+
+    @Override
+    public int compareTo(final Object o) {
+        return this.getAtomicNumber() - ((Atom) o).getAtomicNumber();
     }
 }

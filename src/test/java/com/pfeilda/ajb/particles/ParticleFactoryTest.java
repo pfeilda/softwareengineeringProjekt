@@ -13,7 +13,7 @@ public class ParticleFactoryTest implements TestInterface {
 
     public ParticleFactoryTest() {
         this.atoms.add(new Atom("Hydrogen", "H", 1));
-        this.atoms.add(new Atom("Sauerstoff", "O", 8));
+        this.atoms.add(new Atom("Oxygen", "O", 8));
 
         final Ion hydrogen = new Ion("Hydrogen", this.atoms.subList(0, 1).toArray(new Atom[]{}), 1);
         this.ions.add(hydrogen);
@@ -43,13 +43,53 @@ public class ParticleFactoryTest implements TestInterface {
 
     @Test
     public void generationOfAtoms() {
-        final Atom particle = ParticleFactory.getInstance().getAtom(this.atoms.get(0).getOrdinal());
-        Assert.assertTrue(this.atoms.get(0).equals(particle));
+        final ParticleFactory particleFactory = ParticleFactory.getInstance();
+        final Atom referenceAtom = this.atoms.get(0);
+        final Atom atom = particleFactory.getAtom(referenceAtom.getAtomicNumber());
+        Assert.assertEquals(referenceAtom, atom);
+    }
+
+    @Test
+    public void generationOfUnkownAtomWithAtomicNumberLowerThan1() {
+        final ParticleFactory particleFactory = ParticleFactory.getInstance();
+        final Atom atom = particleFactory.getAtom(0);
+        Assert.assertNull(atom);
+    }
+
+    @Test
+    public void generationOfUnkownAtomWithAtomicNumberHigherHigherNumberThan119() {
+        final ParticleFactory particleFactory = ParticleFactory.getInstance();
+        final Atom atom = particleFactory.getAtom(120);
+        Assert.assertNull(atom);
+    }
+
+    @Test
+    public void generationOfIon() {
+        final ParticleFactory particleFactory = ParticleFactory.getInstance();
+        final Ion referenceIon = this.ions.get(0);
+        final Ion ion = particleFactory.getIon(referenceIon.getLabel());
+        Assert.assertEquals(referenceIon, ion);
+    }
+
+    @Test
+    public void generationOfUnkownIon() {
+        final ParticleFactory particleFactory = ParticleFactory.getInstance();
+        final Ion ion = particleFactory.getIon("unkown");
+        Assert.assertNull(ion);
     }
 
     @Test
     public void generationOfMolecules() {
-        final Molecule particle = ParticleFactory.getInstance().getMolecule(this.molecule.getLabel());
-        Assert.assertTrue(this.molecule.equals(particle));
+        final ParticleFactory particleFactory = ParticleFactory.getInstance();
+        final Molecule referenceMolecule = this.molecule;
+        final Molecule molecule = particleFactory.getMolecule(referenceMolecule.getLabel());
+        Assert.assertEquals(referenceMolecule, molecule);
+    }
+
+    @Test
+    public void generateOfUnkownMolecule() {
+        final ParticleFactory particleFactory = ParticleFactory.getInstance();
+        final Molecule particle = particleFactory.getMolecule("ungültig");
+        Assert.assertNull(particle);
     }
 }

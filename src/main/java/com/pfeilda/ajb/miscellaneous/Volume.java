@@ -1,11 +1,9 @@
 package com.pfeilda.ajb.miscellaneous;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-
 public class Volume {
     private double volume;
 
-    public Volume(@JsonProperty("volume") final double volume) {
+    public Volume(final double volume) {
         this.volume = volume;
     }
 

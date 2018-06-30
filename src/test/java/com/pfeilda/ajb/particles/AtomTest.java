@@ -48,7 +48,7 @@ public class AtomTest implements TestInterface {
     @Test
     public final void getOrdinal() {
         final Atom atom = this.generateInstanceOfTestClass();
-        Assert.assertEquals(atom.getOrdinal(), this.ordinal);
+        Assert.assertEquals(atom.getAtomicNumber(), this.ordinal);
     }
 
     @Test

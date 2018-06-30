@@ -4,17 +4,25 @@ import com.pfeilda.ajb.miscellaneous.FileUtility;
 import com.pfeilda.ajb.miscellaneous.Singleton;
 
 import java.io.File;
+import java.util.Arrays;
 
 public class ParticleFactory implements Singleton {
     private static volatile ParticleFactory instance;
     private static final Object mutex = new Object();
 
     private final Atom[] atoms;
+    private final Ion[] ions;
 
     private ParticleFactory() {
         final FileUtility fileUtility = FileUtility.getInstance();
-        final File file = new File(this.getClass().getResource("/Particles/Atoms.json").getFile());
-        this.atoms = fileUtility.readModelFromFile(file, Atom[].class);
+        final File atomFile = new File(this.getClass().getResource("/Particles/Atoms.json").getFile());
+        this.atoms = fileUtility.readModelFromFile(atomFile, Atom[].class);
+        Arrays.sort(this.atoms);
+
+        /*final File ionFile = new File(this.getClass().getResource("/Particles/Ions.json").getFile());
+        this.ions = fileUtility.readModelFromFile(ionFile, Ion[].class);
+        Arrays.sort(this.ions);*/
+        this.ions = new Ion[5];
     }
 
     public static ParticleFactory getInstance() {
@@ -30,12 +38,15 @@ public class ParticleFactory implements Singleton {
         return result;
     }
 
-    public Atom getAtom(final int ordinal) {
-        if (ordinal == 1) {
-            return new Atom("Hydrogen", "H", 1);
-        } else if (ordinal == 8) {
-            return new Atom("Sauerstoff", "O", 8);
+    public Atom getAtom(final int atomicNumber) {
+        final int atomIndex = (atomicNumber - 1);
+        if (this.atoms.length > atomIndex && atomIndex >= 0) {
+            return this.atoms[atomIndex];
         }
+        return null;
+    }
+
+    public Ion getIon(final String label) {
         return null;
     }
 
