@@ -1,11 +1,6 @@
 package com.pfeilda.ajb.miscellaneous;
 
-import com.pfeilda.ajb.particles.Atom;
-import com.pfeilda.ajb.particles.Element;
-import com.pfeilda.ajb.particles.Molecule;
-import com.pfeilda.ajb.particles.ParticleFactory;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 
