@@ -1,5 +1,6 @@
 package com.pfeilda.ajb.particles;
 
+import com.pfeilda.ajb.miscellaneous.Singleton;
 import com.pfeilda.ajb.miscellaneous.TestInterface;
 import org.junit.Assert;
 import org.junit.Test;
@@ -7,8 +8,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 public class ParticleFactoryTest implements TestInterface {
-    private final ArrayList<Atom> atoms = new ArrayList<Atom>();
-    private final ArrayList<Ion> ions = new ArrayList<Ion>();
+    private final ArrayList<Atom> atoms = new ArrayList<>();
+    private final ArrayList<Ion> ions = new ArrayList<>();
     private final Molecule molecule;
 
     public ParticleFactoryTest() {
@@ -26,7 +27,7 @@ public class ParticleFactoryTest implements TestInterface {
     }
 
     @Override
-    public Object generateInstanceOfTestClass() {
+    public ParticleFactory generateInstanceOfTestClass() {
         return ParticleFactory.getInstance();
     }
 
@@ -39,6 +40,12 @@ public class ParticleFactoryTest implements TestInterface {
     @Test
     public void getSameInstance() {
         Assert.assertEquals(this.generateInstanceOfTestClass(), ParticleFactory.getInstance());
+    }
+
+    @Test
+    public final void inheritanceSuccess() {
+        final ParticleFactory particleFactory = this.generateInstanceOfTestClass();
+        Assert.assertNotNull((Singleton) particleFactory);
     }
 
     @Test

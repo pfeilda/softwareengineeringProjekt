@@ -8,7 +8,6 @@ import java.util.Arrays;
 public class Ion extends Element {
     private final int charge;
     private final Atom[] atoms;
-    private final int[] atomAtomicNumbers;
 
     public Ion(
             final String label,
@@ -17,10 +16,7 @@ public class Ion extends Element {
     ) {
         super(label);
 
-        final int countAtoms = atoms.length;
-
         this.atoms = atoms;
-        this.atomAtomicNumbers = new int[0];
         this.charge = charge;
     }
 
@@ -31,12 +27,11 @@ public class Ion extends Element {
             @JsonProperty("charge") final int charge
     ) {
         super(label);
-        final ParticleFactory particelFactories = ParticleFactory.getInstance();
+        final AtomFactory atomFactory = AtomFactory.getInstance();
 
-        this.atomAtomicNumbers = atomOrdinals;
         final Atom[] atom = new Atom[atomOrdinals.length];
         for (int i = 0; i < atomOrdinals.length; i++) {
-            atom[i] = particelFactories.getAtom(atomOrdinals[i]);
+            atom[i] = atomFactory.get(atomOrdinals[i]);
         }
         this.atoms = atom;
         this.charge = charge;
