@@ -12,8 +12,8 @@ public class IonFactory implements Singleton {
 
     public IonFactory() {
         final FileUtility fileUtility = FileUtility.getInstance();
-        final File atomFile = new File(this.getClass().getResource("/Particles/Ions.json").getFile());
-        this.ions = fileUtility.readModelFromFile(atomFile, Ion[].class);
+        final File ionFile = new File(this.getClass().getResource("/Particles/Ions.json").getFile());
+        this.ions = fileUtility.readModelFromFile(ionFile, Ion[].class);
     }
 
     public static IonFactory getInstance() {
