@@ -1,5 +1,6 @@
 package com.pfeilda.ajb.particles;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.pfeilda.ajb.analysis.Substance;
 
 import java.util.Arrays;
@@ -16,6 +17,20 @@ public class Molecule extends Element {
     Molecule(final String label, final List<Ion> ions) {
         super(label);
         this.ions = ions.toArray(new Ion[]{});
+    }
+
+    Molecule(
+            @JsonProperty("label") final String label,
+            @JsonProperty("ions") final String[] ionLabels
+    ) {
+        super(label);
+
+        this.ions = new Ion[ionLabels.length];
+
+        final IonFactory ionFactory = IonFactory.getInstance();
+        for (int i = 0; i < ionLabels.length; i++) {
+            this.ions[i] = ionFactory.get(ionLabels[i]);
+        }
     }
 
     public Ion[] getIons() {
