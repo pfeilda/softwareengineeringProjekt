@@ -1,9 +1,6 @@
 package com.pfeilda.ajb.particles;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeId;
 import com.pfeilda.ajb.analysis.Substance;
 
 import java.util.Arrays;
@@ -11,6 +8,7 @@ import java.util.Arrays;
 public class Ion extends Element {
     private final int charge;
     private final Atom[] atoms;
+    private final int[] atomAtomicNumbers;
 
     public Ion(
             final String label,
@@ -18,9 +16,14 @@ public class Ion extends Element {
             final int charge
     ) {
         super(label);
+
+        final int countAtoms = atoms.length;
+
         this.atoms = atoms;
+        this.atomAtomicNumbers = new int[0];
         this.charge = charge;
     }
+
 
     public Ion(
             @JsonProperty("label") final String label,
@@ -29,7 +32,8 @@ public class Ion extends Element {
     ) {
         super(label);
         final ParticleFactory particelFactories = ParticleFactory.getInstance();
-        
+
+        this.atomAtomicNumbers = atomOrdinals;
         final Atom[] atom = new Atom[atomOrdinals.length];
         for (int i = 0; i < atomOrdinals.length; i++) {
             atom[i] = particelFactories.getAtom(atomOrdinals[i]);

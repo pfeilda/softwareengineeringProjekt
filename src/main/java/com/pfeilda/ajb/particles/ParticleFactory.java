@@ -1,28 +1,22 @@
 package com.pfeilda.ajb.particles;
 
-import com.pfeilda.ajb.miscellaneous.FileUtility;
 import com.pfeilda.ajb.miscellaneous.Singleton;
 
-import java.io.File;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class ParticleFactory implements Singleton {
     private static volatile ParticleFactory instance;
     private static final Object mutex = new Object();
 
-    private final Atom[] atoms;
+    private final AtomFactory atomFactory;
     private final Ion[] ions;
+    private final ArrayList<Molecule> molecules;
 
     private ParticleFactory() {
-        final FileUtility fileUtility = FileUtility.getInstance();
-        final File atomFile = new File(this.getClass().getResource("/Particles/Atoms.json").getFile());
-        this.atoms = fileUtility.readModelFromFile(atomFile, Atom[].class);
-        Arrays.sort(this.atoms);
+        this.atomFactory = AtomFactory.getInstance();
 
-        /*final File ionFile = new File(this.getClass().getResource("/Particles/Ions.json").getFile());
-        this.ions = fileUtility.readModelFromFile(ionFile, Ion[].class);
-        Arrays.sort(this.ions);*/
         this.ions = new Ion[5];
+        this.molecules = new ArrayList<>();
     }
 
     public static ParticleFactory getInstance() {
@@ -39,11 +33,7 @@ public class ParticleFactory implements Singleton {
     }
 
     public Atom getAtom(final int atomicNumber) {
-        final int atomIndex = (atomicNumber - 1);
-        if (this.atoms.length > atomIndex && atomIndex >= 0) {
-            return this.atoms[atomIndex];
-        }
-        return null;
+        return this.atomFactory.get(atomicNumber);
     }
 
     public Ion getIon(final String label) {
