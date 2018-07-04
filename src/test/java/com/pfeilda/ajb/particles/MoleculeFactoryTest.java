@@ -52,7 +52,7 @@ public class MoleculeFactoryTest implements TestInterface {
     }
 
     @Test
-    public void generationOfUnkownIon() {
+    public void generationOfUnkownMolecule() {
         final MoleculeFactory moleculeFactory = this.generateInstanceOfTestClass();
         Assert.assertNull(
                 moleculeFactory.get("123jfasd")
