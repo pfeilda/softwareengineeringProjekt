@@ -1,6 +1,9 @@
 package com.pfeilda.ajb.miscellaneous;
 
 public class Log {
+    private Log() {
+    }
+
     public static void log(
             final String throwObject,
             final Exception exception,
