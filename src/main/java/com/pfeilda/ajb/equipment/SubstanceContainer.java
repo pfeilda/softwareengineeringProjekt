@@ -1,15 +1,15 @@
 package com.pfeilda.ajb.equipment;
 
-import com.pfeilda.ajb.analysis.Substance;
+import com.pfeilda.ajb.analysis.AbstractSubstance;
 import com.pfeilda.ajb.miscellaneous.Volume;
 
 public abstract class SubstanceContainer implements PartInterface {
     private final Volume maxVolume;
-    private final Substance substance;
+    private final AbstractSubstance abstractSubstance;
     private boolean isCleared = false;
 
-    public SubstanceContainer(final Substance substance, final Volume maxVolume) {
-        this.substance = substance;
+    public SubstanceContainer(final AbstractSubstance abstractSubstance, final Volume maxVolume) {
+        this.abstractSubstance = abstractSubstance;
         this.maxVolume = maxVolume;
     }
 
@@ -27,7 +27,7 @@ public abstract class SubstanceContainer implements PartInterface {
 
     private void decant(final SubstanceContainer substanceContainer) {
         if (this.isAllowed()) {
-            substanceContainer.add(this.substance);
+            substanceContainer.add(this.abstractSubstance);
             substanceContainer.clear();
         }
     }
@@ -36,23 +36,23 @@ public abstract class SubstanceContainer implements PartInterface {
         substanceContainer.decant(substanceContainer);
     }
 
-    public void add(final Substance substance) {
+    public void add(final AbstractSubstance abstractSubstance) {
         if (this.isAllowed()) {
-            this.substance.addTo(substance);
+            this.abstractSubstance.addTo(abstractSubstance);
             this.validateVolume();
         }
     }
 
     private boolean isAllowed() {
-        if (this.isCleared() || !this.substance.isValid()) {
+        if (this.isCleared() || !this.abstractSubstance.isValid()) {
             return false;
         }
         return true;
     }
 
     private void validateVolume() {
-        if (this.maxVolume.get() < this.substance.getVolume().get()) {
-            this.substance.destroy();
+        if (this.maxVolume.get() < this.abstractSubstance.getVolume().get()) {
+            this.abstractSubstance.destroy();
         }
     }
 }
