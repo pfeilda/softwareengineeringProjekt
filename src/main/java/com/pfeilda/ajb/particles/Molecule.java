@@ -1,7 +1,7 @@
 package com.pfeilda.ajb.particles;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.pfeilda.ajb.analysis.Substance;
+import com.pfeilda.ajb.analysis.AbstractSubstance;
 
 import java.util.Arrays;
 import java.util.List;
@@ -38,7 +38,7 @@ public class Molecule extends Element {
     }
 
     @Override
-    public boolean experimentalProof(final Substance substance) {
+    public boolean experimentalProof(final AbstractSubstance abstractSubstance) {
         return true;
     }
 
