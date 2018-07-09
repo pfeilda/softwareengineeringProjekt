@@ -3,7 +3,7 @@ package com.pfeilda.ajb.equipment;
 import com.pfeilda.ajb.analysis.AbstractSubstance;
 import com.pfeilda.ajb.miscellaneous.Volume;
 
-public abstract class SubstanceContainer implements PartInterface {
+public abstract class SubstanceContainer implements PartInterface, AlterInterface {
     private final Volume maxVolume;
     private final AbstractSubstance abstractSubstance;
     private boolean isCleared = false;
@@ -54,5 +54,10 @@ public abstract class SubstanceContainer implements PartInterface {
         if (this.maxVolume.get() < this.abstractSubstance.getVolume().get()) {
             this.abstractSubstance.destroy();
         }
+    }
+
+    @Override
+    public void alter(final ExternalReagent externalReagent) {
+        this.abstractSubstance.alter(externalReagent);
     }
 }
