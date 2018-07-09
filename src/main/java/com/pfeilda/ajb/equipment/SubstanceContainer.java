@@ -14,6 +14,12 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
         this.validateVolume();
     }
 
+    @Override
+    //todo check if really needed
+    public void add(final SubstanceContainer substanceContainer) {
+        substanceContainer.decant(substanceContainer);
+    }
+
     public Volume getMaxVolume() {
         return this.maxVolume;
     }
