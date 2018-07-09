@@ -29,9 +29,6 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     protected AbstractSubstance() {
     }
 
-    @Override
-    public abstract void alter();
-
     public void add(final Element element) {
         this.elements.add(element);
         this.add(this.volumePerElement);
