@@ -11,6 +11,7 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
     public SubstanceContainer(final AbstractSubstance abstractSubstance, final Volume maxVolume) {
         this.abstractSubstance = abstractSubstance;
         this.maxVolume = maxVolume;
+        this.validateVolume();
     }
 
     public Volume getMaxVolume() {
@@ -43,7 +44,7 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
         }
     }
 
-    private boolean isAllowed() {
+    public boolean isAllowed() {
         if (this.isCleared() || !this.abstractSubstance.isValid()) {
             return false;
         }
