@@ -4,9 +4,6 @@ import com.pfeilda.ajb.miscellaneous.Pressure;
 import com.pfeilda.ajb.miscellaneous.Temperature;
 import com.pfeilda.ajb.miscellaneous.TestInterface;
 import com.pfeilda.ajb.miscellaneous.Volume;
-import com.pfeilda.ajb.particles.AtomFactory;
-import com.pfeilda.ajb.particles.Element;
-import com.pfeilda.ajb.particles.MoleculeFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -29,7 +26,7 @@ public class ReagentTest extends AbstractSubstanceTest implements TestInterface 
 
     @Override
     public void getPressureAfterAlter() {
-        
+
     }
 
     @Override
