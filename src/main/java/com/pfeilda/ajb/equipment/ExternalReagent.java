@@ -1,8 +1,11 @@
 package com.pfeilda.ajb.equipment;
 
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.function.Consumer;
 
-public abstract class ExternalReagent implements PartInterface {
+public class ExternalReagent implements PartInterface, Observer {
     private final ExternalReagent part;
     private final ArrayList<SubstanceContainer> substanceContainers = new ArrayList<SubstanceContainer>();
 
@@ -22,6 +25,7 @@ public abstract class ExternalReagent implements PartInterface {
         }
     }
 
+    @Override
     public void add(final SubstanceContainer substanceContainer) {
         this.substanceContainers.add(substanceContainer);
     }
@@ -32,5 +36,13 @@ public abstract class ExternalReagent implements PartInterface {
 
     public void clear() {
         this.substanceContainers.clear();
+    }
+
+    @Override
+    public void update(final Observable o, final Object arg) {
+        final ExternalReagent externalReagent = this;
+        this.substanceContainers.forEach(
+                (final SubstanceContainer substanceContainer) -> substanceContainer.alter(externalReagent)
+        );
     }
 }
