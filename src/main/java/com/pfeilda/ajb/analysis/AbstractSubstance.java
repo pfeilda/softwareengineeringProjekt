@@ -1,6 +1,10 @@
 package com.pfeilda.ajb.analysis;
 
-import com.pfeilda.ajb.miscellaneous.*;
+import com.pfeilda.ajb.equipment.AlterInterface;
+import com.pfeilda.ajb.miscellaneous.Pressure;
+import com.pfeilda.ajb.miscellaneous.Temperature;
+import com.pfeilda.ajb.miscellaneous.Volume;
+import com.pfeilda.ajb.miscellaneous.VolumeInterface;
 import com.pfeilda.ajb.particles.Element;
 
 import java.util.ArrayList;
