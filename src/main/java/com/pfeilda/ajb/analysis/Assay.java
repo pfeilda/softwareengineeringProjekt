@@ -2,7 +2,6 @@ package com.pfeilda.ajb.analysis;
 
 import com.pfeilda.ajb.particles.Element;
 
-import java.util.List;
 import java.util.Random;
 
 public abstract class Assay extends AbstractSubstance {
