@@ -15,7 +15,6 @@ public class BeakerTest extends SubstanceContainerTest {
         return new Beaker(new Reagent(new Element[0]));
     }
 
-
     @Override
     public Beaker generateInstanceOfTestClass(final AbstractSubstance abstractSubstance) {
         return new Beaker(abstractSubstance);
