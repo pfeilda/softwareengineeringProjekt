@@ -28,7 +28,7 @@ public class PressureTest {
         for (final double value :
                 this.addValues) {
             final Pressure pressure = this.generateInstanceOfTestClass();
-            pressure.add(value);
+            pressure.add(new Pressure(value));
             Assert.assertEquals(value + this.defaultValue, pressure.get(), this.delta);
         }
     }

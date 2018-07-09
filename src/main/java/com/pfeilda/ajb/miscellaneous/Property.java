@@ -11,7 +11,7 @@ public abstract class Property {
         return this.property;
     }
 
-    public void add(final double property) {
+    private void add(final double property) {
         this.property = this.property + property;
     }
 

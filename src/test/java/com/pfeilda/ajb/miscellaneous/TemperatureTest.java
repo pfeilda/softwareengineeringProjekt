@@ -30,7 +30,7 @@ public class TemperatureTest implements TestInterface {
         for (final double value :
                 this.addValues) {
             final Temperature temperature = this.generateInstanceOfTestClass();
-            temperature.add(value);
+            temperature.add(new Temperature(value));
             Assert.assertEquals(value + this.defaultValue, temperature.get(), this.delta);
         }
     }

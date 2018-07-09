@@ -30,7 +30,7 @@ public class VolumeTest implements TestInterface {
         for (final double value :
                 this.addValues) {
             final Volume volume = this.generateInstanceOfTestClass();
-            volume.add(value);
+            volume.add(new Volume(value));
             Assert.assertEquals(value + this.defaultValue, volume.get(), this.delta);
         }
     }

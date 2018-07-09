@@ -35,12 +35,14 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
 
     @Override
     public void add(final Volume volume) {
-        this.volume.add(volume.get());
+        this.volume.add(volume);
     }
 
     public void addAll(final List<Element> elements) {
         this.elements.addAll(elements);
-        this.volume.add(this.volumePerElement.get() * elements.size());
+        final double addVolumeSize = this.volumePerElement.get() * elements.size();
+        final Volume addVolume = new Volume(addVolumeSize);
+        this.volume.add(addVolume);
     }
 
     public void addTo(final AbstractSubstance abstractSubstance) {
