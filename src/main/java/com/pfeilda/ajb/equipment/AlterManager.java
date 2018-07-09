@@ -1,11 +1,6 @@
 package com.pfeilda.ajb.equipment;
 
-import com.pfeilda.ajb.analysis.Reagent;
-import com.pfeilda.ajb.particles.AtomFactory;
-import com.pfeilda.ajb.particles.Element;
-
 import java.util.Observable;
-import java.util.Set;
 
 public class AlterManager extends Observable implements Runnable {
     private static volatile AlterManager instance;
