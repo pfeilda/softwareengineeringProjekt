@@ -22,24 +22,10 @@ public class AlterManager extends Observable implements Runnable {
         return result;
     }
 
-    public static void main(final String[] args) throws Exception {
-        final AlterManager alterManager = AlterManager.getInstance();
-
-        alterManager.addObserver(new ExternalReagent());
-
-        final Thread thread = new Thread(alterManager);
-        thread.start();
-        for (int i = 0; i < 10; i++) {
-            alterManager.setChanged();
-            Thread.sleep(500);
-        }
-        thread.stop();
-    }
-
     @Override
     public void run() {
         while (true) {
-            this.notifyObservers(new ExternalReagent());
+            this.notifyObservers();
         }
     }
 }
