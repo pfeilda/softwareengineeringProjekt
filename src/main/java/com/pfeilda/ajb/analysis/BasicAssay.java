@@ -1,6 +1,5 @@
 package com.pfeilda.ajb.analysis;
 
-import com.pfeilda.ajb.equipment.ExternalReagent;
 import com.pfeilda.ajb.miscellaneous.HighScore;
 import com.pfeilda.ajb.miscellaneous.HighScoreInterface;
 import com.pfeilda.ajb.particles.Element;
@@ -54,10 +53,5 @@ public class BasicAssay extends Assay implements AnalysisInterface {
     @Override
     public boolean isDisruptiveElementPresent(final Element element) {
         return false;
-    }
-
-    @Override
-    public void alter(final ExternalReagent externalReagent) {
-
     }
 }

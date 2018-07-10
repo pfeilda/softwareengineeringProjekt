@@ -1,5 +1,9 @@
 package com.pfeilda.ajb.miscellaneous;
 
+import com.pfeilda.ajb.analysis.AbstractSubstance;
+import com.pfeilda.ajb.analysis.Reagent;
+import com.pfeilda.ajb.particles.AtomFactory;
+import com.pfeilda.ajb.particles.Element;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -55,5 +59,18 @@ public class TemperatureTest implements TestInterface {
 
         final Pressure pressure = new Pressure(this.defaultValue);
         Assert.assertNotEquals(this.generateInstanceOfTestClass(), pressure);
+    }
+
+    @Test
+    public final void addTo() {
+        final AtomFactory atomFactory = AtomFactory.getInstance();
+        final AbstractSubstance abstractSubstance = new Reagent(new Element[]{atomFactory.get(7)});
+        final Temperature referenceTemperature = new Temperature(abstractSubstance.getTemperature().get());
+
+        final Temperature addTemperature = new Temperature(10);
+        referenceTemperature.add(addTemperature);
+        addTemperature.addTo(abstractSubstance);
+
+        Assert.assertEquals(referenceTemperature, abstractSubstance.getTemperature());
     }
 }

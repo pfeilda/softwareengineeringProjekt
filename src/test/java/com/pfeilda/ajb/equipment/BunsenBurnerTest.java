@@ -3,29 +3,20 @@ package com.pfeilda.ajb.equipment;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class BunsenBurnerTest implements ExternalReagentTest {
+public class BunsenBurnerTest extends ExternalReagentTest {
     @Override
     public BunsenBurner generateInstanceOfTestClass() {
         return new BunsenBurner();
     }
-
+    
+    @Override
+    public BunsenBurner generateInstanceOfTestClass(final ExternalReagent externalReagent) {
+        return new BunsenBurner(externalReagent);
+    }
 
     @Override
     @Test
     public void creation() {
         Assert.assertNotNull(this.generateInstanceOfTestClass());
-    }
-
-    @Override
-    @Test
-    public void getParentSelf() {
-        final BunsenBurner parentBunsenBurner = this.generateInstanceOfTestClass();
-        final BunsenBurner childrenBunsenBurner = new BunsenBurner(parentBunsenBurner);
-        Assert.assertEquals(parentBunsenBurner, childrenBunsenBurner.getParent());
-    }
-
-    @Override
-    public void getParentOther() {
-
     }
 }

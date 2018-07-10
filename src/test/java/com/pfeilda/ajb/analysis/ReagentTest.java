@@ -23,14 +23,4 @@ public class ReagentTest extends AbstractSubstanceTest implements TestInterface 
         Assert.assertEquals(new Temperature(0), reagent.getTemperature());
         Assert.assertEquals(true, reagent.isValid());
     }
-
-    @Override
-    public void getPressureAfterAlter() {
-
-    }
-
-    @Override
-    public void getTemperatureAfterAlter() {
-
-    }
 }

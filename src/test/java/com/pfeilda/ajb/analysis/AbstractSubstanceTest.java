@@ -1,9 +1,6 @@
 package com.pfeilda.ajb.analysis;
 
-import com.pfeilda.ajb.miscellaneous.Pressure;
-import com.pfeilda.ajb.miscellaneous.Temperature;
-import com.pfeilda.ajb.miscellaneous.TestInterface;
-import com.pfeilda.ajb.miscellaneous.Volume;
+import com.pfeilda.ajb.miscellaneous.*;
 import com.pfeilda.ajb.particles.AtomFactory;
 import com.pfeilda.ajb.particles.Element;
 import com.pfeilda.ajb.particles.MoleculeFactory;
@@ -39,9 +36,6 @@ public abstract class AbstractSubstanceTest implements TestInterface {
     }
 
     @Test
-    public abstract void getPressureAfterAlter();
-
-    @Test
     public void getTemperatureInitial() {
         final AbstractSubstance abstractSubstance = this.generateInstanceOfTestClass();
 
@@ -50,9 +44,6 @@ public abstract class AbstractSubstanceTest implements TestInterface {
                 abstractSubstance.getTemperature()
         );
     }
-
-    @Test
-    public abstract void getTemperatureAfterAlter();
 
     @Test
     public void getVolumeInitial() {
@@ -95,5 +86,79 @@ public abstract class AbstractSubstanceTest implements TestInterface {
         final AbstractSubstance abstractSubstance = this.generateInstanceOfTestClass();
 
         Assert.assertTrue(abstractSubstance.isValid());
+    }
+
+    @Test
+    public void alterVolume() {
+        final AbstractSubstance abstractSubstance = this.generateInstanceOfTestClass();
+
+        final Volume alterVolume = new Volume(10);
+
+        final Volume referenceVolume = abstractSubstance.getVolume();
+        referenceVolume.add(alterVolume);
+
+        abstractSubstance.alter(new Property[]{
+                alterVolume
+        });
+
+        Assert.assertEquals(referenceVolume, abstractSubstance.getVolume());
+    }
+
+
+    @Test
+    public void alterTemperature() {
+        final AbstractSubstance abstractSubstance = this.generateInstanceOfTestClass();
+
+        final Temperature alterTemperature = new Temperature(10);
+
+        final Temperature referenceTemperature = abstractSubstance.getTemperature();
+        referenceTemperature.add(alterTemperature);
+
+        abstractSubstance.alter(new Property[]{
+                alterTemperature
+        });
+
+        Assert.assertEquals(referenceTemperature, abstractSubstance.getTemperature());
+    }
+
+    @Test
+    public void alterPressure() {
+        final AbstractSubstance abstractSubstance = this.generateInstanceOfTestClass();
+
+        final Pressure alterPressure = new Pressure(10);
+
+        final Pressure referencePressure = abstractSubstance.getPressure();
+        referencePressure.add(alterPressure);
+
+        abstractSubstance.alter(new Property[]{
+                alterPressure
+        });
+
+        Assert.assertEquals(referencePressure, abstractSubstance.getPressure());
+    }
+
+
+    //todo maybe implement other combinations
+    @Test
+    public void alterPressureAndTemperature() {
+        final AbstractSubstance abstractSubstance = this.generateInstanceOfTestClass();
+
+        final Temperature alterTemperature = new Temperature(10);
+
+        final Temperature referenceTemperature = abstractSubstance.getTemperature();
+        referenceTemperature.add(alterTemperature);
+
+        final Pressure alterPressure = new Pressure(10);
+
+        final Pressure referencePressure = abstractSubstance.getPressure();
+        referencePressure.add(alterPressure);
+
+        abstractSubstance.alter(new Property[]{
+                alterPressure,
+                alterTemperature
+        });
+
+        Assert.assertEquals(referencePressure, abstractSubstance.getPressure());
+        Assert.assertEquals(referenceTemperature, abstractSubstance.getTemperature());
     }
 }

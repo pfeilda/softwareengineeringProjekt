@@ -1,10 +1,7 @@
 package com.pfeilda.ajb.analysis;
 
 import com.pfeilda.ajb.equipment.AlterInterface;
-import com.pfeilda.ajb.miscellaneous.Pressure;
-import com.pfeilda.ajb.miscellaneous.Temperature;
-import com.pfeilda.ajb.miscellaneous.Volume;
-import com.pfeilda.ajb.miscellaneous.VolumeInterface;
+import com.pfeilda.ajb.miscellaneous.*;
 import com.pfeilda.ajb.particles.Element;
 
 import java.util.ArrayList;
@@ -37,6 +34,14 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     @Override
     public void add(final Volume volume) {
         this.volume.add(volume);
+    }
+
+    public void add(final Temperature temperature) {
+        this.temperature.add(temperature);
+    }
+
+    public void add(final Pressure pressure) {
+        this.pressure.add(pressure);
     }
 
     public void addAll(final List<Element> elements) {
@@ -72,5 +77,13 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
 
     public final boolean isValid() {
         return this.isValid;
+    }
+
+    @Override
+    public void alter(final Property[] properties) {
+        for (final Property property :
+                properties) {
+            property.addTo(this);
+        }
     }
 }

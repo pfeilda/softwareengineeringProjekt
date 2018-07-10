@@ -1,5 +1,9 @@
 package com.pfeilda.ajb.miscellaneous;
 
+import com.pfeilda.ajb.analysis.AbstractSubstance;
+import com.pfeilda.ajb.analysis.Reagent;
+import com.pfeilda.ajb.particles.AtomFactory;
+import com.pfeilda.ajb.particles.Element;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -33,7 +37,6 @@ public class PressureTest {
         }
     }
 
-
     @Test
     public final void compareSuccess() {
         final Pressure pressure = this.generateInstanceOfTestClass();
@@ -54,5 +57,18 @@ public class PressureTest {
 
         final Volume volume = new Volume(this.defaultValue);
         Assert.assertNotEquals(this.generateInstanceOfTestClass(), volume);
+    }
+
+    @Test
+    public final void addTo() {
+        final AtomFactory atomFactory = AtomFactory.getInstance();
+        final AbstractSubstance abstractSubstance = new Reagent(new Element[]{atomFactory.get(7)});
+        final Pressure referencePressure = new Pressure(abstractSubstance.getPressure().get());
+
+        final Pressure addPressure = new Pressure(10);
+        referencePressure.add(addPressure);
+        addPressure.addTo(abstractSubstance);
+
+        Assert.assertEquals(referencePressure, abstractSubstance.getPressure());
     }
 }

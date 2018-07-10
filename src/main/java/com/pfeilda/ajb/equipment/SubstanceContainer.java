@@ -1,6 +1,7 @@
 package com.pfeilda.ajb.equipment;
 
 import com.pfeilda.ajb.analysis.AbstractSubstance;
+import com.pfeilda.ajb.miscellaneous.Property;
 import com.pfeilda.ajb.miscellaneous.Volume;
 
 public abstract class SubstanceContainer implements PartInterface, AlterInterface {
@@ -64,7 +65,7 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
     }
 
     @Override
-    public void alter(final ExternalReagent externalReagent) {
-        this.abstractSubstance.alter(externalReagent);
+    public void alter(final Property[] properties) {
+        this.abstractSubstance.alter(properties);
     }
 }

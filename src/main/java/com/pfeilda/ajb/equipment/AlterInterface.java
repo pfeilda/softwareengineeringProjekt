@@ -1,5 +1,7 @@
 package com.pfeilda.ajb.equipment;
 
+import com.pfeilda.ajb.miscellaneous.Property;
+
 public interface AlterInterface {
-    void alter(ExternalReagent externalReagent);
+    void alter(Property[] properties);
 }

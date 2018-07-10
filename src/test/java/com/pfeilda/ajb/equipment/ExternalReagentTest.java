@@ -16,6 +16,9 @@ public abstract class ExternalReagentTest implements TestInterface {
     }
 
     public void getParentOther() {
-
+        final ExternalReagent parentExternalReagent = this.generateInstanceOfTestClass();
+        final ExternalReagent childrenExternalReagent = this.generateInstanceOfTestClass(parentExternalReagent);
+        final ExternalReagent referenceOtherExternalReagent = this.generateInstanceOfTestClass();
+        Assert.assertEquals(referenceOtherExternalReagent, childrenExternalReagent.getParent());
     }
 }

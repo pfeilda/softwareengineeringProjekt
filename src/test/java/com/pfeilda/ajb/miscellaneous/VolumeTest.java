@@ -1,5 +1,9 @@
 package com.pfeilda.ajb.miscellaneous;
 
+import com.pfeilda.ajb.analysis.AbstractSubstance;
+import com.pfeilda.ajb.analysis.Reagent;
+import com.pfeilda.ajb.particles.AtomFactory;
+import com.pfeilda.ajb.particles.Element;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -55,5 +59,18 @@ public class VolumeTest implements TestInterface {
 
         final Pressure pressure = new Pressure(this.defaultValue);
         Assert.assertNotEquals(this.generateInstanceOfTestClass(), pressure);
+    }
+
+    @Test
+    public final void addTo() {
+        final AtomFactory atomFactory = AtomFactory.getInstance();
+        final AbstractSubstance abstractSubstance = new Reagent(new Element[]{atomFactory.get(7)});
+        final Volume referenceVolume = new Volume(abstractSubstance.getVolume().get());
+
+        final Volume addVolume = new Volume(10);
+        referenceVolume.add(addVolume);
+        addVolume.addTo(abstractSubstance);
+        
+        Assert.assertEquals(referenceVolume, abstractSubstance.getVolume());
     }
 }
