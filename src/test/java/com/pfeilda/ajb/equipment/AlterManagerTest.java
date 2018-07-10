@@ -11,6 +11,7 @@ public class AlterManagerTest implements TestInterface {
     }
 
     @Override
+    @Test
     public void creation() {
         Assert.assertNotNull(this.generateInstanceOfTestClass());
     }
