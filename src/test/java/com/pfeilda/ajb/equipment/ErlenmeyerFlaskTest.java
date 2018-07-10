@@ -7,7 +7,7 @@ import com.pfeilda.ajb.particles.Element;
 
 public class ErlenmeyerFlaskTest extends SubstanceContainerTest {
     public ErlenmeyerFlaskTest() {
-        this.maxVolume = new Volume(50);
+        this.maxVolume = new Volume(500);
     }
 
     @Override
