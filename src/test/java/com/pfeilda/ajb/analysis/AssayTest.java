@@ -10,9 +10,12 @@ public abstract class AssayTest implements TestInterface {
 
     protected abstract Assay generateAssayWithSingleElement(Element element);
 
+    @Override
+    public abstract Assay generateInstanceOfTestClass();
+
     @Test
     public void checkForElementSuccess() {
         final Assay assayWithSingleElement = this.generateAssayWithSingleElement(this.singleElement);
-        Assert.assertTrue(assayWithSingleElement.elementIsPresent(this.singleElement));
+        Assert.assertTrue(assayWithSingleElement.isElementPresent(this.singleElement));
     }
 }
