@@ -3,9 +3,8 @@ package com.pfeilda.ajb.equipment;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.function.Consumer;
 
-public class ExternalReagent implements PartInterface, Observer {
+public abstract class ExternalReagent implements PartInterface, Observer {
     private final ExternalReagent part;
     private final ArrayList<SubstanceContainer> substanceContainers = new ArrayList<SubstanceContainer>();
 
@@ -31,7 +30,7 @@ public class ExternalReagent implements PartInterface, Observer {
     }
 
     public void remove(final SubstanceContainer substanceContainer) {
-        this.substanceContainers.add(substanceContainer);
+        this.substanceContainers.remove(substanceContainer);
     }
 
     public void clear() {
