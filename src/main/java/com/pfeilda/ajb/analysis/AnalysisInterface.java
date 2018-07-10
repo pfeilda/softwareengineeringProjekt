@@ -4,6 +4,8 @@ import com.pfeilda.ajb.miscellaneous.HighScore;
 import com.pfeilda.ajb.miscellaneous.HighScoreInterface;
 import com.pfeilda.ajb.particles.Element;
 
+import java.util.Set;
+
 public interface AnalysisInterface {
     HighScore getScore(final HighScoreInterface highScoreInterface);
 
@@ -13,5 +15,5 @@ public interface AnalysisInterface {
 
     void unmarkAsFound(Element element);
 
-    void isValid();
+    Set<Element> getMarkedElements();
 }
