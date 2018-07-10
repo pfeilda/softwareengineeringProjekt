@@ -3,6 +3,16 @@
     "label": "Water",
     "ions": [
       "Hydrogen",
+      "Hydrogen",
+      "Oxid"
+    ]
+  },
+  {
+    "label": "Wasserstoffperoxid",
+    "ions": [
+      "Hydrogen",
+      "Hydrogen",
+      "Oxid",
       "Oxid"
     ]
   }

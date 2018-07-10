@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class MoleculeFactoryTest implements TestInterface {
     private final Atom[] referenceAtom = new Atom[2];
-    private final Ion[] referenceIon = new Ion[2];
+    private final Ion[] referenceIon = new Ion[3];
     private final Molecule referenceMolecule;
 
     public MoleculeFactoryTest() {
@@ -15,7 +15,8 @@ public class MoleculeFactoryTest implements TestInterface {
         this.referenceAtom[1] = new Atom("Oxygen", "O", 8);
 
         this.referenceIon[0] = new Ion("Hydrogen", new Atom[]{this.referenceAtom[0]}, 1);
-        this.referenceIon[1] = new Ion("Oxid", new Atom[]{this.referenceAtom[1]}, -2);
+        this.referenceIon[1] = new Ion("Hydrogen", new Atom[]{this.referenceAtom[0]}, 1);
+        this.referenceIon[2] = new Ion("Oxid", new Atom[]{this.referenceAtom[1]}, -2);
 
         this.referenceMolecule = new Molecule("Water", this.referenceIon);
     }
