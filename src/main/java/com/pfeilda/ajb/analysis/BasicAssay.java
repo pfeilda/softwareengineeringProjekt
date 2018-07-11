@@ -2,16 +2,22 @@ package com.pfeilda.ajb.analysis;
 
 import com.pfeilda.ajb.miscellaneous.HighScore;
 import com.pfeilda.ajb.miscellaneous.HighScoreInterface;
+import com.pfeilda.ajb.particles.AnalysisInterface;
 import com.pfeilda.ajb.particles.Element;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class BasicAssay extends Assay implements AnalysisInterface {
+public class BasicAssay extends Assay implements AnalysisAssayInterface {
     private final Set<Element> markedAsFound;
 
-    public BasicAssay(final Element[] elements) {
-        super(elements);
+    public BasicAssay(final Set<Element> analaysisElements, final Set<Element> markedAsFound) {
+        super(analaysisElements);
+        this.markedAsFound = markedAsFound;
+    }
+
+    public BasicAssay(final Set<Element> analaysisElements) {
+        super(analaysisElements);
         this.markedAsFound = new HashSet<>();
     }
 
@@ -24,8 +30,8 @@ public class BasicAssay extends Assay implements AnalysisInterface {
     public boolean evaluate() {
         final Set<Element> testSet = new HashSet<>(this.markedAsFound);
 
-        for (final Element element :
-                this.elements) {
+        for (final AnalysisInterface element :
+                this.analysisElements) {
             if (!testSet.contains(element)) {
                 return false;
             }
@@ -51,7 +57,7 @@ public class BasicAssay extends Assay implements AnalysisInterface {
     }
 
     @Override
-    public boolean isDisruptiveElementPresent(final Element element) {
-        return false;
+    public boolean isDisruptiveElementPresent(final Set<Element> elements) {
+        return this.elements.containsAll(elements);
     }
 }

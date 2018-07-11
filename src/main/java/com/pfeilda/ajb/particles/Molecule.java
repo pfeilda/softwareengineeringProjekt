@@ -2,9 +2,11 @@ package com.pfeilda.ajb.particles;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.pfeilda.ajb.analysis.AbstractSubstance;
+import com.pfeilda.ajb.analysis.Assay;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class Molecule extends Element {
     private final Ion[] ions;
@@ -38,7 +40,8 @@ public class Molecule extends Element {
     }
 
     @Override
-    public boolean experimentalProof(final AbstractSubstance abstractSubstance) {
+    //todo improve body
+    public boolean experimentalProof(final Assay abstractSubstance, final Set<Element> analysisElements) {
         return true;
     }
 

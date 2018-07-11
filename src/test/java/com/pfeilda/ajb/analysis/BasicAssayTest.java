@@ -1,9 +1,6 @@
 package com.pfeilda.ajb.analysis;
 
-import com.pfeilda.ajb.particles.AtomFactory;
-import com.pfeilda.ajb.particles.Element;
-import com.pfeilda.ajb.particles.IonFactory;
-import com.pfeilda.ajb.particles.MoleculeFactory;
+import com.pfeilda.ajb.particles.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -28,20 +25,29 @@ public class BasicAssayTest extends AssayTest implements AnalysisTestInterface {
 
     @Override
     protected BasicAssay generateAssayWithSingleElement(final Element element) {
-        return new BasicAssay(new Element[]{element});
+        final Set<Element> elementSet = new HashSet<>();
+        elementSet.add(element);
+
+        return new BasicAssay(elementSet);
     }
 
     protected BasicAssay generateAssayWithMultipleElement(final Element[] elements) {
-        return new BasicAssay(elements);
+        final Set<Element> elementSet = new HashSet<>();
+        for (final Element element :
+                elements) {
+            elementSet.add(element);
+        }
+
+        return new BasicAssay(elementSet);
     }
 
     @Override
     public BasicAssay generateInstanceOfTestClass() {
-        return new BasicAssay(new Element[0]);
+        return new BasicAssay(new HashSet<>());
     }
 
     public BasicAssay generateInstanceOfTestClass(final Set<Element> elements) {
-        final BasicAssay basicAssay = new BasicAssay(new Element[0]);
+        final BasicAssay basicAssay = new BasicAssay(new HashSet<>());
 
         for (final Element element :
                 elements) {

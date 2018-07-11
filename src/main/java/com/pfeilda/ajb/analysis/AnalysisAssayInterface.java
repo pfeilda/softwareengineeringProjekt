@@ -6,7 +6,7 @@ import com.pfeilda.ajb.particles.Element;
 
 import java.util.Set;
 
-public interface AnalysisInterface {
+public interface AnalysisAssayInterface {
     HighScore getScore(final HighScoreInterface highScoreInterface);
 
     boolean evaluate();

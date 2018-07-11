@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public interface AnalysisTestInterface extends TestInterface {
     @Override
-    public abstract AnalysisInterface generateInstanceOfTestClass();
+    public abstract AnalysisAssayInterface generateInstanceOfTestClass();
 
     @Test
     void getMarkedElementsInitialEmpty();

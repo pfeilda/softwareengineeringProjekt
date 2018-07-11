@@ -2,8 +2,10 @@ package com.pfeilda.ajb.particles;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.pfeilda.ajb.analysis.AbstractSubstance;
+import com.pfeilda.ajb.analysis.Assay;
 
 import java.util.Arrays;
+import java.util.Set;
 
 public class Ion extends Element {
     private final int charge;
@@ -37,9 +39,9 @@ public class Ion extends Element {
         this.charge = charge;
     }
 
-
     @Override
-    public boolean experimentalProof(final AbstractSubstance abstractSubstance) {
+    //todo improve body
+    public boolean experimentalProof(final Assay abstractSubstance, final Set<Element> analysisElements) {
         return true;
     }
 

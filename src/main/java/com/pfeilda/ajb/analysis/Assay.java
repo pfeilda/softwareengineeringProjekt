@@ -1,29 +1,20 @@
 package com.pfeilda.ajb.analysis;
 
+import com.pfeilda.ajb.particles.AnalysisInterface;
 import com.pfeilda.ajb.particles.Element;
 
-import java.util.Random;
+import java.util.Set;
 
 public abstract class Assay extends AbstractSubstance {
-    protected final Element[] elements;
+    protected final Set<Element> analysisElements;
 
-    public Assay(final Element[] elements) {
-        this.elements = elements;
+    public Assay(final Set<Element> analysisElements) {
+        this.analysisElements = analysisElements;
     }
 
-    public abstract boolean isDisruptiveElementPresent(Element element);
+    public abstract boolean isDisruptiveElementPresent(Set<Element> elements);
 
-    public boolean isElementPresent(final Element element) {
-        if (!this.isDisruptiveElementPresent(element)) {
-            for (final Element elementFromArray :
-                    this.elements) {
-                if (element.equals(elementFromArray)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        final Random random = new Random();
-        return random.nextBoolean();
+    public boolean isElementPresent(final AnalysisInterface element) {
+        return element.experimentalProof(this, this.analysisElements);
     }
 }

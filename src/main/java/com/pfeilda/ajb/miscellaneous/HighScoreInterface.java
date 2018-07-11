@@ -1,7 +1,7 @@
 package com.pfeilda.ajb.miscellaneous;
 
-import com.pfeilda.ajb.analysis.AnalysisInterface;
+import com.pfeilda.ajb.analysis.AnalysisAssayInterface;
 
 public interface HighScoreInterface {
-    HighScore calculateHighScore(AnalysisInterface analysis);
+    HighScore calculateHighScore(AnalysisAssayInterface analysis);
 }
