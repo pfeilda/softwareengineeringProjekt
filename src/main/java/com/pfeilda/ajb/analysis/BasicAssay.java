@@ -11,11 +11,6 @@ import java.util.Set;
 public class BasicAssay extends Assay implements AnalysisAssayInterface {
     private final Set<Element> markedAsFound;
 
-    public BasicAssay(final Set<Element> analaysisElements, final Set<Element> markedAsFound) {
-        super(analaysisElements);
-        this.markedAsFound = markedAsFound;
-    }
-
     public BasicAssay(final Set<Element> analaysisElements) {
         super(analaysisElements);
         this.markedAsFound = new HashSet<>();
