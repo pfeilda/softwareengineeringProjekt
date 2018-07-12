@@ -1,11 +1,9 @@
 package com.pfeilda.ajb.particles;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.pfeilda.ajb.analysis.AbstractSubstance;
 import com.pfeilda.ajb.analysis.Assay;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.Set;
 
 public class Molecule extends Element {
@@ -16,7 +14,7 @@ public class Molecule extends Element {
         this.ions = ions;
     }
 
-    Molecule(final String label, final List<Ion> ions) {
+    Molecule(final String label, final Set<Ion> ions) {
         super(label);
         this.ions = ions.toArray(new Ion[]{});
     }

@@ -4,8 +4,8 @@ import com.pfeilda.ajb.equipment.AlterInterface;
 import com.pfeilda.ajb.miscellaneous.*;
 import com.pfeilda.ajb.particles.Element;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /* PhysicalState Decorator */
 public abstract class AbstractSubstance implements AlterInterface, VolumeInterface {
@@ -15,9 +15,10 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     private final PH ph = new PH();
     private final Volume volumePerElement = new Volume(10);
     private boolean isValid = true;
-    protected final List<Element> elements = new ArrayList<>();
+    protected final Set<Element> elements = new HashSet<>();
+//    protected final Set<Element> =
 
-    AbstractSubstance(final List<AbstractSubstance> abstractSubstances) {
+    AbstractSubstance(final Set<AbstractSubstance> abstractSubstances) {
         for (final AbstractSubstance abstractSubstance :
                 abstractSubstances) {
             abstractSubstance.addTo(this);
@@ -32,7 +33,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
         this.add(this.volumePerElement);
     }
 
-    public void addAll(final List<Element> elements) {
+    public void addAll(final Set<Element> elements) {
         this.elements.addAll(elements);
         final double addVolumeSize = this.volumePerElement.get() * elements.size();
         final Volume addVolume = new Volume(addVolumeSize);

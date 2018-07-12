@@ -2,13 +2,14 @@ package com.pfeilda.ajb.equipment;
 
 import com.pfeilda.ajb.miscellaneous.Property;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Set;
 
 public abstract class ExternalReagent implements PartInterface, Observer {
     private final ExternalReagent part;
-    private final ArrayList<SubstanceContainer> substanceContainers = new ArrayList<SubstanceContainer>();
+    private final Set<SubstanceContainer> substanceContainers = new HashSet<>();
     protected Property[] alterProperties;
 
     public ExternalReagent(final ExternalReagent part) {
