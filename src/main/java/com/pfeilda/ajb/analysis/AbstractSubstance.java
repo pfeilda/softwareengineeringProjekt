@@ -12,6 +12,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     private final Volume volume = new Volume(0);
     private final Temperature temperature = new Temperature(0);
     private final Pressure pressure = new Pressure(0);
+    private final PH ph = new PH();
     private final Volume volumePerElement = new Volume(10);
     private boolean isValid = true;
     protected final List<Element> elements = new ArrayList<>();
@@ -31,19 +32,6 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
         this.add(this.volumePerElement);
     }
 
-    @Override
-    public void add(final Volume volume) {
-        this.volume.add(volume);
-    }
-
-    public void add(final Temperature temperature) {
-        this.temperature.add(temperature);
-    }
-
-    public void add(final Pressure pressure) {
-        this.pressure.add(pressure);
-    }
-
     public void addAll(final List<Element> elements) {
         this.elements.addAll(elements);
         final double addVolumeSize = this.volumePerElement.get() * elements.size();
@@ -59,6 +47,23 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
         }
     }
 
+    @Override
+    public void add(final Volume volume) {
+        this.volume.add(volume);
+    }
+
+    public void add(final Temperature temperature) {
+        this.temperature.add(temperature);
+    }
+
+    public void add(final Pressure pressure) {
+        this.pressure.add(pressure);
+    }
+
+    public void add(final PH ph) {
+        this.ph.add(ph);
+    }
+
     public final Volume getVolume() {
         return this.volume;
     }
@@ -69,6 +74,10 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
 
     public final Pressure getPressure() {
         return this.pressure;
+    }
+
+    public PH getPh() {
+        return this.ph;
     }
 
     public final void destroy() {

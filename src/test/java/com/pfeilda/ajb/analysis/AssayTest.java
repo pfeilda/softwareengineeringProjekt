@@ -5,7 +5,7 @@ import com.pfeilda.ajb.particles.Element;
 import org.junit.Assert;
 import org.junit.Test;
 
-public abstract class AssayTest implements TestInterface {
+public abstract class AssayTest extends AbstractSubstance implements TestInterface {
     protected Element singleElement;
 
     protected abstract Assay generateAssayWithSingleElement(Element element);

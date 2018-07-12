@@ -13,6 +13,6 @@ public class PH extends Property {
 
     @Override
     public void addTo(final AbstractSubstance abstractSubstance) {
-//        abstractSubstance.add(this);
+        abstractSubstance.add(this);
     }
 }
