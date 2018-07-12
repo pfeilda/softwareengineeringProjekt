@@ -28,19 +28,23 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     protected AbstractSubstance() {
     }
 
-    public void add(final Element element) {
+//    public final void add(final AnalyseElement element) {
+//
+//    }
+
+    public final void add(final Element element) {
         this.elements.add(element);
         this.add(this.volumePerElement);
     }
 
-    public void addAll(final Set<Element> elements) {
+    public final void addAll(final Set<Element> elements) {
         this.elements.addAll(elements);
         final double addVolumeSize = this.volumePerElement.get() * elements.size();
         final Volume addVolume = new Volume(addVolumeSize);
         this.volume.add(addVolume);
     }
 
-    public void addTo(final AbstractSubstance abstractSubstance) {
+    public final void addTo(final AbstractSubstance abstractSubstance) {
         abstractSubstance.add(this.getVolume());
         for (final Element element :
                 this.elements) {
@@ -79,6 +83,14 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
 
     public PH getPh() {
         return this.ph;
+    }
+
+    private final void generateDeposit(final Element element) {
+
+    }
+
+    private final void generateDeposit(final Set<Element> elements) {
+        elements.forEach(this::generateDeposit);
     }
 
     public final void destroy() {
