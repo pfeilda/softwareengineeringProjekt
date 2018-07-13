@@ -42,4 +42,8 @@ public class AnalyseElementFactory implements Singleton {
                 .findFirst()
                 .orElse(null);
     }
+
+    public final AnalyseElement[] getAll() {
+        return this.analyseElements;
+    }
 }
