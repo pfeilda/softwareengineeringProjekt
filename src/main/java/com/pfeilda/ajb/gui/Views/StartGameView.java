@@ -2,13 +2,13 @@ package com.pfeilda.ajb.gui.Views;
 
 import com.pfeilda.ajb.analysis.BasicAssay;
 import com.pfeilda.ajb.gui.Elements.Buttons.ReturnToMenu;
+import com.pfeilda.ajb.gui.ViewContainer;
 import com.pfeilda.ajb.particles.AnalyseElement;
 import com.pfeilda.ajb.particles.AnalyseElementFactory;
 import com.pfeilda.ajb.particles.Element;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.HeadlessException;
@@ -17,11 +17,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class StartGameView extends JPanel {
-    private final JFrame parent;
+public class StartGameView extends View {
+    private final ViewContainer parent;
     private final Set<Element> analyseElements = new HashSet<>();
 
-    public StartGameView(final JFrame parent) throws HeadlessException {
+    public StartGameView(final ViewContainer parent) throws HeadlessException {
         this.parent = parent;
         this.parent.setTitle("Spielstart");
         this.setLayout(new BorderLayout());
@@ -29,9 +29,7 @@ public class StartGameView extends JPanel {
         this.addAnalyseElements();
         this.addActionButtons();
 
-        this.parent.add(this);
-        this.parent.revalidate();
-        this.parent.repaint();
+        this.parent.changeView(this);
     }
 
     private void addAnalyseElements() {
