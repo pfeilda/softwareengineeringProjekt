@@ -10,5 +10,9 @@ public abstract class ViewContainer extends JFrame {
         super(title);
     }
 
-    public abstract void changeView(View view);
+    public abstract void changeView(View newView, View oldView);
+
+//    public void changeView(View newView) {
+//
+//    }
 }

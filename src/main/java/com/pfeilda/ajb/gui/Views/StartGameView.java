@@ -29,7 +29,7 @@ public class StartGameView extends View {
         this.addAnalyseElements();
         this.addActionButtons();
 
-        this.parent.changeView(this);
+        this.parent.changeView(this, null);
     }
 
     private void addAnalyseElements() {

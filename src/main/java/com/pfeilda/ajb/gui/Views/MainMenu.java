@@ -32,17 +32,16 @@ public class MainMenu extends View {
 
         this.startGameViewButton = new JButton("Neues Spiel starten");
         this.startGameViewButton.addActionListener((ActionEvent e) -> {
-            this.parent.changeView(new StartGameView(this.parent));
+            this.parent.changeView(new StartGameView(this.parent), this);
         });
 
         this.highScoreViewButton = new JButton("HighScores anzeigen");
         this.highScoreViewButton.addActionListener((ActionEvent e) -> {
-            this.parent.changeView(new HighScoreView(this.parent));
+            this.parent.changeView(new HighScoreView(this.parent), this);
         });
     }
 
     private void addComponents() {
-        this.add(new JLabel("test"));
         this.add(this.menuDescription);
         this.add(this.startGameViewButton);
         this.add(this.highScoreViewButton);
