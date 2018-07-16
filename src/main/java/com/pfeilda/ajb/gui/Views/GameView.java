@@ -31,7 +31,7 @@ public class GameView extends View {
 
     @Override
     protected void selectLayout() {
-
+        this.setLayout(new BorderLayout());
     }
 
     @Override

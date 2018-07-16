@@ -3,7 +3,6 @@ package com.pfeilda.ajb.gui.Views;
 import com.pfeilda.ajb.gui.ViewContainerAbstract;
 
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
 
 public abstract class View extends JPanel {
     protected ViewContainerAbstract parent;

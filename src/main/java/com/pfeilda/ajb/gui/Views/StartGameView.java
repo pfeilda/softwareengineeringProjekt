@@ -11,7 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -63,5 +62,6 @@ public class StartGameView extends View {
 
     @Override
     protected void selectLayout() {
+        this.setLayout(new BorderLayout());
     }
 }

@@ -4,9 +4,11 @@ import com.pfeilda.ajb.gui.ViewContainerAbstract;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
-import java.awt.HeadlessException;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
+import java.util.Arrays;
 
 public class MainMenu extends View {
     private JButton highScoreViewButton;
@@ -21,14 +23,14 @@ public class MainMenu extends View {
         this.menuDescription = new JLabel("Bitte wählen sie eine Aktion aus:");
 
         this.startGameViewButton = new JButton("Neues Spiel starten");
-        this.startGameViewButton.addActionListener((ActionEvent e) -> {
-            new StartGameView(this.parent);
-        });
+        this.startGameViewButton.addActionListener(
+                (ActionEvent e) -> new StartGameView(this.parent)
+        );
 
         this.highScoreViewButton = new JButton("HighScores anzeigen");
-        this.highScoreViewButton.addActionListener((ActionEvent e) -> {
-            new HighScoreView(this.parent);
-        });
+        this.highScoreViewButton.addActionListener(
+                (ActionEvent e) -> new HighScoreView(this.parent)
+        );
     }
 
     @Override
@@ -38,6 +40,10 @@ public class MainMenu extends View {
         this.add(this.menuDescription);
         this.add(this.startGameViewButton);
         this.add(this.highScoreViewButton);
+
+        Arrays.stream(this.getComponents()).forEach(
+                (Component component) -> ((JComponent) component).setAlignmentX(Component.CENTER_ALIGNMENT)
+        );
     }
 
     @Override
