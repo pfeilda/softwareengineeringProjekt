@@ -20,6 +20,7 @@ public class Temperature extends Property {
 
     @Override
     public TemperatureLabel getPropertyLabel() {
+        this.changedProperty();
         return (TemperatureLabel) this.propertyLabel;
     }
 }

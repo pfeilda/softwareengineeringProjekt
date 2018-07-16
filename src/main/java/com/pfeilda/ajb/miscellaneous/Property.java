@@ -29,7 +29,7 @@ public abstract class Property {
 
     public abstract PropertyLabel getPropertyLabel();
 
-    private void changedProperty() {
+    protected void changedProperty() {
         this.propertyLabel.change(this);
     }
 

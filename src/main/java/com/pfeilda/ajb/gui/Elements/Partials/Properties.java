@@ -15,13 +15,15 @@ public class Properties extends AbstractPartial {
 
     @Override
     public void selectLayout() {
-        this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
     @Override
     public void addComponents() {
         final Properties propertiesPanel = this;
-        this.properties.forEach((Property property) -> propertiesPanel.add(property.getPropertyLabel()));
+        this.properties.forEach((Property property) -> {
+            propertiesPanel.add(property.getPropertyLabel());
+        });
     }
 
     @Override

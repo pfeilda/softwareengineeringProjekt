@@ -20,6 +20,7 @@ public class Volume extends Property {
 
     @Override
     public VolumeLabel getPropertyLabel() {
+        this.changedProperty();
         return (VolumeLabel) this.propertyLabel;
     }
 }

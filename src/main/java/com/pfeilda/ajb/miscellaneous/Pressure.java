@@ -20,6 +20,7 @@ public class Pressure extends Property {
 
     @Override
     public PressureLabel getPropertyLabel() {
+        this.changedProperty();
         return (PressureLabel) this.propertyLabel;
     }
 }

@@ -24,10 +24,7 @@ public class PH extends Property {
 
     @Override
     public PHLabel getPropertyLabel() {
+        this.changedProperty();
         return (PHLabel) this.propertyLabel;
-    }
-
-    private void changedProperty() {
-        this.propertyLabel.change(this);
     }
 }
