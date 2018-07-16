@@ -19,6 +19,7 @@ public class Assay extends AbstractPartial {
 
     @Override
     public void addComponents() {
+        this.add(new ReagentActions(), BorderLayout.LINE_START);
         this.add(new Properties(this.assay.getProperties()), BorderLayout.LINE_END);
     }
 
