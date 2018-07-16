@@ -1,6 +1,6 @@
 package com.pfeilda.ajb.gui.Views;
 
-import com.pfeilda.ajb.gui.ViewContainer;
+import com.pfeilda.ajb.gui.ViewContainerAbstract;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -12,38 +12,40 @@ public class MainMenu extends View {
     private JButton highScoreViewButton;
     private JButton startGameViewButton;
     private JLabel menuDescription;
-    private final ViewContainer parent;
 
-    public MainMenu(final ViewContainer parent) throws HeadlessException {
-        this.parent = parent;
-
-        this.parent.setTitle("Hauptmenue");
-
-        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-
-        this.generateComponents();
-        this.addComponents();
-
-        this.setVisible(true);
+    public MainMenu(final ViewContainerAbstract parent) {
+        super(parent, "Hauptmenü");
     }
 
-    private void generateComponents() {
+    protected void generateComponents() {
         this.menuDescription = new JLabel("Bitte wählen sie eine Aktion aus:");
 
         this.startGameViewButton = new JButton("Neues Spiel starten");
         this.startGameViewButton.addActionListener((ActionEvent e) -> {
-            this.parent.changeView(new StartGameView(this.parent), this);
+            new StartGameView(this.parent);
         });
 
         this.highScoreViewButton = new JButton("HighScores anzeigen");
         this.highScoreViewButton.addActionListener((ActionEvent e) -> {
-            this.parent.changeView(new HighScoreView(this.parent), this);
+            new HighScoreView(this.parent);
         });
     }
 
-    private void addComponents() {
+    @Override
+    protected void addComponents() {
+        this.generateComponents();
+
         this.add(this.menuDescription);
         this.add(this.startGameViewButton);
         this.add(this.highScoreViewButton);
+    }
+
+    @Override
+    protected void addActionButtons() {
+    }
+
+    @Override
+    protected void selectLayout() {
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 }

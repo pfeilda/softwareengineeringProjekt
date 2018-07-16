@@ -1,26 +1,20 @@
 package com.pfeilda.ajb.gui.Elements.Buttons;
 
-import com.pfeilda.ajb.gui.ViewContainer;
+import com.pfeilda.ajb.gui.ViewContainerAbstract;
 import com.pfeilda.ajb.gui.Views.MainMenu;
 
 import javax.swing.JButton;
 import java.awt.event.ActionEvent;
-import java.util.Arrays;
 
 public class ReturnToMenu extends JButton {
-    private final ViewContainer parent;
+    private final ViewContainerAbstract parent;
 
-    public ReturnToMenu(final ViewContainer parent) {
+    public ReturnToMenu(final ViewContainerAbstract parent) {
         super("Zurück zum Menü");
 
         this.parent = parent;
         this.addActionListener((ActionEvent action) -> {
-            Arrays.stream(parent.getContentPane().getComponents())
-                    .forEach(parent::remove);
-
-            parent.add(new MainMenu(parent));
-
-            parent.revalidate();
+            parent.changeView(new MainMenu(parent));
         });
     }
 }
