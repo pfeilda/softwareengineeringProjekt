@@ -2,6 +2,7 @@ package com.pfeilda.ajb.miscellaneous;
 
 import com.pfeilda.ajb.analysis.AbstractSubstance;
 import com.pfeilda.ajb.analysis.Reagent;
+import com.pfeilda.ajb.gui.Elements.Labels.VolumeLabel;
 import com.pfeilda.ajb.particles.AtomFactory;
 import com.pfeilda.ajb.particles.Element;
 import org.junit.Assert;
@@ -70,7 +71,14 @@ public class VolumeTest implements TestInterface {
         final Volume addVolume = new Volume(10);
         referenceVolume.add(addVolume);
         addVolume.addTo(abstractSubstance);
-        
+
         Assert.assertEquals(referenceVolume, abstractSubstance.getVolume());
+    }
+
+    @Test
+    public final void generatePropertyLabel() {
+        final Volume volume = this.generateInstanceOfTestClass();
+        Assert.assertNotNull(volume.getPropertyLabel());
+        Assert.assertTrue(volume.getPropertyLabel() instanceof VolumeLabel);
     }
 }

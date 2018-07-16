@@ -1,5 +1,6 @@
 package com.pfeilda.ajb.gui.Views;
 
+import com.pfeilda.ajb.analysis.Assay;
 import com.pfeilda.ajb.analysis.BasicAssay;
 import com.pfeilda.ajb.gui.ViewContainerAbstract;
 
@@ -7,35 +8,40 @@ import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 import java.awt.BorderLayout;
-import java.util.HashSet;
-import java.util.Set;
 
 public class GameView extends View {
-    private final Set<BasicAssay> assays = new HashSet();
+    private JTabbedPane assayTabs;
+    private int count = 1;
 
     public GameView(final ViewContainerAbstract parent, final BasicAssay basicAssay) {
         super(parent, "Spiel");
-        this.assays.add(basicAssay);
+        this.addAssay(basicAssay);
     }
 
     @Override
-    protected void addComponents() {
+    public void addComponents() {
         this.add(new JLabel("Proben:", SwingConstants.CENTER), BorderLayout.PAGE_START);
 
-        final JTabbedPane assayTabs = new JTabbedPane();
+        this.assayTabs = new JTabbedPane();
 
-        assayTabs.addTab("1", new StartGameView(this.parent));
+        this.add(this.assayTabs);
+    }
 
-        this.add(assayTabs);
+    public void addAssay(final Assay assay) {
+
+        this.assayTabs.add(
+                new com.pfeilda.ajb.gui.Elements.Partials.Assay(assay),
+                (this.count++) + ""
+        );
     }
 
     @Override
-    protected void selectLayout() {
+    public void selectLayout() {
         this.setLayout(new BorderLayout());
     }
 
     @Override
-    protected void addActionButtons() {
+    public void addActionButtons() {
 
     }
 }

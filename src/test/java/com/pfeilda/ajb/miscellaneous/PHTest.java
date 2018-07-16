@@ -2,12 +2,13 @@ package com.pfeilda.ajb.miscellaneous;
 
 import com.pfeilda.ajb.analysis.AbstractSubstance;
 import com.pfeilda.ajb.analysis.Reagent;
+import com.pfeilda.ajb.gui.Elements.Labels.PHLabel;
 import com.pfeilda.ajb.particles.AtomFactory;
 import com.pfeilda.ajb.particles.Element;
 import org.junit.Assert;
 import org.junit.Test;
 
-//extract Property to baseclass
+//extract Properties to baseclass
 public class PHTest implements TestInterface {
     public final double defaultValue = 7;
     public final double minValue = 0;
@@ -77,5 +78,12 @@ public class PHTest implements TestInterface {
         addPH.addTo(abstractSubstance);
 
         Assert.assertEquals(referencePH, abstractSubstance.getPh());
+    }
+
+    @Test
+    public final void generatePropertyLabel() {
+        final PH ph = this.generateInstanceOfTestClass();
+        Assert.assertNotNull(ph.getPropertyLabel());
+        Assert.assertTrue(ph.getPropertyLabel() instanceof PHLabel);
     }
 }

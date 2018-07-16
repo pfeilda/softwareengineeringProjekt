@@ -16,7 +16,6 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     private final Volume volumePerElement = new Volume(10);
     private boolean isValid = true;
     protected final Set<Element> elements = new HashSet<>();
-//    protected final Set<Element> =
 
     AbstractSubstance(final Set<AbstractSubstance> abstractSubstances) {
         for (final AbstractSubstance abstractSubstance :
@@ -28,9 +27,17 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     protected AbstractSubstance() {
     }
 
-//    public final void add(final AnalyseElement element) {
-//
-//    }
+    //todo refactor + test
+    public final Set<Property> getProperties() {
+        final Set<Property> properties = new HashSet<>();
+
+        properties.add(this.volume);
+        properties.add(this.temperature);
+        properties.add(this.ph);
+        properties.add(this.pressure);
+
+        return properties;
+    }
 
     public final void add(final Element element) {
         this.elements.add(element);

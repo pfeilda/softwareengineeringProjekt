@@ -34,7 +34,7 @@ public class MainMenu extends View {
     }
 
     @Override
-    protected void addComponents() {
+    public void addComponents() {
         this.generateComponents();
 
         this.add(this.menuDescription);
@@ -47,11 +47,11 @@ public class MainMenu extends View {
     }
 
     @Override
-    protected void addActionButtons() {
+    public void addActionButtons() {
     }
 
     @Override
-    protected void selectLayout() {
+    public void selectLayout() {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 }

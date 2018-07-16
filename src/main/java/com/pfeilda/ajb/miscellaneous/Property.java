@@ -1,12 +1,15 @@
 package com.pfeilda.ajb.miscellaneous;
 
 import com.pfeilda.ajb.analysis.AbstractSubstance;
+import com.pfeilda.ajb.gui.Elements.Labels.PropertyLabel;
 
 public abstract class Property {
+    protected PropertyLabel propertyLabel;
     private double property;
 
     public Property(final double property) {
         this.property = property;
+        this.generatePropertyLabel();
     }
 
     public double get() {
@@ -15,10 +18,23 @@ public abstract class Property {
 
     private void add(final double property) {
         this.property = this.property + property;
+        this.changedProperty();
     }
 
     public void add(final Property property) {
         this.add(property.get());
+    }
+
+    protected abstract void generatePropertyLabel();
+
+    public abstract PropertyLabel getPropertyLabel();
+
+    private void changedProperty() {
+        this.propertyLabel.change(this);
+    }
+
+    public void setProperty(final double property) {
+        this.property = property;
     }
 
     public abstract void addTo(AbstractSubstance abstractSubstance);

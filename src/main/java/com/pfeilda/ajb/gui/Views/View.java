@@ -1,10 +1,11 @@
 package com.pfeilda.ajb.gui.Views;
 
+import com.pfeilda.ajb.gui.InitialInterface;
 import com.pfeilda.ajb.gui.ViewContainerAbstract;
 
 import javax.swing.JPanel;
 
-public abstract class View extends JPanel {
+public abstract class View extends JPanel implements InitialInterface {
     protected ViewContainerAbstract parent;
 
     public View(final ViewContainerAbstract parent, final String title) {
@@ -21,10 +22,4 @@ public abstract class View extends JPanel {
 
         this.parent.changeView(this);
     }
-
-    protected abstract void selectLayout();
-
-    protected abstract void addComponents();
-
-    protected abstract void addActionButtons();
 }

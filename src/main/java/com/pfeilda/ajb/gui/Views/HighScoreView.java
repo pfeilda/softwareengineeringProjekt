@@ -1,9 +1,6 @@
 package com.pfeilda.ajb.gui.Views;
 
-import com.pfeilda.ajb.gui.Elements.Buttons.ReturnToMenu;
 import com.pfeilda.ajb.gui.ViewContainerAbstract;
-
-import java.awt.HeadlessException;
 
 public class HighScoreView extends View {
     public HighScoreView(final ViewContainerAbstract parent) {
@@ -11,17 +8,17 @@ public class HighScoreView extends View {
     }
 
     @Override
-    protected void selectLayout() {
+    public void selectLayout() {
 
     }
 
     @Override
-    protected void addComponents() {
+    public void addComponents() {
 
     }
 
     @Override
-    protected void addActionButtons() {
+    public void addActionButtons() {
 
     }
 }

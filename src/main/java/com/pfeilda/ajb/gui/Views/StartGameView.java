@@ -24,7 +24,7 @@ public class StartGameView extends View {
     }
 
     @Override
-    protected void addComponents() {
+    public void addComponents() {
         final AnalyseElementFactory analyseElementFactory = AnalyseElementFactory.getInstance();
         final AnalyseElement[] analyseElements = analyseElementFactory.getAll();
 
@@ -43,7 +43,7 @@ public class StartGameView extends View {
     }
 
     @Override
-    protected void addActionButtons() {
+    public void addActionButtons() {
         final JPanel actionButtons = new JPanel();
         actionButtons.setLayout(new BorderLayout(0, 5));
 
@@ -61,7 +61,7 @@ public class StartGameView extends View {
     }
 
     @Override
-    protected void selectLayout() {
+    public void selectLayout() {
         this.setLayout(new BorderLayout());
     }
 }

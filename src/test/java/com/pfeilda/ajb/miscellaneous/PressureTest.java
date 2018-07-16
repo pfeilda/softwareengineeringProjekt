@@ -2,6 +2,7 @@ package com.pfeilda.ajb.miscellaneous;
 
 import com.pfeilda.ajb.analysis.AbstractSubstance;
 import com.pfeilda.ajb.analysis.Reagent;
+import com.pfeilda.ajb.gui.Elements.Labels.PressureLabel;
 import com.pfeilda.ajb.particles.AtomFactory;
 import com.pfeilda.ajb.particles.Element;
 import org.junit.Assert;
@@ -70,5 +71,12 @@ public class PressureTest {
         addPressure.addTo(abstractSubstance);
 
         Assert.assertEquals(referencePressure, abstractSubstance.getPressure());
+    }
+
+    @Test
+    public final void generatePropertyLabel() {
+        final Pressure pressure = this.generateInstanceOfTestClass();
+        Assert.assertNotNull(pressure.getPropertyLabel());
+        Assert.assertTrue(pressure.getPropertyLabel() instanceof PressureLabel);
     }
 }
