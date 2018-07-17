@@ -1,6 +1,7 @@
 package com.pfeilda.ajb.gui.Elements.Partials;
 
 import com.pfeilda.ajb.analysis.Assay;
+import com.pfeilda.ajb.gui.Elements.Buttons.BunsenBurner;
 
 import javax.swing.BoxLayout;
 
@@ -19,6 +20,7 @@ public class ReagentActions extends AbstractPartial {
 
     @Override
     public void addComponents() {
+//        this.add(new BunsenBurner(this.assay));
     }
 
     @Override
