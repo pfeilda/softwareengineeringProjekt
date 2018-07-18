@@ -14,10 +14,12 @@ public abstract class ExternalReagent implements PartInterface, Observer {
 
     public ExternalReagent(final ExternalReagent part) {
         this.part = part;
+        this.setAlterProperties();
     }
 
     public ExternalReagent() {
         this.part = this;
+        this.setAlterProperties();
     }
 
     PartInterface getParent() {
@@ -47,4 +49,6 @@ public abstract class ExternalReagent implements PartInterface, Observer {
                 (final SubstanceContainer substanceContainer) -> substanceContainer.alter(this.alterProperties)
         );
     }
+
+    protected abstract void setAlterProperties();
 }
