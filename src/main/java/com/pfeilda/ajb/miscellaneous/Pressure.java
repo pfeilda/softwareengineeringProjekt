@@ -5,7 +5,7 @@ import com.pfeilda.ajb.gui.Elements.Labels.PressureLabel;
 
 public class Pressure extends Property {
     public Pressure(final double property) {
-        super(property);
+        super(property, 0, 100);
     }
 
     @Override

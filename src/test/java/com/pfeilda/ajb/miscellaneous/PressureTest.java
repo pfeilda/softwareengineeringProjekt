@@ -8,15 +8,24 @@ import com.pfeilda.ajb.particles.Element;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class PressureTest {
-    private final double defaultValue = 1.0;
-    private final double delta = 0.0;
+public class PressureTest extends PropertyTest {
     private final double[] addValues = new double[]{0.1, 0.2, 200, 300, 50};
 
-    public final Pressure generateInstanceOfTestClass() {
-        return new Pressure(this.defaultValue);
+    public PressureTest() {
+        super(1.0, 0, 100);
     }
 
+    @Override
+    public final Pressure generateInstanceOfTestClass() {
+        return this.generateInstanceOfTestClass(this.getDefaultValue());
+    }
+
+    @Override
+    public Pressure generateInstanceOfTestClass(final Double value) {
+        return new Pressure(value);
+    }
+
+    @Override
     @Test
     public final void creation() {
         Assert.assertNotNull(this.generateInstanceOfTestClass());
@@ -25,7 +34,7 @@ public class PressureTest {
     @Test
     public final void getPressure() {
         final Pressure pressure = this.generateInstanceOfTestClass();
-        Assert.assertEquals(this.defaultValue, pressure.get(), this.delta);
+        Assert.assertEquals(this.getDefaultValue(), pressure.get(), this.delta);
     }
 
     @Test
@@ -34,7 +43,7 @@ public class PressureTest {
                 this.addValues) {
             final Pressure pressure = this.generateInstanceOfTestClass();
             pressure.add(new Pressure(value));
-            Assert.assertEquals(value + this.defaultValue, pressure.get(), this.delta);
+            Assert.assertEquals(value + this.getDefaultValue(), pressure.get(), this.delta);
         }
     }
 
@@ -47,16 +56,16 @@ public class PressureTest {
     @Test
     public final void compareFailValue() {
         final Pressure pressure = this.generateInstanceOfTestClass();
-        final Pressure differentPressure = new Pressure(this.defaultValue + 10);
+        final Pressure differentPressure = new Pressure(this.getDefaultValue() + 10);
         Assert.assertNotEquals(differentPressure, pressure);
     }
 
     @Test
     public final void compareFailType() {
-        final Temperature temperature = new Temperature(this.defaultValue);
+        final Temperature temperature = new Temperature(this.getDefaultValue());
         Assert.assertNotEquals(this.generateInstanceOfTestClass(), temperature);
 
-        final Volume volume = new Volume(this.defaultValue);
+        final Volume volume = new Volume(this.getDefaultValue());
         Assert.assertNotEquals(this.generateInstanceOfTestClass(), volume);
     }
 

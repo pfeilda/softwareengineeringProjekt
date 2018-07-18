@@ -6,9 +6,15 @@ import com.pfeilda.ajb.gui.Elements.Labels.PropertyLabel;
 public abstract class Property {
     protected PropertyLabel propertyLabel;
     private double property;
+    private boolean isValid = true;
+    private final double minimum;
+    private final double maximum;
 
-    public Property(final double property) {
+    public Property(final double property, final double minimum, final double maximum) {
         this.property = property;
+        this.minimum = minimum;
+        this.maximum = maximum;
+        this.setValid();
         this.generatePropertyLabel();
     }
 
@@ -25,11 +31,27 @@ public abstract class Property {
         this.add(property.get());
     }
 
+    public boolean isValid() {
+        return this.isValid;
+    }
+
+    private void setValid() {
+        if (
+                this.isValid &&
+                        this.minimum <= this.property &&
+                        this.maximum >= this.property
+                )
+            this.isValid = true;
+        else
+            this.isValid = false;
+    }
+
     protected abstract void generatePropertyLabel();
 
     public abstract PropertyLabel getPropertyLabel();
 
     protected void changedProperty() {
+        this.setValid();
         this.propertyLabel.change(this);
     }
 

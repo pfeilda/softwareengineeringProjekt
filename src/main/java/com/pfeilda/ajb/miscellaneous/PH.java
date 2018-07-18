@@ -5,11 +5,11 @@ import com.pfeilda.ajb.gui.Elements.Labels.PHLabel;
 
 public class PH extends Property {
     public PH(final double property) {
-        super(property);
+        super(property, 0, 14);
     }
 
     public PH() {
-        super(7);
+        super(7, 0, 14);
     }
 
     @Override

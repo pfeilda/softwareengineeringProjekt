@@ -5,7 +5,7 @@ import com.pfeilda.ajb.gui.Elements.Labels.TemperatureLabel;
 
 public class Temperature extends Property {
     public Temperature(final double property) {
-        super(property);
+        super(property, 0, 300);
     }
 
     @Override

@@ -9,12 +9,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 //extract Properties to baseclass
-public class PHTest implements TestInterface {
-    public final double defaultValue = 7;
-    public final double minValue = 0;
-    public final double maxValue = 14;
+public class PHTest extends PropertyTest {
     public final double[] addValues = new double[]{0.5, -5., 4.5};
-    public final double delta = 0;
+
+    public PHTest() {
+        super(7, 0, 14);
+    }
 
     @Override
     public PH generateInstanceOfTestClass() {
@@ -22,17 +22,22 @@ public class PHTest implements TestInterface {
     }
 
     @Override
+    public PH generateInstanceOfTestClass(final Double value) {
+        return new PH(value);
+    }
+
+    @Override
     @Test
     public void creation() {
         final PH ph = this.generateInstanceOfTestClass();
         Assert.assertNotNull(ph);
-        Assert.assertEquals(this.defaultValue, ph.get(), this.delta);
+        Assert.assertEquals(this.getDefaultValue(), ph.get(), this.delta);
     }
 
     @Test
     public final void getPH() {
         final PH ph = this.generateInstanceOfTestClass();
-        Assert.assertEquals(this.defaultValue, ph.get(), this.delta);
+        Assert.assertEquals(this.getDefaultValue(), ph.get(), this.delta);
     }
 
     @Test
@@ -41,7 +46,7 @@ public class PHTest implements TestInterface {
                 this.addValues) {
             final PH ph = this.generateInstanceOfTestClass();
             ph.add(new Pressure(value));
-            Assert.assertEquals(value + this.defaultValue, ph.get(), this.delta);
+            Assert.assertEquals(value + this.getDefaultValue(), ph.get(), this.delta);
         }
     }
 
@@ -54,16 +59,16 @@ public class PHTest implements TestInterface {
     @Test
     public final void compareFailValue() {
         final PH ph = this.generateInstanceOfTestClass();
-        final PH differentPH = new PH(this.defaultValue + 10);
+        final PH differentPH = new PH(this.getDefaultValue() + 10);
         Assert.assertNotEquals(differentPH, ph);
     }
 
     @Test
     public final void compareFailType() {
-        final Temperature temperature = new Temperature(this.defaultValue);
+        final Temperature temperature = new Temperature(this.getDefaultValue());
         Assert.assertNotEquals(this.generateInstanceOfTestClass(), temperature);
 
-        final Volume volume = new Volume(this.defaultValue);
+        final Volume volume = new Volume(this.getDefaultValue());
         Assert.assertNotEquals(this.generateInstanceOfTestClass(), volume);
     }
 

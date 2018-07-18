@@ -5,7 +5,7 @@ import com.pfeilda.ajb.gui.Elements.Labels.VolumeLabel;
 
 public class Volume extends Property {
     public Volume(final double property) {
-        super(property);
+        super(property, 0, 1000);
     }
 
     @Override
