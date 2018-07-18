@@ -13,7 +13,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     private final Temperature temperature = new Temperature(0);
     private final Pressure pressure = new Pressure(0);
     private final PH ph = new PH();
-    private final Volume volumePerElement = new Volume(10);
+    protected final Volume volumePerElement = new Volume(10);
     private boolean isValid = true;
     protected final Set<Element> elements = new HashSet<>();
 
@@ -25,7 +25,6 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     }
 
     protected AbstractSubstance() {
-        this.volume.add(this.volumePerElement);
     }
 
     //todo refactor + test

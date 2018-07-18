@@ -10,6 +10,7 @@ public abstract class Assay extends AbstractSubstance {
 
     public Assay(final Set<Element> analysisElements) {
         this.analysisElements = analysisElements;
+        this.add(this.volumePerElement);
     }
 
     public abstract boolean isDisruptiveElementPresent(Set<Element> elements);
