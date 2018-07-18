@@ -19,6 +19,7 @@ public abstract class ExternalReagentButton extends JButton {
 
         this.setOpaque(false);
         this.setBorderPainted(false);
+        this.setCursor(new Cursor(Cursor.HAND_CURSOR));
         this.setLayout();
 
         this.toogleActive();

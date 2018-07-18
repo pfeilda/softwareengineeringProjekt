@@ -1,13 +1,15 @@
 package com.pfeilda.ajb.gui.Elements.Partials;
 
+import com.pfeilda.ajb.equipment.SubstanceContainer;
+
 import java.awt.BorderLayout;
 
 public class Assay extends AbstractPartial {
-    private final com.pfeilda.ajb.analysis.Assay assay;
+    private final SubstanceContainer substanceContainer;
 
     //todo refactor
-    public Assay(final com.pfeilda.ajb.analysis.Assay assay) {
-        this.assay = assay;
+    public Assay(final SubstanceContainer substanceContainer) {
+        this.substanceContainer = substanceContainer;
         this.initial();
     }
 
@@ -19,8 +21,8 @@ public class Assay extends AbstractPartial {
 
     @Override
     public void addComponents() {
-        this.add(new ReagentActions(this.assay), BorderLayout.LINE_START);
-        this.add(new Properties(this.assay.getProperties()), BorderLayout.LINE_END);
+        this.add(new ReagentActions(this.substanceContainer), BorderLayout.LINE_START);
+        this.add(new Properties(this.substanceContainer.getPropertiesOfSubstances()), BorderLayout.LINE_END);
     }
 
     @Override

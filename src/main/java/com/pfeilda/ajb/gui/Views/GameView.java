@@ -2,6 +2,7 @@ package com.pfeilda.ajb.gui.Views;
 
 import com.pfeilda.ajb.analysis.Assay;
 import com.pfeilda.ajb.analysis.BasicAssay;
+import com.pfeilda.ajb.equipment.SubstanceContainer;
 import com.pfeilda.ajb.gui.ViewContainerAbstract;
 
 import javax.swing.JLabel;
@@ -13,9 +14,10 @@ public class GameView extends View {
     private JTabbedPane assayTabs;
     private int count = 1;
 
-    public GameView(final ViewContainerAbstract parent, final BasicAssay basicAssay) {
+    //todo check if substanceContainer contains basicassay
+    public GameView(final ViewContainerAbstract parent, final SubstanceContainer substanceContainer) {
         super(parent, "Spiel");
-        this.addAssay(basicAssay);
+        this.addAssay(substanceContainer);
     }
 
     @Override
@@ -27,10 +29,10 @@ public class GameView extends View {
         this.add(this.assayTabs);
     }
 
-    public void addAssay(final Assay assay) {
+    public void addAssay(final SubstanceContainer substanceContainer) {
 
         this.assayTabs.add(
-                new com.pfeilda.ajb.gui.Elements.Partials.Assay(assay),
+                new com.pfeilda.ajb.gui.Elements.Partials.Assay(substanceContainer),
                 (this.count++) + ""
         );
     }

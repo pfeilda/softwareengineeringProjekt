@@ -1,8 +1,11 @@
 package com.pfeilda.ajb.equipment;
 
 import com.pfeilda.ajb.analysis.AbstractSubstance;
+import com.pfeilda.ajb.gui.Elements.Partials.Properties;
 import com.pfeilda.ajb.miscellaneous.Property;
 import com.pfeilda.ajb.miscellaneous.Volume;
+
+import java.util.Set;
 
 public abstract class SubstanceContainer implements PartInterface, AlterInterface {
     private final Volume maxVolume;
@@ -67,5 +70,10 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
     @Override
     public void alter(final Property[] properties) {
         this.abstractSubstance.alter(properties);
+    }
+
+    //todo write test for
+    public Set<Property> getPropertiesOfSubstances() {
+        return this.abstractSubstance.getProperties();
     }
 }

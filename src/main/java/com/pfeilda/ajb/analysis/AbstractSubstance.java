@@ -25,6 +25,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     }
 
     protected AbstractSubstance() {
+        this.volume.add(this.volumePerElement);
     }
 
     //todo refactor + test
