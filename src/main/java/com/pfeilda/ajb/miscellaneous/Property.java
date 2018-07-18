@@ -33,10 +33,6 @@ public abstract class Property {
         this.propertyLabel.change(this);
     }
 
-    public void setProperty(final double property) {
-        this.property = property;
-    }
-
     public abstract void addTo(AbstractSubstance abstractSubstance);
 
     @Override
