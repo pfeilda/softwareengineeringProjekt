@@ -8,7 +8,10 @@ import java.awt.HeadlessException;
 public abstract class ViewContainerAbstract extends JFrame {
     public ViewContainerAbstract(final String title) throws HeadlessException {
         super(title);
+        this.startAlterManager();
     }
 
     public abstract void changeView(View newView);
+
+    protected abstract void startAlterManager();
 }

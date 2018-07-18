@@ -1,7 +1,5 @@
 package com.pfeilda.ajb.gui.Views;
 
-import com.pfeilda.ajb.analysis.Assay;
-import com.pfeilda.ajb.analysis.BasicAssay;
 import com.pfeilda.ajb.equipment.SubstanceContainer;
 import com.pfeilda.ajb.gui.ViewContainerAbstract;
 
@@ -9,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 public class GameView extends View {
     private JTabbedPane assayTabs;
@@ -18,6 +17,9 @@ public class GameView extends View {
     public GameView(final ViewContainerAbstract parent, final SubstanceContainer substanceContainer) {
         super(parent, "Spiel");
         this.addAssay(substanceContainer);
+
+        //todo remove this line or replace with better
+        this.parent.setSize(new Dimension(500, 500));
     }
 
     @Override

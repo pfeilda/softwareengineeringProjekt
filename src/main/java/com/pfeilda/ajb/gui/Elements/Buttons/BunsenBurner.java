@@ -1,6 +1,5 @@
 package com.pfeilda.ajb.gui.Elements.Buttons;
 
-import com.pfeilda.ajb.analysis.Assay;
 import com.pfeilda.ajb.equipment.SubstanceContainer;
 
 import java.awt.Color;
@@ -15,11 +14,12 @@ public class BunsenBurner extends ExternalReagentButton {
     @Override
     protected void paintComponentIcon(final Graphics g) {
         g.setColor(Color.BLACK);
-        g.drawLine(20, 20, 20, 40);
-        g.drawLine(20, 40, 10, 50);
-        g.drawLine(10, 50, 35, 50);
-        g.drawLine(35, 50, 25, 40);
-        g.drawLine(25, 40, 25, 20);
+        //todo add offset
+        g.drawLine(20, 10, 20, 30);
+        g.drawLine(20, 30, 10, 40);
+        g.drawLine(10, 40, 35, 40);
+        g.drawLine(35, 40, 25, 30);
+        g.drawLine(25, 30, 25, 10);
     }
 
     @Override
