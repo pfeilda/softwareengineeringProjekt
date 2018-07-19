@@ -32,6 +32,7 @@ public class SpeedButtonGroup extends AbstractPartial {
     public void addActionButtons() {
         final SpeedButtonGroup speedButtonGroup = this;
         this.speedButtons.forEach(speedButtonGroup::add);
+        this.speedButtons.get(1).doClick();
     }
 
     public void update(final SpeedButton speedButtonPressed) {
