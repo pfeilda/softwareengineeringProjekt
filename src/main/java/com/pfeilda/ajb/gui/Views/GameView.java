@@ -1,6 +1,7 @@
 package com.pfeilda.ajb.gui.Views;
 
 import com.pfeilda.ajb.equipment.SubstanceContainer;
+import com.pfeilda.ajb.gui.Elements.Partials.SpeedButtonGroup;
 import com.pfeilda.ajb.gui.ViewContainerAbstract;
 
 import javax.swing.JLabel;
@@ -25,6 +26,7 @@ public class GameView extends View {
     @Override
     public void addComponents() {
         this.add(new JLabel("Proben:", SwingConstants.CENTER), BorderLayout.PAGE_START);
+        this.add(new SpeedButtonGroup(), BorderLayout.PAGE_END);
 
         this.assayTabs = new JTabbedPane();
 
