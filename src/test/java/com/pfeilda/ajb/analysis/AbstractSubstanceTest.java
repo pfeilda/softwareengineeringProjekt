@@ -11,6 +11,7 @@ public abstract class AbstractSubstanceTest implements TestInterface {
     protected final Element[] elements;
     protected final int volumePerElement = 10;
     protected final int defaultAddValue = 55;
+    protected final int toHighAddValue = 10000000;
 
     public AbstractSubstanceTest() {
         final AtomFactory atomFactory = AtomFactory.getInstance();
@@ -133,6 +134,42 @@ public abstract class AbstractSubstanceTest implements TestInterface {
                 expectedPH,
                 abstractSubstance.getPh()
         );
+    }
+
+    @Test
+    public void getInValidPressureInvalidatingSubstance() {
+        final AbstractSubstance abstractSubstance = this.generateInstanceOfTestClass();
+
+        abstractSubstance.add(new Pressure(this.toHighAddValue));
+
+        Assert.assertFalse(abstractSubstance.isValid());
+    }
+
+    @Test
+    public void getInValidTemperatureInvalidatingSubstance() {
+        final AbstractSubstance abstractSubstance = this.generateInstanceOfTestClass();
+
+        abstractSubstance.add(new Temperature(this.toHighAddValue));
+
+        Assert.assertFalse(abstractSubstance.isValid());
+    }
+
+    @Test
+    public void getInValidVolumeInvalidatingSubstance() {
+        final AbstractSubstance abstractSubstance = this.generateInstanceOfTestClass();
+
+        abstractSubstance.add(new Volume(this.toHighAddValue));
+
+        Assert.assertFalse(abstractSubstance.isValid());
+    }
+
+    @Test
+    public void getInValidPHInvalidatingSubstance() {
+        final AbstractSubstance abstractSubstance = this.generateInstanceOfTestClass();
+
+        abstractSubstance.add(new PH(this.toHighAddValue));
+
+        Assert.assertFalse(abstractSubstance.isValid());
     }
 
     @Test
