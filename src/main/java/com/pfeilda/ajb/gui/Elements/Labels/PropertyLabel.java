@@ -12,5 +12,7 @@ public abstract class PropertyLabel extends JLabel {
         this.setMaximumSize(new Dimension(60, 30));
     }
 
-    public abstract void change(Property property);
+    public void change(final Property property) {
+        this.setText(property.get() + "");
+    }
 }
