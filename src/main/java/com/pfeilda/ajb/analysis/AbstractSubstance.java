@@ -62,22 +62,30 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     @Override
     public void add(final Volume volume) {
         this.volume.add(volume);
-        this.isValid = this.volume.isValid();
+        if (!this.volume.isValid()) {
+            this.destroy();
+        }
     }
 
     public void add(final Temperature temperature) {
         this.temperature.add(temperature);
-        this.isValid = this.temperature.isValid();
+        if (!this.volume.isValid()) {
+            this.destroy();
+        }
     }
 
     public void add(final Pressure pressure) {
         this.pressure.add(pressure);
-        this.isValid = this.pressure.isValid();
+        if (!this.volume.isValid()) {
+            this.destroy();
+        }
     }
 
     public void add(final PH ph) {
         this.ph.add(ph);
-        this.isValid = this.ph.isValid();
+        if (!this.volume.isValid()) {
+            this.destroy();
+        }
     }
 
     public final Volume getVolume() {
