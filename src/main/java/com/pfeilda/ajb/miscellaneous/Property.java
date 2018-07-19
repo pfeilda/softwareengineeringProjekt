@@ -38,11 +38,11 @@ public abstract class Property {
     private void setValid() {
         if (
                 this.isValid &&
-                        this.minimum <= this.property &&
-                        this.maximum >= this.property
+                        (
+                                this.minimum > this.property ||
+                                        this.maximum < this.property
+                        )
                 )
-            this.isValid = true;
-        else
             this.isValid = false;
     }
 
