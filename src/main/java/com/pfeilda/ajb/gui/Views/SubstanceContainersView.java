@@ -4,6 +4,7 @@ import com.pfeilda.ajb.equipment.SubstanceContainer;
 import com.pfeilda.ajb.gui.Elements.Partials.SubstanceContainerTab;
 import com.pfeilda.ajb.gui.InitialInterface;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,5 +41,17 @@ public class SubstanceContainersView extends JTabbedPane implements InitialInter
     public final void add(final SubstanceContainer substanceContainer) {
         this.add(new SubstanceContainerTab(this, substanceContainer), String.valueOf(this.count));
         this.count++;
+    }
+
+    public final void remove(final SubstanceContainerTab substanceContainerTab) {
+        super.remove(substanceContainerTab);
+        if (this.getComponentCount() == 0) {
+            JOptionPane.showMessageDialog(
+                    substanceContainerTab,
+                    "Alle Proben wurden zerstört. \n Werten sie ihre Probe aus.",
+                    "Interaktionsfehler",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
     }
 }
