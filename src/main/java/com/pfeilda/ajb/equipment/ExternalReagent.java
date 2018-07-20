@@ -45,8 +45,17 @@ public abstract class ExternalReagent implements PartInterface, Observer {
 
     @Override
     public void update(final Observable o, final Object arg) {
+        final ExternalReagent externalReagent = this;
         this.substanceContainers.forEach(
-                (final SubstanceContainer substanceContainer) -> substanceContainer.alter(this.alterProperties)
+                (final SubstanceContainer substanceContainer) -> {
+                    if (substanceContainer.isAllowed()) {
+                        substanceContainer.alter(this.alterProperties);
+                        return;
+                    }
+
+                    final AlterManager alterManager = AlterManager.getInstance();
+                    alterManager.deleteObserver(externalReagent);
+                }
         );
     }
 

@@ -1,5 +1,8 @@
 package com.pfeilda.ajb.gui.Elements.Partials;
 
+import com.pfeilda.ajb.equipment.AlterManager;
+import com.pfeilda.ajb.equipment.ExternalReagent;
+import com.pfeilda.ajb.equipment.PartInterface;
 import com.pfeilda.ajb.equipment.SubstanceContainer;
 import com.pfeilda.ajb.gui.Views.SubstanceContainersView;
 
@@ -25,6 +28,7 @@ public class SubstanceContainerTab extends AbstractPartial {
                     "Interaktionsfehler",
                     JOptionPane.ERROR_MESSAGE
             );
+
             parent.remove(substanceContainerTab);
         });
 
