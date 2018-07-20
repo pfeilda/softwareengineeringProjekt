@@ -1,11 +1,11 @@
 package com.pfeilda.ajb.equipment;
 
 import com.pfeilda.ajb.analysis.AbstractSubstance;
-import com.pfeilda.ajb.gui.Elements.Partials.Properties;
 import com.pfeilda.ajb.miscellaneous.Property;
 import com.pfeilda.ajb.miscellaneous.Volume;
 
 import java.util.Set;
+import java.util.function.Consumer;
 
 public abstract class SubstanceContainer implements PartInterface, AlterInterface {
     private final Volume maxVolume;
@@ -52,6 +52,10 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
             this.abstractSubstance.addTo(abstractSubstance);
             this.validateVolume();
         }
+    }
+
+    public void addConsumerToSubstance(final Consumer consumer) {
+        this.abstractSubstance.setIsNonValid(consumer);
     }
 
     public boolean isAllowed() {

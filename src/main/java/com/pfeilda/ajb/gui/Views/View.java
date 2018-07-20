@@ -16,10 +16,14 @@ public abstract class View extends JPanel implements InitialInterface {
     public View(final ViewContainerAbstract parent) {
         this.parent = parent;
 
+        this.initial();
+
+        this.parent.changeView(this);
+    }
+
+    protected final void initial() {
         this.selectLayout();
         this.addComponents();
         this.addActionButtons();
-
-        this.parent.changeView(this);
     }
 }

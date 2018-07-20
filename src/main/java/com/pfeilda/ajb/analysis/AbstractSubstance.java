@@ -6,6 +6,7 @@ import com.pfeilda.ajb.particles.Element;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Consumer;
 
 /* PhysicalState Decorator */
 public abstract class AbstractSubstance implements AlterInterface, VolumeInterface {
@@ -16,6 +17,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     protected final Volume volumePerElement = new Volume(10);
     private boolean isValid = true;
     protected final Set<Element> elements = new HashSet<>();
+    private Consumer isNonValid;
 
     AbstractSubstance(final Set<AbstractSubstance> abstractSubstances) {
         for (final AbstractSubstance abstractSubstance :
@@ -114,10 +116,17 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
 
     public final void destroy() {
         this.isValid = false;
+        if (this.isNonValid != null) {
+            this.isNonValid.accept(this);
+        }
     }
 
     public final boolean isValid() {
         return this.isValid;
+    }
+
+    public void setIsNonValid(final Consumer isNonValid) {
+        this.isNonValid = isNonValid;
     }
 
     @Override
