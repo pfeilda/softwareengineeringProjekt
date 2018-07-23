@@ -1,7 +1,7 @@
 package com.pfeilda.ajb.gui.Elements.Partials;
 
 import com.pfeilda.ajb.equipment.SubstanceContainer;
-import com.pfeilda.ajb.gui.Elements.Buttons.AddElement;
+import com.pfeilda.ajb.gui.Elements.Buttons.AddElements;
 
 import java.awt.GridLayout;
 
@@ -26,6 +26,6 @@ public class AssayActionButtonsGroup extends AbstractPartial {
 
     @Override
     public void addActionButtons() {
-        this.add(new AddElement(this.substanceContainer));
+        this.add(new AddElements(this.substanceContainer));
     }
 }

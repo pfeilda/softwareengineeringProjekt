@@ -53,8 +53,8 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
         this.volume.add(addVolume);
     }
 
+    //todo improve test volume adding
     public final void addTo(final AbstractSubstance abstractSubstance) {
-        abstractSubstance.add(this.getVolume());
         for (final Element element :
                 this.elements) {
             abstractSubstance.add(element);

@@ -10,6 +10,7 @@ public abstract class Assay extends AbstractSubstance {
 
     public Assay(final Set<Element> analysisElements) {
         this.analysisElements = analysisElements;
+        this.elements.addAll(analysisElements);
         this.add(this.volumePerElement);
     }
 

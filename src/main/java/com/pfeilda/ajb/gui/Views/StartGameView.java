@@ -29,7 +29,9 @@ public class StartGameView extends View {
         final AnalyseElementFactory analyseElementFactory = AnalyseElementFactory.getInstance();
         final AnalyseElement[] analyseElements = analyseElementFactory.getAll();
 
-        Arrays.stream(analyseElements).forEach((AnalyseElement analyseElement) -> {
+        final JPanel elementsPanel = new JPanel();
+
+        Arrays.stream(analyseElements).forEach((analyseElement) -> {
             final JCheckBox elementCheckbox = new JCheckBox(analyseElement.get().getLabel());
             elementCheckbox.addActionListener((ActionEvent actionEvent) -> {
                 if (elementCheckbox.isSelected()) {
@@ -39,8 +41,10 @@ public class StartGameView extends View {
                 }
             });
 
-            this.add(elementCheckbox);
+            elementsPanel.add(elementCheckbox);
         });
+
+        this.add(elementsPanel);
     }
 
     @Override

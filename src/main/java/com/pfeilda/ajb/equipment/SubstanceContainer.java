@@ -47,9 +47,10 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
         substanceContainer.decant(substanceContainer);
     }
 
+    //todo improve tests
     public void add(final AbstractSubstance abstractSubstance) {
         if (this.isAllowed()) {
-            this.abstractSubstance.addTo(abstractSubstance);
+            abstractSubstance.addTo(this.abstractSubstance);
             this.validateVolume();
         }
     }
