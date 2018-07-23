@@ -1,7 +1,6 @@
 package com.pfeilda.ajb.gui.Elements.Dialog;
 
 import com.pfeilda.ajb.equipment.SubstanceContainer;
-import com.pfeilda.ajb.gui.Elements.Buttons.AddElement;
 import com.pfeilda.ajb.particles.AnalyseElement;
 import com.pfeilda.ajb.particles.AnalyseElementFactory;
 
@@ -18,7 +17,7 @@ public class AddElementDialog extends JDialog {
 
         final JPanel elementsPanel = new JPanel();
         Arrays.stream(analyseElements).forEach((analyseElement) -> {
-            elementsPanel.add(new AddElement(substanceContainer, analyseElement, this));
+            elementsPanel.add(new com.pfeilda.ajb.gui.Elements.Buttons.AddElement(substanceContainer, analyseElement, this));
         });
         this.add(elementsPanel);
 
@@ -27,7 +26,5 @@ public class AddElementDialog extends JDialog {
         this.setDefaultCloseOperation(
                 WindowConstants.DISPOSE_ON_CLOSE);
         this.setVisible(true);
-
-        System.out.println("testr");
     }
 }

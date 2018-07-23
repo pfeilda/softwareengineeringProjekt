@@ -3,17 +3,17 @@ package com.pfeilda.ajb.gui.Elements.Buttons;
 import com.pfeilda.ajb.equipment.SubstanceContainer;
 import com.pfeilda.ajb.gui.Views.SubstanceContainersView;
 
-import javax.swing.JButton;
 import java.awt.event.ActionEvent;
 
-public class DivideAssayButton extends JButton {
+public class DivideAssayButton extends AssayActionAbstract {
     private final SubstanceContainersView substanceContainersView;
-    private final SubstanceContainer substanceContainer;
-//    private final SubstanceContainerTab substanceContainerTab;
 
-    public DivideAssayButton(final SubstanceContainersView substanceContainersView, final SubstanceContainer substanceContainer) {
+    public DivideAssayButton(
+            final SubstanceContainer substanceContainer,
+            final SubstanceContainersView substanceContainersView
+    ) {
+        super(substanceContainer);
         this.substanceContainersView = substanceContainersView;
-        this.substanceContainer = substanceContainer;
 
         this.setText("Probe teilen");
 

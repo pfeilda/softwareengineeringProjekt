@@ -3,6 +3,7 @@ package com.pfeilda.ajb.gui.Elements.Partials;
 import com.pfeilda.ajb.equipment.SubstanceContainer;
 import com.pfeilda.ajb.gui.Elements.Buttons.AddElements;
 import com.pfeilda.ajb.gui.Elements.Buttons.DivideAssayButton;
+import com.pfeilda.ajb.gui.Elements.Buttons.OpenChangePHValueDialog;
 import com.pfeilda.ajb.gui.Views.SubstanceContainersView;
 
 import java.awt.GridLayout;
@@ -34,6 +35,7 @@ public class AssayActionButtonsGroup extends AbstractPartial {
     @Override
     public void addActionButtons() {
         this.add(new AddElements(this.substanceContainer));
-        this.add(new DivideAssayButton(this.substanceContainersView, this.substanceContainer));
+        this.add(new DivideAssayButton(this.substanceContainer, this.substanceContainersView));
+        this.add(new OpenChangePHValueDialog(this.substanceContainer));
     }
 }

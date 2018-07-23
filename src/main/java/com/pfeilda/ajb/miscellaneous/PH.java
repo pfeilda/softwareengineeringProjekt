@@ -4,8 +4,11 @@ import com.pfeilda.ajb.analysis.AbstractSubstance;
 import com.pfeilda.ajb.gui.Elements.Labels.PHLabel;
 
 public class PH extends Property {
+    public static final Double min = 0.;
+    public static final Double max = 14.;
+
     public PH(final double property) {
-        super(property, 0, 14);
+        super(property, PH.min, PH.max);
     }
 
     public PH() {
