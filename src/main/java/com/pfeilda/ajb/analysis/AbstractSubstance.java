@@ -17,7 +17,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     protected final Volume volumePerElement = new Volume(10);
     private boolean isValid = true;
     protected final Set<Element> elements = new HashSet<>();
-    private final Set<Element> deposit = new HashSet<>();
+    protected final Set<Element> deposit = new HashSet<>();
     private Consumer isNonValid;
 
     AbstractSubstance(final Set<AbstractSubstance> abstractSubstances) {
@@ -110,6 +110,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     private void generateDeposit(final Element element) {
         if (this.elements.contains(element)) {
             this.deposit.add(element);
+            this.elements.remove(element);
         }
     }
 
@@ -155,8 +156,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
         if (this.deposit.isEmpty()) {
             return this.divideWithOutDeposit();
         }
-//        return this.divideWithDeposit();
-        return null;
+        return this.divideWithDeposit();
     }
 
     protected abstract AbstractSubstance divideWithOutDeposit();
@@ -185,8 +185,4 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     }
 
     protected abstract AbstractSubstance divideWithDeposit();
-
-    protected AbstractSubstance divideWithDeposit(final Class clazz) {
-        return null;
-    }
 }
