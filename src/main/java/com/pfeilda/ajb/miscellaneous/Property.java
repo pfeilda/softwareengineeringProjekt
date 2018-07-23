@@ -3,6 +3,7 @@ package com.pfeilda.ajb.miscellaneous;
 import com.pfeilda.ajb.analysis.AbstractSubstance;
 import com.pfeilda.ajb.gui.Elements.Labels.PropertyLabel;
 
+//todo add in help section that there is no possibility to get under minimum
 public abstract class Property {
     protected PropertyLabel propertyLabel;
     private double property;

@@ -1,7 +1,7 @@
 package com.pfeilda.ajb.gui.Views;
 
 import com.pfeilda.ajb.equipment.SubstanceContainer;
-import com.pfeilda.ajb.gui.Elements.Partials.SpeedButtonGroup;
+import com.pfeilda.ajb.gui.Elements.Partials.GlobalGameActionButtonGroup;
 import com.pfeilda.ajb.gui.ViewContainerAbstract;
 
 import javax.swing.JLabel;
@@ -17,7 +17,7 @@ public class GameView extends View {
         super(parent, "Spiel");
         this.urSubstanceContainer = substanceContainer;
 
-        this.addSubstanceContainers();
+        this.executeAfterInitial();
 
         //todo remove this line or replace with better
         this.parent.setSize(new Dimension(500, 500));
@@ -26,11 +26,11 @@ public class GameView extends View {
     @Override
     public void addComponents() {
         this.add(new JLabel("Proben:", SwingConstants.CENTER), BorderLayout.PAGE_START);
-        this.add(new SpeedButtonGroup(), BorderLayout.PAGE_END);
     }
 
-    private void addSubstanceContainers() {
+    private void executeAfterInitial() {
         this.add(new SubstanceContainersView(this, this.urSubstanceContainer));
+        this.add(new GlobalGameActionButtonGroup(this.urSubstanceContainer), BorderLayout.PAGE_END);
     }
 
     @Override
