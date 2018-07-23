@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class BasicAssay extends Assay implements AnalysisAssayInterface {
+    /* todo move in baseclass */
     private final Set<Element> markedAsFound;
 
     public BasicAssay(final Set<Element> analaysisElements) {

@@ -48,6 +48,6 @@ public class SubstanceContainerTab extends AbstractPartial {
 
     @Override
     public void addActionButtons() {
-
+        this.add(new AssayActionButtonsGroup(this.substanceContainer), BorderLayout.PAGE_END);
     }
 }
