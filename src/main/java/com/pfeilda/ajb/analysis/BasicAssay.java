@@ -5,15 +5,18 @@ import com.pfeilda.ajb.miscellaneous.HighScoreInterface;
 import com.pfeilda.ajb.particles.AnalysisInterface;
 import com.pfeilda.ajb.particles.Element;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 public class BasicAssay extends Assay implements AnalysisAssayInterface {
     /* todo move in baseclass */
     private final Set<Element> markedAsFound;
+    private final Date startDate;
 
     public BasicAssay(final Set<Element> analaysisElements) {
         super(analaysisElements);
+        this.startDate = new Date();
         this.markedAsFound = new HashSet<>();
     }
 
@@ -63,8 +66,7 @@ public class BasicAssay extends Assay implements AnalysisAssayInterface {
         basicAssay.addAll(this.elements);
         return this.divideWithOutDeposit(basicAssay);
     }
-
-
+    
     @Override
     protected AbstractSubstance divideWithDeposit() {
         final BasicAssay basicAssay = new BasicAssay(this.analysisElements);
