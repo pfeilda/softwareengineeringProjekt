@@ -9,7 +9,7 @@ import java.util.function.Consumer;
 
 public abstract class SubstanceContainer implements PartInterface, AlterInterface {
     private final Volume maxVolume;
-    private final AbstractSubstance abstractSubstance;
+    protected final AbstractSubstance abstractSubstance;
     private boolean isCleared = false;
 
     public SubstanceContainer(final AbstractSubstance abstractSubstance, final Volume maxVolume) {
@@ -81,4 +81,6 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
     public Set<Property> getPropertiesOfSubstances() {
         return this.abstractSubstance.getProperties();
     }
+
+    public abstract SubstanceContainer divide();
 }

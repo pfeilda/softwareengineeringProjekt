@@ -17,6 +17,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     protected final Volume volumePerElement = new Volume(10);
     private boolean isValid = true;
     protected final Set<Element> elements = new HashSet<>();
+    private final Set<Element> deposit = new HashSet<>();
     private Consumer isNonValid;
 
     AbstractSubstance(final Set<AbstractSubstance> abstractSubstances) {
@@ -106,8 +107,10 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
         return this.ph;
     }
 
-    private final void generateDeposit(final Element element) {
-
+    private void generateDeposit(final Element element) {
+        if (this.elements.contains(element)) {
+            this.deposit.add(element);
+        }
     }
 
     private final void generateDeposit(final Set<Element> elements) {
@@ -135,5 +138,55 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
                 properties) {
             property.addTo(this);
         }
+    }
+
+    private void setPropertiesToNull() {
+        this.add(new Volume(-this.getVolume().get()));
+        this.add(new Pressure(-this.getPressure().get()));
+        this.add(new PH(-this.getPh().get()));
+        this.add(new Temperature(-this.getTemperature().get()));
+    }
+
+    public AbstractSubstance divide() {
+        if (this.getVolume().get() < 2) {
+            return null;
+        }
+
+        if (this.deposit.isEmpty()) {
+            return this.divideWithOutDeposit();
+        }
+//        return this.divideWithDeposit();
+        return null;
+    }
+
+    protected abstract AbstractSubstance divideWithOutDeposit();
+
+    //    protected AbstractSubstance divideWithOutDeposit(final Class clazz) {
+    protected AbstractSubstance divideWithOutDeposit(final AbstractSubstance newReagent) {
+        try {
+//            final Constructor<?> ctor = clazz.getConstructor(new Element[0].getClass());
+//            final AbstractSubstance newReagent = (AbstractSubstance) ctor.newInstance(this.elements);
+            newReagent.setPropertiesToNull();
+
+            final double reducedVolumeValue = this.getVolume().get() / 2;
+            this.add(new Volume(-reducedVolumeValue));
+
+            newReagent.add(new Volume(reducedVolumeValue));
+            newReagent.add(this.getPressure());
+            newReagent.add(this.getTemperature());
+            newReagent.add(this.getPh());
+
+            return newReagent;
+        } catch (final Exception e) {
+            e.printStackTrace();
+            //todo log
+        }
+        return null;
+    }
+
+    protected abstract AbstractSubstance divideWithDeposit();
+
+    protected AbstractSubstance divideWithDeposit(final Class clazz) {
+        return null;
     }
 }

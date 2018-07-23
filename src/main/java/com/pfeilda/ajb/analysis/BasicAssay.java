@@ -56,4 +56,18 @@ public class BasicAssay extends Assay implements AnalysisAssayInterface {
     public boolean isDisruptiveElementPresent(final Set<Element> elements) {
         return this.elements.containsAll(elements);
     }
+
+    @Override
+    protected AbstractSubstance divideWithOutDeposit() {
+        final BasicAssay basicAssay = new BasicAssay(this.analysisElements);
+        basicAssay.addAll(this.elements);
+        return this.divideWithOutDeposit(basicAssay);
+    }
+
+
+    @Override
+    protected AbstractSubstance divideWithDeposit() {
+//        return this.divideWithDeposit(BasicAssay.class);
+        return this.divideWithDeposit(BasicAssay.class);
+    }
 }

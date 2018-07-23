@@ -79,4 +79,10 @@ public abstract class SubstanceContainerTest implements TestInterface {
         final SubstanceContainer substanceContainer = this.generateInstanceOfTestClass();
         Assert.assertEquals(this.maxVolume, substanceContainer.getMaxVolume());
     }
+
+//    @Test
+//    public void divideWithEmptyContainer() {
+//        final SubstanceContainer substanceContainerOld = this.generateInstanceOfTestClass();
+//        final SubstanceContainer substanceContainerNew = substanceContainerOld.divide();
+//    }
 }

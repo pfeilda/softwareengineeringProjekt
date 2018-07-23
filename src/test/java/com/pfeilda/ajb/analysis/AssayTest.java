@@ -18,4 +18,16 @@ public abstract class AssayTest extends AbstractSubstance implements TestInterfa
         final Assay assayWithSingleElement = this.generateAssayWithSingleElement(this.singleElement);
         Assert.assertTrue(assayWithSingleElement.isElementPresent(this.singleElement));
     }
+
+    @Override
+    //todo change
+    protected AbstractSubstance divideWithOutDeposit() {
+        return null;
+    }
+
+    @Override
+    //todo change
+    protected AbstractSubstance divideWithDeposit() {
+        return null;
+    }
 }

@@ -9,4 +9,13 @@ public class ErlenmeyerFlask extends SubstanceContainer {
     public ErlenmeyerFlask(final AbstractSubstance abstractSubstance) {
         super(abstractSubstance, new Volume(ErlenmeyerFlask.maxVolume));
     }
+
+    @Override
+    public ErlenmeyerFlask divide() {
+        final AbstractSubstance abstractSubstance = this.abstractSubstance.divide();
+        if (abstractSubstance == null) {
+            return null;
+        }
+        return new ErlenmeyerFlask(abstractSubstance);
+    }
 }

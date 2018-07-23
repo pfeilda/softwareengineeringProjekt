@@ -9,4 +9,13 @@ public class Beaker extends SubstanceContainer {
     public Beaker(final AbstractSubstance abstractSubstance) {
         super(abstractSubstance, new Volume(Beaker.maxVolume));
     }
+
+    @Override
+    public Beaker divide() {
+        final AbstractSubstance abstractSubstance = this.abstractSubstance.divide();
+        if (abstractSubstance == null) {
+            return null;
+        }
+        return new Beaker(abstractSubstance);
+    }
 }

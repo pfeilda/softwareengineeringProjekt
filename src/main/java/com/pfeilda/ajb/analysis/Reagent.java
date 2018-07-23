@@ -21,4 +21,16 @@ public class Reagent<Reagent extends AbstractSubstance> extends AbstractSubstanc
         super(abstractSubstances);
         this.addAll(new HashSet<>(Arrays.asList(elements)));
     }
+
+    @Override
+    protected AbstractSubstance divideWithOutDeposit() {
+//        return this.divideWithOutDeposit(BasicAssay.class);
+        return this.divideWithOutDeposit(new com.pfeilda.ajb.analysis.Reagent(this.elements));
+    }
+
+
+    @Override
+    protected AbstractSubstance divideWithDeposit() {
+        return this.divideWithDeposit(BasicAssay.class);
+    }
 }
