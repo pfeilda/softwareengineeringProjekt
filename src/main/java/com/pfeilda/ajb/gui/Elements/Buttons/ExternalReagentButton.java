@@ -10,6 +10,7 @@ import java.awt.*;
 public abstract class ExternalReagentButton extends JButton {
     private Color color1;
     private Color color2;
+    protected Color drawColor = Color.WHITE;
     private final AlterManager alterManager;
     protected boolean isActive = true;
     protected SubstanceContainer abstractSubstance;

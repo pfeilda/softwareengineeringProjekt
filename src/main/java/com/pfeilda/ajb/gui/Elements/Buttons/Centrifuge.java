@@ -2,7 +2,6 @@ package com.pfeilda.ajb.gui.Elements.Buttons;
 
 import com.pfeilda.ajb.equipment.SubstanceContainer;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 
@@ -13,7 +12,7 @@ public class Centrifuge extends ExternalReagentButton {
 
     @Override
     protected void paintComponentIcon(final Graphics g) {
-        g.setColor(Color.YELLOW);
+        g.setColor(this.drawColor);
         //todo add offset
         g.drawLine(20, 10, 20, 30);
         g.drawLine(20, 30, 10, 40);
