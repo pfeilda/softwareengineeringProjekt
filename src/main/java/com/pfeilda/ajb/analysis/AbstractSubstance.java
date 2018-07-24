@@ -16,7 +16,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     private final Temperature temperature = new Temperature(0);
     private final Pressure pressure = new Pressure(0);
     private final PH ph = new PH();
-    private final Separation seperation = new Separation(1);
+    private final Separation separation = new Separation(1);
     protected final Volume volumePerElement = new Volume(10);
     private boolean isValid = true;
     protected final Set<Element> elements = new HashSet<>();
@@ -41,7 +41,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
         properties.add(this.temperature);
         properties.add(this.ph);
         properties.add(this.pressure);
-        properties.add(this.seperation);
+        properties.add(this.separation);
 
         return properties;
     }
@@ -98,8 +98,8 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
 
 
     public void add(final Separation separation) {
-        this.seperation.add(separation);
-        if (!this.seperation.isValid()) {
+        this.separation.add(separation);
+        if (!this.separation.isValid()) {
             this.destroy();
         }
     }
@@ -120,11 +120,11 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
         return this.ph;
     }
 
-    private void generateDeposit(final Element element) {
+    protected void generateDeposit(final Element element) {
         if (this.elements.contains(element)) {
             this.deposit.add(element);
             this.elements.remove(element);
-            this.seperation.add(new Separation(-this.seperation.get()));
+            this.separation.add(new Separation(-this.separation.get()));
         }
     }
 
