@@ -18,7 +18,7 @@ public class SubstanceContainerTab extends AbstractPartial {
         this.substanceContainer = substanceContainer;
 
         final SubstanceContainerTab substanceContainerTab = this;
-        this.substanceContainer.addConsumerToSubstance((Object abstractSubstance) -> {
+        this.substanceContainer.addConsumerToSubstance(abstractSubstance -> {
             JOptionPane.showMessageDialog(
                     substanceContainerTab,
                     "Probe wurde zerstört.",
