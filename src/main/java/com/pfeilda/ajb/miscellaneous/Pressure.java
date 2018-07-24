@@ -23,4 +23,19 @@ public class Pressure extends Property {
         this.changedProperty();
         return (PressureLabel) this.propertyLabel;
     }
+
+    @Override
+    //todo write test
+    public void add(final Property property) {
+        if (property.get() >= 0) {
+            super.add(property);
+            return;
+        }
+        final double difference = -(this.get() - this.minimum);
+        if (property.get() > difference) {
+            super.add(property);
+            return;
+        }
+        super.add(new Pressure(difference));
+    }
 }

@@ -8,7 +8,7 @@ public abstract class Property {
     protected PropertyLabel propertyLabel;
     private double property;
     private boolean isValid = true;
-    private final double minimum;
+    protected final double minimum;
     protected final double maximum;
 
     public Property(final double property, final double minimum, final double maximum) {

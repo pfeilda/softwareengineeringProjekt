@@ -24,7 +24,7 @@ public class AssayActionButtonsGroup extends AbstractPartial {
 
     @Override
     public void selectLayout() {
-        this.setLayout(new GridLayout(1, 3));
+        this.setLayout(new GridLayout(2, 2));
     }
 
     @Override
@@ -34,8 +34,9 @@ public class AssayActionButtonsGroup extends AbstractPartial {
 
     @Override
     public void addActionButtons() {
-        this.add(new AddElements(this.substanceContainer));
         this.add(new DivideAssayButton(this.substanceContainer, this.substanceContainersView));
+        this.add(new OpenChangePHValueDialog(this.substanceContainer));
+        this.add(new AddElements(this.substanceContainer));
         this.add(new OpenChangePHValueDialog(this.substanceContainer));
     }
 }
