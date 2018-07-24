@@ -2,6 +2,8 @@ package com.pfeilda.ajb.analysis;
 
 import com.pfeilda.ajb.equipment.AlterInterface;
 import com.pfeilda.ajb.miscellaneous.*;
+import com.pfeilda.ajb.particles.AnalyseElement;
+import com.pfeilda.ajb.particles.AnalyseElementFactory;
 import com.pfeilda.ajb.particles.Element;
 
 import java.util.ArrayList;
@@ -122,10 +124,18 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     }
 
     protected void generateDeposit(final Element element) {
-        if (this.elements.contains(element)) {
-            this.deposit.add(element);
-            this.elements.remove(element);
-            this.separation.add(new Separation(-this.separation.get()));
+        final AnalyseElementFactory analyseElementFactory = AnalyseElementFactory.getInstance();
+
+        final AnalyseElement analyseElement = analyseElementFactory.get(element);
+        if (analyseElement != null) {
+            final Set<Element> containingElements = new HashSet<>(this.elements);
+            containingElements.forEach(containingElement -> {
+                if (analyseElement.isDeposite(containingElement)) {
+                    this.deposit.add(containingElement);
+                    this.elements.remove(containingElement);
+                    this.separation.add(new Separation(-this.separation.get()));
+                }
+            });
         }
     }
 
@@ -164,11 +174,10 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     }
 
     public AbstractSubstance divide() {
-        if (this.getVolume().get() < 2) {
-            return null;
-        }
-
         if (this.deposit.isEmpty()) {
+            if (this.getVolume().get() < 2) {
+                return null;
+            }
             return this.divideWithOutDeposit();
         }
         return this.divideWithDeposit();
@@ -199,7 +208,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
         return null;
     }
 
-    protected abstract AbstractSubstance divideWithDeposit();
+    public abstract AbstractSubstance divideWithDeposit();
 
     public boolean isEvaporating() {
         return this.temperature.get() >= this.evaportateTemperature.get();

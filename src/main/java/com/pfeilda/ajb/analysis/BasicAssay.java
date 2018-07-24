@@ -112,7 +112,7 @@ public class BasicAssay extends Assay implements AnalysisAssayInterface {
     }
 
     @Override
-    protected AbstractSubstance divideWithDeposit() {
+    public AbstractSubstance divideWithDeposit() {
         final BasicAssay basicAssay = new BasicAssay(this.analysisElements);
         basicAssay.addAll(this.deposit);
         this.deposit.clear();

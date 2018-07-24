@@ -18,4 +18,13 @@ public class ErlenmeyerFlask extends SubstanceContainer {
         }
         return new ErlenmeyerFlask(abstractSubstance);
     }
+
+    @Override
+    public SubstanceContainer divideWithDeposit() {
+        final AbstractSubstance abstractSubstance = this.abstractSubstance.divideWithDeposit();
+        if (abstractSubstance == null) {
+            return null;
+        }
+        return new ErlenmeyerFlask(abstractSubstance);
+    }
 }

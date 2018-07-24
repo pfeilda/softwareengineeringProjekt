@@ -27,7 +27,7 @@ public abstract class AssayTest extends AbstractSubstance implements TestInterfa
 
     @Override
     //todo change
-    protected AbstractSubstance divideWithDeposit() {
+    public AbstractSubstance divideWithDeposit() {
         return null;
     }
 }

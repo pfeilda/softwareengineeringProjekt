@@ -30,7 +30,7 @@ public class Reagent<Reagent extends AbstractSubstance> extends AbstractSubstanc
 
 
     @Override
-    protected AbstractSubstance divideWithDeposit() {
+    public AbstractSubstance divideWithDeposit() {
         final com.pfeilda.ajb.analysis.Reagent newReagent = new com.pfeilda.ajb.analysis.Reagent(this.deposit);
         this.deposit.clear();
         return this.divideWithOutDeposit(newReagent);

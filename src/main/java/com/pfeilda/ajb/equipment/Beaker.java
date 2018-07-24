@@ -18,4 +18,13 @@ public class Beaker extends SubstanceContainer {
         }
         return new Beaker(abstractSubstance);
     }
+
+    @Override
+    public SubstanceContainer divideWithDeposit() {
+        final AbstractSubstance abstractSubstance = this.abstractSubstance.divideWithDeposit();
+        if (abstractSubstance == null) {
+            return null;
+        }
+        return new Beaker(abstractSubstance);
+    }
 }

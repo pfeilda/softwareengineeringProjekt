@@ -94,6 +94,8 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
 
     public abstract SubstanceContainer divide();
 
+    public abstract SubstanceContainer divideWithDeposit();
+
     public HighScore evaluate(final HighScoreInterface highScoreInterface) {
         return ((AnalysisAssayInterface) this.abstractSubstance).getScore(highScoreInterface);
     }
