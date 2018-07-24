@@ -20,6 +20,12 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
         this.abstractSubstance = abstractSubstance;
         this.maxVolume = maxVolume;
         this.validateVolume();
+
+        final DefaultAlterProcess defaultAlterProcess = new DefaultAlterProcess();
+        defaultAlterProcess.add(this);
+
+        final AlterManager alterManager = AlterManager.getInstance();
+        alterManager.addObserver(defaultAlterProcess);
     }
 
     @Override

@@ -23,4 +23,18 @@ public class Temperature extends Property {
         this.changedProperty();
         return (TemperatureLabel) this.propertyLabel;
     }
+
+    @Override
+    public void add(final Property property) {
+        if (property.get() >= 0) {
+            super.add(property);
+            return;
+        }
+        final double difference = -(this.get() - this.minimum);
+        if (property.get() > difference) {
+            super.add(property);
+            return;
+        }
+        super.add(new Temperature(difference));
+    }
 }

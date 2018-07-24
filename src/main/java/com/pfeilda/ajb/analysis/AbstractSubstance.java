@@ -22,6 +22,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     protected final Set<Element> elements = new HashSet<>();
     protected final Set<Element> deposit = new HashSet<>();
     private Consumer isNonValid;
+    private final Temperature evaportateTemperature = new Temperature(96.);
 
     AbstractSubstance(final Set<AbstractSubstance> abstractSubstances) {
         for (final AbstractSubstance abstractSubstance :
@@ -199,4 +200,8 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     }
 
     protected abstract AbstractSubstance divideWithDeposit();
+
+    public boolean isEvaporating() {
+        return this.temperature.get() >= this.evaportateTemperature.get();
+    }
 }

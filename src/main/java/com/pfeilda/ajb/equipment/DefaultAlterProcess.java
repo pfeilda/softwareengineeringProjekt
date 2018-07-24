@@ -1,5 +1,6 @@
 package com.pfeilda.ajb.equipment;
 
+import com.pfeilda.ajb.miscellaneous.Evaporate;
 import com.pfeilda.ajb.miscellaneous.Pressure;
 import com.pfeilda.ajb.miscellaneous.Property;
 import com.pfeilda.ajb.miscellaneous.Temperature;
@@ -18,6 +19,7 @@ public class DefaultAlterProcess extends ExternalReagent {
         this.alterProperties = new Property[]{
                 new Pressure(-.01),
                 new Temperature(-.01),
+                new Evaporate(-0.0005),
         };
     }
 }
