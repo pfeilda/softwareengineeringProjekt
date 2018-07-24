@@ -1,6 +1,10 @@
 package com.pfeilda.ajb.miscellaneous;
 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import java.awt.GridLayout;
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,6 +24,7 @@ public class HighScoreUtility implements HighScoreUtilityInterface {
         final HighScore[] highScoreArray = fileUtility.readModelFromFile(this.highScoreFile, HighScore[].class);
 
         this.highScores = new ArrayList<>(Arrays.asList(highScoreArray));
+        this.sort();
     }
 
     public static HighScoreUtility getInstance() {
@@ -38,6 +43,7 @@ public class HighScoreUtility implements HighScoreUtilityInterface {
     @Override
     public final void add(final HighScore highScore) {
         this.highScores.add(highScore);
+        this.sort();
     }
 
     @Override
@@ -47,5 +53,34 @@ public class HighScoreUtility implements HighScoreUtilityInterface {
                 this.highScores,
                 this.highScoreFile
         );
+    }
+
+    @Override
+    public void sort() {
+        this.highScores.sort((first, last) -> {
+            if (first.getScore() > last.getScore()) {
+                return -1;
+            }
+            if (first.getScore() < last.getScore()) {
+                return 1;
+            }
+            return first.getDate().compareTo(last.getDate());
+        });
+    }
+
+    @Override
+    public JPanel getPanel() {
+        final JPanel jPanel = new JPanel();
+        jPanel.setLayout(new GridLayout(0, 3));
+
+        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+
+        this.highScores.forEach(highScore -> {
+            jPanel.add(new JLabel(highScore.getUsername()));
+            jPanel.add(new JLabel(simpleDateFormat.format(highScore.getDate().getTime())));
+            jPanel.add(new JLabel(highScore.getScore() + ""));
+        });
+
+        return jPanel;
     }
 }

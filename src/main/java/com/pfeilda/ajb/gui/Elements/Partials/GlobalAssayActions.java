@@ -2,6 +2,7 @@ package com.pfeilda.ajb.gui.Elements.Partials;
 
 import com.pfeilda.ajb.equipment.SubstanceContainer;
 import com.pfeilda.ajb.gui.Elements.Buttons.EvaluateButton;
+import com.pfeilda.ajb.gui.ViewContainerAbstract;
 import com.pfeilda.ajb.particles.AnalyseElement;
 import com.pfeilda.ajb.particles.AnalyseElementFactory;
 
@@ -12,8 +13,10 @@ import java.util.Arrays;
 
 public class GlobalAssayActions extends AbstractPartial {
     private final SubstanceContainer substanceContainer;
+    private final ViewContainerAbstract viewContainerAbstract;
 
-    public GlobalAssayActions(final SubstanceContainer substanceContainer) {
+    public GlobalAssayActions(final ViewContainerAbstract viewContainerAbstract, final SubstanceContainer substanceContainer) {
+        this.viewContainerAbstract = viewContainerAbstract;
         this.substanceContainer = substanceContainer;
 
         this.initial();
@@ -31,7 +34,7 @@ public class GlobalAssayActions extends AbstractPartial {
 
     @Override
     public void addActionButtons() {
-        this.add(new EvaluateButton(this.substanceContainer));
+        this.add(new EvaluateButton(this.viewContainerAbstract, this.substanceContainer));
     }
 
     private void addElementPanel() {

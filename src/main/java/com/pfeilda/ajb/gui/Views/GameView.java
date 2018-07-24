@@ -30,7 +30,7 @@ public class GameView extends View {
 
     private void executeAfterInitial() {
         this.add(new SubstanceContainersView(this, this.urSubstanceContainer));
-        this.add(new GlobalGameActionButtonGroup(this.urSubstanceContainer), BorderLayout.PAGE_END);
+        this.add(new GlobalGameActionButtonGroup(this.parent, this.urSubstanceContainer), BorderLayout.PAGE_END);
     }
 
     @Override
