@@ -6,8 +6,8 @@ import org.junit.Test;
 //todo refactor subclasses
 public abstract class PropertyTest implements TestInterface {
     private final double defaultValue;
-    private final double minimum;
-    private final double maximum;
+    protected final double minimum;
+    protected final double maximum;
     protected final double delta = 0;
 
     public PropertyTest(final double defaultValue, final double minimum, final double maximum) {
@@ -60,7 +60,7 @@ public abstract class PropertyTest implements TestInterface {
     }
 
     @Test
-    public void failureAddUnderMinimum() {
+    public void addUnderMinimum() {
         final Property property = this.generateInstanceOfTestClass(this.minimum);
         final Property addProperty = this.generateInstanceOfTestClass(-1 - this.minimum);
         property.add(addProperty);

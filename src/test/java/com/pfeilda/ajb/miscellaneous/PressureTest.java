@@ -88,4 +88,13 @@ public class PressureTest extends PropertyTest {
         Assert.assertNotNull(pressure.getPropertyLabel());
         Assert.assertTrue(pressure.getPropertyLabel() instanceof PressureLabel);
     }
+
+    @Override
+    public void addUnderMinimum() {
+        final Property property = this.generateInstanceOfTestClass(this.minimum);
+        final Property addProperty = this.generateInstanceOfTestClass(-1 - this.minimum);
+        property.add(addProperty);
+
+        Assert.assertTrue(property.isValid());
+    }
 }
