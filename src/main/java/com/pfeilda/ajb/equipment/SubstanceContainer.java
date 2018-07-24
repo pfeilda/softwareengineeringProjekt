@@ -8,7 +8,7 @@ import com.pfeilda.ajb.miscellaneous.Property;
 import com.pfeilda.ajb.miscellaneous.Volume;
 import com.pfeilda.ajb.particles.Element;
 
-import java.util.Set;
+import java.util.List;
 import java.util.function.Consumer;
 
 public abstract class SubstanceContainer implements PartInterface, AlterInterface {
@@ -82,7 +82,7 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
     }
 
     //todo write test for
-    public Set<Property> getPropertiesOfSubstances() {
+    public List<Property> getPropertiesOfSubstances() {
         return this.abstractSubstance.getProperties();
     }
 

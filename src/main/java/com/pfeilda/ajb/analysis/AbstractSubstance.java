@@ -4,7 +4,9 @@ import com.pfeilda.ajb.equipment.AlterInterface;
 import com.pfeilda.ajb.miscellaneous.*;
 import com.pfeilda.ajb.particles.Element;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 
@@ -14,6 +16,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     private final Temperature temperature = new Temperature(0);
     private final Pressure pressure = new Pressure(0);
     private final PH ph = new PH();
+    private final Separation seperation = new Separation(1);
     protected final Volume volumePerElement = new Volume(10);
     private boolean isValid = true;
     protected final Set<Element> elements = new HashSet<>();
@@ -31,19 +34,21 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     }
 
     //todo refactor + test
-    public final Set<Property> getProperties() {
-        final Set<Property> properties = new HashSet<>();
+    public final List<Property> getProperties() {
+        final List<Property> properties = new ArrayList<>();
 
         properties.add(this.volume);
         properties.add(this.temperature);
         properties.add(this.ph);
         properties.add(this.pressure);
+        properties.add(this.seperation);
 
         return properties;
     }
 
     public final void add(final Element element) {
         this.elements.add(element);
+        this.generateDeposit(element);
         this.add(this.volumePerElement);
     }
 
@@ -91,6 +96,14 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
         }
     }
 
+
+    public void add(final Separation separation) {
+        this.seperation.add(separation);
+        if (!this.seperation.isValid()) {
+            this.destroy();
+        }
+    }
+
     public final Volume getVolume() {
         return this.volume;
     }
@@ -111,6 +124,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
         if (this.elements.contains(element)) {
             this.deposit.add(element);
             this.elements.remove(element);
+            this.seperation.add(new Separation(-this.seperation.get()));
         }
     }
 

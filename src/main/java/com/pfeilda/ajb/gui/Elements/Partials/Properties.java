@@ -3,12 +3,12 @@ package com.pfeilda.ajb.gui.Elements.Partials;
 import com.pfeilda.ajb.miscellaneous.Property;
 
 import javax.swing.BoxLayout;
-import java.util.Set;
+import java.util.List;
 
 public class Properties extends AbstractPartial {
-    private final Set<Property> properties;
+    private final List<Property> properties;
 
-    public Properties(final Set<Property> properties) {
+    public Properties(final List<Property> properties) {
         this.properties = properties;
         this.initial();
     }

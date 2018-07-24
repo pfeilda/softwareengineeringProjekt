@@ -31,7 +31,9 @@
       "molecules": []
     },
     "depositElements": {
-      "atoms": [],
+      "atoms": [
+        58
+      ],
       "ions": [],
       "molecules": []
     },
