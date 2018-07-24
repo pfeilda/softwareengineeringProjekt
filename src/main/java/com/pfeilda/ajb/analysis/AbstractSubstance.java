@@ -174,7 +174,7 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     }
 
     public AbstractSubstance divide() {
-        if (this.deposit.isEmpty()) {
+        if (this.separation.get() < 1 && this.deposit.isEmpty()) {
             if (this.getVolume().get() < 2) {
                 return null;
             }
