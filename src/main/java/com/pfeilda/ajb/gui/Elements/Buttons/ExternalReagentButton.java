@@ -15,8 +15,8 @@ public abstract class ExternalReagentButton extends JButton {
     protected SubstanceContainer abstractSubstance;
     protected ExternalReagent externalReagent;
 
-    protected ExternalReagentButton(final SubstanceContainer abstractSubstance, final ExternalReagent externalReagent) {
-        this.abstractSubstance = abstractSubstance;
+    protected ExternalReagentButton(final SubstanceContainer substanceContainer, final ExternalReagent externalReagent) {
+        this.abstractSubstance = substanceContainer;
 
         this.externalReagent = externalReagent;
         this.externalReagent.add(this.abstractSubstance);
