@@ -1,8 +1,12 @@
 package com.pfeilda.ajb.equipment;
 
 import com.pfeilda.ajb.analysis.AbstractSubstance;
+import com.pfeilda.ajb.analysis.AnalysisAssayInterface;
+import com.pfeilda.ajb.miscellaneous.HighScore;
+import com.pfeilda.ajb.miscellaneous.HighScoreInterface;
 import com.pfeilda.ajb.miscellaneous.Property;
 import com.pfeilda.ajb.miscellaneous.Volume;
+import com.pfeilda.ajb.particles.Element;
 
 import java.util.Set;
 import java.util.function.Consumer;
@@ -83,4 +87,16 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
     }
 
     public abstract SubstanceContainer divide();
+
+    public HighScore evaluate(final HighScoreInterface highScoreInterface) {
+        return ((AnalysisAssayInterface) this.abstractSubstance).getScore(highScoreInterface);
+    }
+
+    public void markAsFound(final Element element) {
+        ((AnalysisAssayInterface) this.abstractSubstance).markAsFound(element);
+    }
+
+    public void unmarkAsFound(final Element element) {
+        ((AnalysisAssayInterface) this.abstractSubstance).unmarkAsFound(element);
+    }
 }

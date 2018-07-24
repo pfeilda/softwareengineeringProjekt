@@ -14,6 +14,50 @@ public class BasicAssay extends Assay implements AnalysisAssayInterface {
     private final Set<Element> markedAsFound;
     private final Date startDate;
 
+    //todo test
+    public class AssayAccessor {
+        private final BasicAssay assay;
+        private final Date evaluateDate;
+
+        private AssayAccessor(final BasicAssay basicAssay) {
+            this.assay = basicAssay;
+            this.evaluateDate = new Date();
+        }
+
+        public long getAssayDuration() {
+            return this.evaluateDate.getTime() - this.assay.startDate.getTime();
+        }
+
+        public boolean evaluate() {
+            return this.assay.evaluate();
+        }
+
+        public int getElementsFoundCorrect() {
+            return this.countOccurences(this.assay.analysisElements, this.assay.markedAsFound);
+        }
+
+        public int notFoundContainingElements() {
+            return this.assay.analysisElements.size() - this.getElementsFoundCorrect();
+        }
+
+        public int foundNotContainingElements() {
+            return
+                    this.assay.markedAsFound.size() -
+                            this.countOccurences(this.assay.markedAsFound, this.assay.analysisElements);
+        }
+
+        public int countOccurences(final Set<Element> shouldContain, final Set<Element> isMarked) {
+            int counter = 0;
+            for (final Element element :
+                    isMarked) {
+                if (shouldContain.contains(element)) {
+                    counter++;
+                }
+            }
+            return counter;
+        }
+    }
+
     public BasicAssay(final Set<Element> analaysisElements) {
         super(analaysisElements);
         this.startDate = new Date();
@@ -22,7 +66,7 @@ public class BasicAssay extends Assay implements AnalysisAssayInterface {
 
     @Override
     public HighScore getScore(final HighScoreInterface highScoreInterface) {
-        return null;
+        return highScoreInterface.calculateHighScore(new AssayAccessor(this));
     }
 
     @Override
@@ -66,7 +110,7 @@ public class BasicAssay extends Assay implements AnalysisAssayInterface {
         basicAssay.addAll(this.elements);
         return this.divideWithOutDeposit(basicAssay);
     }
-    
+
     @Override
     protected AbstractSubstance divideWithDeposit() {
         final BasicAssay basicAssay = new BasicAssay(this.analysisElements);

@@ -24,6 +24,7 @@ public class StartGameView extends View {
         super(parent, "Spielstart");
     }
 
+    //todo extract wihth GlobalAssayActions
     @Override
     public void addComponents() {
         final AnalyseElementFactory analyseElementFactory = AnalyseElementFactory.getInstance();

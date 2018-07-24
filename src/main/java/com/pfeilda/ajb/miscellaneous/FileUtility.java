@@ -38,4 +38,13 @@ public class FileUtility implements Singleton {
         }
         return null;
     }
+
+    public void writeObjectToFile(final Object object, final File file) {
+        try {
+            this.objectMapper.writeValue(file, object);
+        } catch (final Exception exception) {
+            //todo implement Exception
+            exception.printStackTrace();
+        }
+    }
 }

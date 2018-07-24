@@ -1,5 +1,7 @@
 package com.pfeilda.ajb.miscellaneous;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.GregorianCalendar;
 
 public class HighScore {
@@ -7,7 +9,11 @@ public class HighScore {
     private final GregorianCalendar date;
     private final String username;
 
-    public HighScore(final int score, final GregorianCalendar date, final String username) {
+    public HighScore(
+            @JsonProperty("score") final int score,
+            @JsonProperty("date") final GregorianCalendar date,
+            @JsonProperty("username") final String username
+    ) {
         this.score = score;
         this.date = date;
         this.username = username;
