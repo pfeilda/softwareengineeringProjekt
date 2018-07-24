@@ -9,7 +9,7 @@ public abstract class Property {
     private double property;
     private boolean isValid = true;
     private final double minimum;
-    private final double maximum;
+    protected final double maximum;
 
     public Property(final double property, final double minimum, final double maximum) {
         this.property = property;

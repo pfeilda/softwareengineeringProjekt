@@ -1,8 +1,8 @@
 package com.pfeilda.ajb.gui.Elements.Partials;
 
-import com.pfeilda.ajb.analysis.Assay;
 import com.pfeilda.ajb.equipment.SubstanceContainer;
 import com.pfeilda.ajb.gui.Elements.Buttons.BunsenBurner;
+import com.pfeilda.ajb.gui.Elements.Buttons.Centrifuge;
 
 import javax.swing.BoxLayout;
 
@@ -22,6 +22,7 @@ public class ReagentActions extends AbstractPartial {
     @Override
     public void addComponents() {
         this.add(new BunsenBurner(this.substanceContainer));
+        this.add(new Centrifuge(this.substanceContainer));
     }
 
     @Override

@@ -23,4 +23,14 @@ public class Separation extends Property {
         this.changedProperty();
         return (SeperationLabel) this.propertyLabel;
     }
+
+    @Override
+    public void add(final Property property) {
+        final double difference = this.maximum - this.get();
+        if (difference > property.get()) {
+            super.add(property);
+            return;
+        }
+        super.add(new Separation(difference));
+    }
 }

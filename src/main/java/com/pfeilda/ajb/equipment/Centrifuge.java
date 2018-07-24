@@ -15,7 +15,7 @@ public class Centrifuge extends ExternalReagent {
     @Override
     protected void setAlterProperties() {
         this.alterProperties = new Property[]{
-                new Separation(.1),
+                new Separation(.01),
         };
     }
 }
