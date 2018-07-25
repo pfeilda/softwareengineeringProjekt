@@ -15,7 +15,7 @@ public class HighScoreCalculator implements HighScoreInterface {
 
         final String username = JOptionPane.showInputDialog(
                 new JFrame(),
-                "Bitte gebe deinen Namen fuer die HighScore Liste ein",
+                "Du hast " + score + " Punkte erzielt, bitte gib deinen Namen ein.",
                 "Nutzername",
                 JOptionPane.PLAIN_MESSAGE
         );
