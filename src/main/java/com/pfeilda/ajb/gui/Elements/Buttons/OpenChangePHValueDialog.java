@@ -9,7 +9,7 @@ public class OpenChangePHValueDialog extends AssayActionAbstract {
     public OpenChangePHValueDialog(final SubstanceContainer substanceContainer) {
         super(substanceContainer);
 
-        this.setText("Ändere PH Wert");
+        this.setText("Aendere PH Wert...");
 
         this.addActionListener(this::addPHDialog);
     }
