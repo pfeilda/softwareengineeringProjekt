@@ -130,4 +130,9 @@ public class AnalyseElement implements AnalysisInterface {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return this.get().getLabel();
+    }
 }
