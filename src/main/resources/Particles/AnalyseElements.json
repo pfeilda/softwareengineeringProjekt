@@ -19,6 +19,36 @@
           "properties": {
             "temperature": 0.0
           }
+        },
+        {
+          "id": "Quecksilber Kation",
+          "afterDeposit": {
+            "type": "molecule",
+            "id": "Hg2Cl2"
+          },
+          "properties": {
+            "temperature": 0.0
+          }
+        },
+        {
+          "id": "Blei Kation",
+          "afterDeposit": {
+            "type": "molecule",
+            "id": "Blei Kation"
+          },
+          "properties": {
+            "temperature": 0.0
+          }
+        },
+        {
+          "id": "Titan Kation",
+          "afterDeposit": {
+            "type": "molecule",
+            "id": "Titan Kation"
+          },
+          "properties": {
+            "temperature": 0.0
+          }
         }
       ],
       "molecules": []
@@ -26,8 +56,89 @@
     "isAnalysable": false
   },
   {
+    "type": "molecule",
+    "element": "Wasser",
+    "disruptiveElements": {
+      "atoms": [],
+      "ions": [],
+      "molecules": []
+    },
+    "depositElements": {
+      "atoms": [],
+      "ions": [],
+      "molecules": [
+        {
+          "id": "Hg2Cl2",
+          "afterDeposit": {
+            "type": "molecule",
+            "id": "Hg2Cl2"
+          },
+          "properties": {
+            "temperature": 50.0
+          }
+        },
+        {
+          "id": "AgCl",
+          "afterDeposit": {
+            "type": "molecule",
+            "id": "AgCl"
+          },
+          "properties": {
+            "temperature": 50.0
+          }
+        }
+      ]
+    },
+    "isAnalysable": false
+  },
+  {
     "type": "ion",
     "element": "Silber Kation",
+    "disruptiveElements": {
+      "atoms": [],
+      "ions": [],
+      "molecules": []
+    },
+    "depositElements": {
+      "atoms": [],
+      "ions": [],
+      "molecules": []
+    },
+    "isAnalysable": true
+  },
+  {
+    "type": "ion",
+    "element": "Quecksilber Kation",
+    "disruptiveElements": {
+      "atoms": [],
+      "ions": [],
+      "molecules": []
+    },
+    "depositElements": {
+      "atoms": [],
+      "ions": [],
+      "molecules": []
+    },
+    "isAnalysable": true
+  },
+  {
+    "type": "ion",
+    "element": "Blei Kation",
+    "disruptiveElements": {
+      "atoms": [],
+      "ions": [],
+      "molecules": []
+    },
+    "depositElements": {
+      "atoms": [],
+      "ions": [],
+      "molecules": []
+    },
+    "isAnalysable": true
+  },
+  {
+    "type": "ion",
+    "element": "Titan Kation",
     "disruptiveElements": {
       "atoms": [],
       "ions": [],

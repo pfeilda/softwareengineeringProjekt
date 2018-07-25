@@ -26,5 +26,26 @@
     "atoms": [
       47
     ]
+  },
+  {
+    "label": "Quecksilber Kation",
+    "charge": 1,
+    "atoms": [
+      80
+    ]
+  },
+  {
+    "label": "Blei Kation",
+    "charge": 2,
+    "atoms": [
+      82
+    ]
+  },
+  {
+    "label": "Titan Kation",
+    "charge": 2,
+    "atoms": [
+      22
+    ]
   }
 ]

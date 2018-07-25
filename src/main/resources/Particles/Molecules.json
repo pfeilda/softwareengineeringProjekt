@@ -1,6 +1,6 @@
 [
   {
-    "label": "Water",
+    "label": "Wasser",
     "ions": [
       "Hydrogen",
       "Hydrogen",
@@ -28,6 +28,30 @@
     "ions": [
       "Chlorid",
       "Silber Kation"
+    ]
+  },
+  {
+    "label": "Hg2Cl2",
+    "ions": [
+      "Chlorid",
+      "Chlorid",
+      "Quecksilber Kation",
+      "Quecksilber Kation"
+    ]
+  },
+  {
+    "label": "PbCl2",
+    "ions": [
+      "Chlorid",
+      "Chlorid",
+      "Blei Kation"
+    ]
+  },
+  {
+    "label": "TiCl",
+    "ions": [
+      "Chlorid",
+      "Titan Kation"
     ]
   }
 ]
