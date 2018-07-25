@@ -19,7 +19,7 @@ public abstract class Assay extends AbstractSubstance {
     public abstract boolean isDisruptiveElementPresent(Set<Element> elements);
 
     //todo test
-    public Set<Element> getAnalysisElements() {
-        return this.analysisElements;
+    public Set<Element> getElements() {
+        return this.elements;
     }
 }

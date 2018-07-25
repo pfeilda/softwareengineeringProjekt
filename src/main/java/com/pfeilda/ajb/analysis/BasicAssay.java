@@ -101,7 +101,11 @@ public class BasicAssay extends Assay implements AnalysisAssayInterface {
 
     @Override
     public boolean isDisruptiveElementPresent(final Set<Element> elements) {
-        return this.elements.containsAll(elements);
+        for (final Element element :
+                elements) {
+            return this.elements.contains(element);
+        }
+        return false;
     }
 
     @Override

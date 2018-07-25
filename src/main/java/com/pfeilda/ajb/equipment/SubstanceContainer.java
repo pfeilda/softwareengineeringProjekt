@@ -128,7 +128,7 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
     public boolean experimentalProof(final AnalyseElement analyseElement) {
         final BasicAssay basicAssay = (BasicAssay) this.abstractSubstance;
         if (basicAssay != null) {
-            return analyseElement.experimentalProof(basicAssay, basicAssay.getAnalysisElements());
+            return analyseElement.experimentalProof(basicAssay, basicAssay.getElements());
         }
         return false;
     }
