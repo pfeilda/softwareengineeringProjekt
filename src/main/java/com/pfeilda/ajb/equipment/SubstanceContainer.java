@@ -134,4 +134,6 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
         }
         return false;
     }
+
+    public abstract SubstanceContainer getContainer(AbstractSubstance abstractSubstance);
 }

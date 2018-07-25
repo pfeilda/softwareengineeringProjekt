@@ -4,21 +4,21 @@ import com.pfeilda.ajb.analysis.AbstractSubstance;
 import com.pfeilda.ajb.gui.Elements.Partials.BeakerOverview;
 import com.pfeilda.ajb.miscellaneous.Volume;
 
-public class Beaker extends SubstanceContainer {
-    protected static final double maxVolume = 100;
+public class TestTube extends SubstanceContainer {
+    protected static final double maxVolume = 15;
 
-    public Beaker(final AbstractSubstance abstractSubstance) {
-        super(abstractSubstance, new Volume(Beaker.maxVolume));
+    public TestTube(final AbstractSubstance abstractSubstance) {
+        super(abstractSubstance, new Volume(TestTube.maxVolume));
         this.assayOverview = new BeakerOverview(this, abstractSubstance);
     }
 
-    protected Beaker(final AbstractSubstance abstractSubstance, final double maxVolume) {
+    protected TestTube(final AbstractSubstance abstractSubstance, final double maxVolume) {
         super(abstractSubstance, new Volume(maxVolume));
         this.assayOverview = new BeakerOverview(this, abstractSubstance);
     }
 
     @Override
-    public Beaker divide() {
+    public TestTube divide() {
         final AbstractSubstance abstractSubstance = this.abstractSubstance.divide();
         if (abstractSubstance == null) {
             return null;
@@ -27,7 +27,7 @@ public class Beaker extends SubstanceContainer {
     }
 
     @Override
-    public Beaker divideWithDeposit() {
+    public TestTube divideWithDeposit() {
         final AbstractSubstance abstractSubstance = this.abstractSubstance.divideWithDeposit();
         if (abstractSubstance == null) {
             return null;
@@ -36,7 +36,7 @@ public class Beaker extends SubstanceContainer {
     }
 
     @Override
-    public Beaker getContainer(final AbstractSubstance abstractSubstance) {
-        return new Beaker(abstractSubstance);
+    public TestTube getContainer(final AbstractSubstance abstractSubstance) {
+        return new TestTube(abstractSubstance);
     }
 }
