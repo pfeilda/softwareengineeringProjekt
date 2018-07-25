@@ -13,11 +13,13 @@ public class BeakerOverview extends AssayOverview {
 
     @Override
     public void paint(final Graphics g) {
+
         if (!this.abstractSubstance.hasDeposit()) {
             this.add(this.warning);
         } else {
             this.remove(this.warning);
         }
+        this.warning.setVisible(true);
 
         super.paint(g);
 

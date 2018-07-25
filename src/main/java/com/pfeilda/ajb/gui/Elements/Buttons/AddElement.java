@@ -31,6 +31,7 @@ public class AddElement extends JButton {
                 })
         );
 
+        this.substanceContainer.change();
         this.parent.setVisible(false);
         this.parent.dispose();
         this.parent.setModal(false);
