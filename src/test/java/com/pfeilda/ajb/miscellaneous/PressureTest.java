@@ -95,6 +95,7 @@ public class PressureTest extends PropertyTest {
         final Property addProperty = this.generateInstanceOfTestClass(-1 - this.minimum);
         property.add(addProperty);
 
+        Assert.assertEquals(this.minimum, property.get(), 0.);
         Assert.assertTrue(property.isValid());
     }
 }

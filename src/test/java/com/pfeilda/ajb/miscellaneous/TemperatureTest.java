@@ -88,4 +88,14 @@ public class TemperatureTest extends PropertyTest {
         Assert.assertNotNull(temperature.getPropertyLabel());
         Assert.assertTrue(temperature.getPropertyLabel() instanceof TemperatureLabel);
     }
+
+    @Override
+    public void addUnderMinimum() {
+        final Property property = this.generateInstanceOfTestClass(this.minimum);
+        final Property addProperty = this.generateInstanceOfTestClass(-1 - this.minimum);
+        property.add(addProperty);
+
+        Assert.assertEquals(this.minimum, property.get(), 0.);
+        Assert.assertTrue(property.isValid());
+    }
 }
