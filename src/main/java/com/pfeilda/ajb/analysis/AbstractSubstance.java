@@ -131,11 +131,21 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
         if (analyseElement != null) {
             final Set<Element> containingElements = new HashSet<>(this.elements);
             containingElements.forEach(containingElement -> {
-                final Deposit deposit = analyseElement.isDeposite(containingElement);
+                final Deposit depositContainingElement = analyseElement.isDeposite(containingElement);
 
-                if (deposit != null) {
-                    this.deposit.add(deposit.get());
+                if (depositContainingElement != null) {
+                    this.deposit.add(depositContainingElement.get());
                     this.elements.remove(containingElement);
+                    this.separation.add(new Separation(-this.separation.get()));
+                }
+
+
+                final AnalyseElement containingAnalyseElement = analyseElementFactory.get(containingElement);
+                final Deposit depositAnalyseElement = containingAnalyseElement.isDeposite(analyseElement.get());
+
+                if (depositAnalyseElement != null) {
+                    this.deposit.add(depositAnalyseElement.get());
+                    this.elements.remove(analyseElement);
                     this.separation.add(new Separation(-this.separation.get()));
                 }
             });
@@ -188,11 +198,8 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
 
     protected abstract AbstractSubstance divideWithOutDeposit();
 
-    //    protected AbstractSubstance divideWithOutDeposit(final Class clazz) {
     protected AbstractSubstance divideWithOutDeposit(final AbstractSubstance newReagent) {
         try {
-//            final Constructor<?> ctor = clazz.getConstructor(new Element[0].getClass());
-//            final AbstractSubstance newReagent = (AbstractSubstance) ctor.newInstance(this.elements);
             newReagent.setPropertiesToNull();
 
             final double reducedVolumeValue = this.getVolume().get() / 2;
