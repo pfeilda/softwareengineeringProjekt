@@ -8,6 +8,7 @@ import com.pfeilda.ajb.particles.AnalyseElementFactory;
 
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
 
@@ -42,18 +43,21 @@ public class GlobalAssayActions extends AbstractPartial {
         final AnalyseElement[] analyseElements = analyseElementFactory.getAll();
 
         final JPanel elementsPanel = new JPanel();
+        elementsPanel.setLayout(new GridLayout(0, 3));
 
         Arrays.stream(analyseElements).forEach((analyseElement) -> {
-            final JCheckBox elementCheckbox = new JCheckBox(analyseElement.get().getLabel());
-            elementCheckbox.addActionListener((ActionEvent actionEvent) -> {
-                if (elementCheckbox.isSelected()) {
-                    this.substanceContainer.markAsFound(analyseElement.get());
-                } else {
-                    this.substanceContainer.unmarkAsFound(analyseElement.get());
-                }
-            });
+            if (analyseElement.isAnalyzable()) {
+                final JCheckBox elementCheckbox = new JCheckBox(analyseElement.get().getLabel());
+                elementCheckbox.addActionListener((ActionEvent actionEvent) -> {
+                    if (elementCheckbox.isSelected()) {
+                        this.substanceContainer.markAsFound(analyseElement.get());
+                    } else {
+                        this.substanceContainer.unmarkAsFound(analyseElement.get());
+                    }
+                });
 
-            elementsPanel.add(elementCheckbox);
+                elementsPanel.add(elementCheckbox);
+            }
         });
 
         this.add(elementsPanel);

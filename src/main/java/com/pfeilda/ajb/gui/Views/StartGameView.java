@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -31,6 +32,7 @@ public class StartGameView extends View {
         final AnalyseElement[] analyseElements = analyseElementFactory.getAll();
 
         final JPanel elementsPanel = new JPanel();
+        elementsPanel.setLayout(new GridLayout(0, 3));
 
         Arrays.stream(analyseElements).forEach((analyseElement) -> {
             if (analyseElement.isAnalyzable()) {

@@ -3,12 +3,14 @@ package com.pfeilda.ajb.gui.Elements.Partials;
 import com.pfeilda.ajb.analysis.AbstractSubstance;
 import com.pfeilda.ajb.equipment.SubstanceContainer;
 
+import javax.swing.JLabel;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
 public class BeakerOverview extends AssayOverview {
     public BeakerOverview(final SubstanceContainer substanceContainer, final AbstractSubstance abstractSubstance) {
         super(substanceContainer, abstractSubstance);
+        this.add(new JLabel(substanceContainer.getMaxVolume().get() + "ml "));
     }
 
     @Override

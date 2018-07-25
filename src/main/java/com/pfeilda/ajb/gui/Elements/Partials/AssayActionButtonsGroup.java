@@ -37,5 +37,6 @@ public class AssayActionButtonsGroup extends AbstractPartial {
         this.add(new AddElements(this.substanceContainer));
         this.add(new OpenChangePHValueDialog(this.substanceContainer));
         this.add(new ExperimentalProof(this.substanceContainer));
+        this.add(new ChangeContainer(this.substanceContainer, this.substanceContainersView));
     }
 }
