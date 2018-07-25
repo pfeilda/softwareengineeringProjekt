@@ -10,13 +10,34 @@
     "depositElements": {
       "atoms": [],
       "ions": [
-        [
-          "Silber Kation",
-          "test"
-        ]
+        {
+          "id": "Silber Kation",
+          "afterDeposit": {
+            "type": "molecule",
+            "id": "AgCl"
+          },
+          "properties": {
+            "temperature": 0.0
+          }
+        }
       ],
       "molecules": []
     },
     "isAnalysable": false
+  },
+  {
+    "type": "ion",
+    "element": "Silber Kation",
+    "disruptiveElements": {
+      "atoms": [],
+      "ions": [],
+      "molecules": []
+    },
+    "depositElements": {
+      "atoms": [],
+      "ions": [],
+      "molecules": []
+    },
+    "isAnalysable": true
   }
 ]

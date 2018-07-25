@@ -4,6 +4,7 @@ import com.pfeilda.ajb.equipment.AlterInterface;
 import com.pfeilda.ajb.miscellaneous.*;
 import com.pfeilda.ajb.particles.AnalyseElement;
 import com.pfeilda.ajb.particles.AnalyseElementFactory;
+import com.pfeilda.ajb.particles.Deposit;
 import com.pfeilda.ajb.particles.Element;
 
 import java.util.ArrayList;
@@ -130,8 +131,10 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
         if (analyseElement != null) {
             final Set<Element> containingElements = new HashSet<>(this.elements);
             containingElements.forEach(containingElement -> {
-                if (analyseElement.isDeposite(containingElement)) {
-                    this.deposit.add(containingElement);
+                final Deposit deposit = analyseElement.isDeposite(containingElement);
+
+                if (deposit != null) {
+                    this.deposit.add(deposit.get());
                     this.elements.remove(containingElement);
                     this.separation.add(new Separation(-this.separation.get()));
                 }

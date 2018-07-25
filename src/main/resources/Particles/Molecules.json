@@ -22,5 +22,12 @@
       "Chlorid",
       "Hydrogen"
     ]
+  },
+  {
+    "label": "AgCl",
+    "ions": [
+      "Chlorid",
+      "Silber Kation"
+    ]
   }
 ]

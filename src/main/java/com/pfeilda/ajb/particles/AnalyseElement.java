@@ -2,19 +2,21 @@ package com.pfeilda.ajb.particles;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.pfeilda.ajb.analysis.Assay;
+import com.pfeilda.ajb.miscellaneous.Property;
+import com.pfeilda.ajb.miscellaneous.Temperature;
 
 import java.util.*;
 
 public class AnalyseElement implements AnalysisInterface {
     private final Element element;
     private final Set<Element> disruptiveElements;
-    private final Set<Element> depositElements;
+    private final Set<Deposit> depositElements;
     private final boolean isAnalyzable;
 
     public AnalyseElement(
             final Element element,
             final Set<Element> disruptiveElements,
-            final Set<Element> depositElements,
+            final Set<Deposit> depositElements,
             final boolean isAnalyzable
     ) {
         this.element = element;
@@ -25,10 +27,10 @@ public class AnalyseElement implements AnalysisInterface {
 
     //todo refactore duplicate code
     public AnalyseElement(
-            @JsonProperty("type") final String type,
-            @JsonProperty("element") final String element,
+            @JsonProperty("type") String type,
+            @JsonProperty("element") String element,
             @JsonProperty("disruptiveElements") final Map<String, String[]> disruptiveElements,
-            @JsonProperty("depositElements") final Map<String, String[]> depositElements,
+            @JsonProperty("depositElements") final Map<String, Map<String, Object>[]> depositElements,
             @JsonProperty("isAnalysable") final boolean isAnalyzable
     ) {
         Element requestedElement = null;
@@ -43,7 +45,6 @@ public class AnalyseElement implements AnalysisInterface {
 
         this.disruptiveElements = new HashSet<>();
         {
-
             final String[] atomIds = disruptiveElements.get("atoms");
             final AtomFactory atomFactory = AtomFactory.getInstance();
             for (final String atomId :
@@ -66,23 +67,101 @@ public class AnalyseElement implements AnalysisInterface {
 
         {
             this.depositElements = new HashSet<>();
-            final String[] atomIds = depositElements.get("atoms");
             final AtomFactory atomFactory = AtomFactory.getInstance();
-            for (final String atomId :
-                    atomIds) {
-                this.depositElements.add(atomFactory.get(Integer.parseInt(atomId)));
-            }
-            final String[] ionIds = depositElements.get("ions");
             final IonFactory ionFactory = IonFactory.getInstance();
-            for (final String ionId :
-                    ionIds) {
-                this.depositElements.add(ionFactory.get(ionId));
-            }
-            final String[] moleculeIds = depositElements.get("molecules");
             final MoleculeFactory moleculeFactory = MoleculeFactory.getInstance();
-            for (final String moleculeId :
+
+            final Map<String, Object>[] atomIds = depositElements.get("atoms");
+
+            for (final Map<String, Object> atomId :
+                    atomIds) {
+                final Atom atom = atomFactory.get(Integer.parseInt((String) atomId.get("id")));
+
+                final Map<String, String> afterDeposit = (Map<String, String>) atomId.get("afterDeposit");
+
+                type = afterDeposit.get("type");
+                element = afterDeposit.get("id");
+
+                Element depositElement = null;
+                if (type.equals("atom")) {
+                    depositElement = AtomFactory.getInstance().get(Integer.parseInt(element));
+                } else if (type.equals("ion")) {
+                    depositElement = IonFactory.getInstance().get(element);
+                } else if (type.equals("molecule")) {
+                    depositElement = MoleculeFactory.getInstance().get(element);
+                }
+
+                final Map<String, Double> properties = (Map<String, Double>) atomId.get("properties");
+
+                final Set<Property> propertySet = new HashSet<>();
+
+                if (properties.containsKey("temperature")) {
+                    propertySet.add(new Temperature(properties.get("temperature")));
+                }
+
+                this.depositElements.add(new Deposit(atom, depositElement, propertySet));
+            }
+
+            final Map<String, Object>[] ionIds = depositElements.get("ions");
+
+            for (final Map<String, Object> ionId :
+                    ionIds) {
+                final Ion ion = ionFactory.get((String) ionId.get("id"));
+
+                final Map<String, String> afterDeposit = (Map<String, String>) ionId.get("afterDeposit");
+
+                type = afterDeposit.get("type");
+                element = afterDeposit.get("id");
+
+                Element depositElement = null;
+                if (type.equals("atom")) {
+                    depositElement = AtomFactory.getInstance().get(Integer.parseInt(element));
+                } else if (type.equals("ion")) {
+                    depositElement = IonFactory.getInstance().get(element);
+                } else if (type.equals("molecule")) {
+                    depositElement = MoleculeFactory.getInstance().get(element);
+                }
+
+                final Map<String, Double> properties = (Map<String, Double>) ionId.get("properties");
+
+                final Set<Property> propertySet = new HashSet<>();
+
+                if (properties.containsKey("temperature")) {
+                    propertySet.add(new Temperature(properties.get("temperature")));
+                }
+
+                this.depositElements.add(new Deposit(ion, depositElement, propertySet));
+            }
+
+            final Map<String, Object>[] moleculeIds = depositElements.get("molecules");
+
+            for (final Map<String, Object> moleculeId :
                     moleculeIds) {
-                this.depositElements.add(moleculeFactory.get(moleculeId));
+                final Molecule molecule = moleculeFactory.get((String) moleculeId.get("id"));
+
+                final Map<String, String> afterDeposit = (Map<String, String>) moleculeId.get("afterDeposit");
+
+                type = afterDeposit.get("type");
+                element = afterDeposit.get("id");
+
+                Element depositElement = null;
+                if (type.equals("atom")) {
+                    depositElement = AtomFactory.getInstance().get(Integer.parseInt(element));
+                } else if (type.equals("ion")) {
+                    depositElement = IonFactory.getInstance().get(element);
+                } else if (type.equals("molecule")) {
+                    depositElement = MoleculeFactory.getInstance().get(element);
+                }
+
+                final Map<String, Double> properties = (Map<String, Double>) moleculeId.get("properties");
+
+                final Set<Property> propertySet = new HashSet<>();
+
+                if (properties.containsKey("temperature")) {
+                    propertySet.add(new Temperature(properties.get("temperature")));
+                }
+
+                this.depositElements.add(new Deposit(molecule, depositElement, propertySet));
             }
         }
 
@@ -112,8 +191,14 @@ public class AnalyseElement implements AnalysisInterface {
         return random.nextBoolean();
     }
 
-    public final boolean isDeposite(final Element element) {
-        return this.depositElements.contains(element);
+    public final Deposit isDeposite(final Element element) {
+        for (final Deposit deposit :
+                this.depositElements) {
+            if (deposit.isDeposit(element)) {
+                return deposit;
+            }
+        }
+        return null;
     }
 
     @Override
