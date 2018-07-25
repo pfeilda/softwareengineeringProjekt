@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 public abstract class AssayOverview extends JPanel {
     protected final SubstanceContainer substanceContainer;
     protected final AbstractSubstance abstractSubstance;
-    protected final JLabel warning = new JLabel("Absatz vorhanden");
+    protected final JLabel warning = new JLabel("Niederschlag vorhanden");
 
     public AssayOverview(final SubstanceContainer substanceContainer, final AbstractSubstance abstractSubstance) {
         this.substanceContainer = substanceContainer;

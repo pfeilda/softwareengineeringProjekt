@@ -13,7 +13,6 @@ public class BeakerOverview extends AssayOverview {
 
     @Override
     public void paint(final Graphics g) {
-
         if (!this.abstractSubstance.hasDeposit()) {
             this.add(this.warning);
         } else {
@@ -22,6 +21,7 @@ public class BeakerOverview extends AssayOverview {
         this.warning.setVisible(true);
 
         super.paint(g);
+
 
         final Dimension dimension = this.getSize();
 
@@ -43,5 +43,10 @@ public class BeakerOverview extends AssayOverview {
         );
 
         g.drawLine(xOffset, yOffset + fillHeight, xOffset + width, yOffset + fillHeight);
+    }
+
+    @Override
+    public void repaint() {
+        super.repaint();
     }
 }

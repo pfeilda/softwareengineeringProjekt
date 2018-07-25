@@ -70,8 +70,8 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
         if (this.isAllowed()) {
             abstractSubstance.addTo(this.abstractSubstance);
             this.validateVolume();
+            this.change();
         }
-        this.change();
     }
 
     public void addConsumerToSubstance(final Consumer consumer) {
@@ -123,6 +123,7 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
     }
 
     public void change() {
+        this.assayOverview.revalidate();
         this.assayOverview.repaint();
     }
 
