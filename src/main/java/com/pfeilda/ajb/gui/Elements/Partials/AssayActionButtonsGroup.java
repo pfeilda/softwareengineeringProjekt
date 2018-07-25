@@ -25,7 +25,7 @@ public class AssayActionButtonsGroup extends AbstractPartial {
 
     @Override
     public void selectLayout() {
-        this.setLayout(new GridLayout(2, 2));
+        this.setLayout(new GridLayout(2, 0));
     }
 
     @Override
