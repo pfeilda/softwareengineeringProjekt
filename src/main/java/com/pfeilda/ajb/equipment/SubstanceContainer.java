@@ -2,12 +2,13 @@ package com.pfeilda.ajb.equipment;
 
 import com.pfeilda.ajb.analysis.AbstractSubstance;
 import com.pfeilda.ajb.analysis.AnalysisAssayInterface;
-import com.pfeilda.ajb.analysis.Assay;
+import com.pfeilda.ajb.analysis.BasicAssay;
 import com.pfeilda.ajb.gui.Elements.Partials.AssayOverview;
 import com.pfeilda.ajb.miscellaneous.HighScore;
 import com.pfeilda.ajb.miscellaneous.HighScoreInterface;
 import com.pfeilda.ajb.miscellaneous.Property;
 import com.pfeilda.ajb.miscellaneous.Volume;
+import com.pfeilda.ajb.particles.AnalyseElement;
 import com.pfeilda.ajb.particles.Element;
 
 import java.util.List;
@@ -120,15 +121,15 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
         return this.assayOverview;
     }
 
-    public boolean experimentalProof(final Element element) {
-        final Assay assay = (Assay) this.abstractSubstance;
-        if (assay != null) {
-            return assay.isElementPresent(element);
-        }
-        return false;
-    }
-
     public void change() {
         this.assayOverview.repaint();
+    }
+
+    public boolean experimentalProof(final AnalyseElement analyseElement) {
+        final BasicAssay basicAssay = (BasicAssay) this.abstractSubstance;
+        if (basicAssay != null) {
+            return analyseElement.experimentalProof(basicAssay, basicAssay.getAnalysisElements());
+        }
+        return false;
     }
 }
