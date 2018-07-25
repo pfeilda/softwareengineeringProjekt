@@ -13,12 +13,13 @@ public class BoilingStone extends ExternalReagentButton {
     @Override
     protected void paintComponentIcon(final Graphics g) {
         g.setColor(this.drawColor);
-        //todo add offset
-        g.drawLine(20, 10, 20, 30);
-        g.drawLine(20, 30, 10, 40);
-        g.drawLine(10, 40, 35, 40);
-        g.drawLine(35, 40, 25, 30);
-        g.drawLine(25, 30, 25, 10);
+
+        final int xOffset = 5;
+        final int yOffset = 5;
+
+        g.drawOval(xOffset + 15, yOffset + 5, 10, 10);
+        g.drawOval(xOffset + 25, yOffset + 25, 10, 10);
+        g.drawOval(xOffset + 5, yOffset + 25, 10, 10);
     }
 
     @Override

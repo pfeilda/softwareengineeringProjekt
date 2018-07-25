@@ -213,4 +213,8 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     public boolean isEvaporating() {
         return this.temperature.get() >= this.evaportateTemperature.get();
     }
+
+    public boolean hasDeposit() {
+        return this.deposit.isEmpty();
+    }
 }

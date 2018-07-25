@@ -19,6 +19,8 @@ public class GameView extends View {
 
         this.executeAfterInitial();
 
+        this.setMinimumSize(new Dimension(400, 400));
+
         //todo remove this line or replace with better
         this.parent.setSize(new Dimension(500, 500));
     }

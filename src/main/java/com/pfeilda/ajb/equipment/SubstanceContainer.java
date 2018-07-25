@@ -2,6 +2,7 @@ package com.pfeilda.ajb.equipment;
 
 import com.pfeilda.ajb.analysis.AbstractSubstance;
 import com.pfeilda.ajb.analysis.AnalysisAssayInterface;
+import com.pfeilda.ajb.gui.Elements.Partials.AssayOverview;
 import com.pfeilda.ajb.miscellaneous.HighScore;
 import com.pfeilda.ajb.miscellaneous.HighScoreInterface;
 import com.pfeilda.ajb.miscellaneous.Property;
@@ -13,6 +14,7 @@ import java.util.function.Consumer;
 
 public abstract class SubstanceContainer implements PartInterface, AlterInterface {
     private final Volume maxVolume;
+    protected AssayOverview assayOverview;
     protected final AbstractSubstance abstractSubstance;
     private boolean isCleared = false;
 
@@ -32,12 +34,14 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
     //todo check if really needed
     public void add(final SubstanceContainer substanceContainer) {
         substanceContainer.decant(substanceContainer);
+        this.change();
     }
 
     public Volume getMaxVolume() {
         return this.maxVolume;
     }
 
+    //todo check if cleared is needed
     public boolean isCleared() {
         return this.isCleared;
     }
@@ -55,6 +59,7 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
 
     public void addTo(final SubstanceContainer substanceContainer) {
         substanceContainer.decant(substanceContainer);
+        this.change();
     }
 
     //todo improve tests
@@ -62,6 +67,7 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
         if (this.isAllowed()) {
             abstractSubstance.addTo(this.abstractSubstance);
             this.validateVolume();
+            this.change();
         }
     }
 
@@ -85,6 +91,7 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
     @Override
     public void alter(final Property[] properties) {
         this.abstractSubstance.alter(properties);
+        this.change();
     }
 
     //todo write test for
@@ -106,5 +113,13 @@ public abstract class SubstanceContainer implements PartInterface, AlterInterfac
 
     public void unmarkAsFound(final Element element) {
         ((AnalysisAssayInterface) this.abstractSubstance).unmarkAsFound(element);
+    }
+
+    public AssayOverview getView() {
+        return this.assayOverview;
+    }
+    
+    public void change() {
+        this.assayOverview.repaint();
     }
 }

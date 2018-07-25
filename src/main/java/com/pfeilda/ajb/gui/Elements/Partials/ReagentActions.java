@@ -5,7 +5,7 @@ import com.pfeilda.ajb.gui.Elements.Buttons.BoilingStone;
 import com.pfeilda.ajb.gui.Elements.Buttons.BunsenBurner;
 import com.pfeilda.ajb.gui.Elements.Buttons.Centrifuge;
 
-import javax.swing.BoxLayout;
+import java.awt.GridLayout;
 
 public class ReagentActions extends AbstractPartial {
     private final SubstanceContainer substanceContainer;
@@ -17,7 +17,7 @@ public class ReagentActions extends AbstractPartial {
 
     @Override
     public void selectLayout() {
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.setLayout(new GridLayout(0, 1, 0, 10));
     }
 
     @Override

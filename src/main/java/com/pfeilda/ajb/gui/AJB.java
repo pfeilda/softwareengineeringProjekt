@@ -4,7 +4,9 @@ import com.pfeilda.ajb.equipment.AlterManager;
 import com.pfeilda.ajb.gui.Views.MainMenu;
 import com.pfeilda.ajb.gui.Views.View;
 
+import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
+import java.awt.Dimension;
 import java.awt.HeadlessException;
 
 public class AJB extends ViewContainerAbstract {
@@ -24,7 +26,11 @@ public class AJB extends ViewContainerAbstract {
     public void changeView(final View newView) {
         this.getContentPane().removeAll();
 
-        this.add(newView);
+        final JScrollPane jScrollPane = new JScrollPane(newView, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        jScrollPane.setEnabled(true);
+        jScrollPane.setPreferredSize(new Dimension(500, 500));
+
+        this.add(jScrollPane);
         this.pack();
         this.repaint();
     }

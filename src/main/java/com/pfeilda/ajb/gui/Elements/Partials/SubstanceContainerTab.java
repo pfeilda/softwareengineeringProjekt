@@ -39,6 +39,7 @@ public class SubstanceContainerTab extends AbstractPartial {
 
     @Override
     public void addComponents() {
+        this.add(this.substanceContainer.getView(), BorderLayout.CENTER);
         this.add(new ReagentActions(this.substanceContainer), BorderLayout.LINE_START);
         this.add(new Properties(this.substanceContainer.getPropertiesOfSubstances()), BorderLayout.LINE_END);
     }

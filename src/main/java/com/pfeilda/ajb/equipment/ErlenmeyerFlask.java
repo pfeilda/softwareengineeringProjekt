@@ -1,6 +1,8 @@
 package com.pfeilda.ajb.equipment;
 
 import com.pfeilda.ajb.analysis.AbstractSubstance;
+import com.pfeilda.ajb.gui.Elements.Partials.AssayOverview;
+import com.pfeilda.ajb.gui.Elements.Partials.ErlenmeyerOverview;
 import com.pfeilda.ajb.miscellaneous.Volume;
 
 public class ErlenmeyerFlask extends SubstanceContainer {
@@ -26,5 +28,10 @@ public class ErlenmeyerFlask extends SubstanceContainer {
             return null;
         }
         return new ErlenmeyerFlask(abstractSubstance);
+    }
+
+    @Override
+    public AssayOverview getView() {
+        return new ErlenmeyerOverview(this, this.abstractSubstance);
     }
 }
