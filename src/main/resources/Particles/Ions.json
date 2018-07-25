@@ -43,9 +43,27 @@
   },
   {
     "label": "Titan Kation",
-    "charge": 2,
+    "charge": 1,
     "atoms": [
       22
+    ]
+  },
+  {
+    "label": "Sulfat",
+    "charge": -2,
+    "atoms": [
+      16,
+      8,
+      8,
+      8,
+      8
+    ]
+  },
+  {
+    "label": "Stickstoff Kation",
+    "charge": -3,
+    "atoms": [
+      7
     ]
   }
 ]

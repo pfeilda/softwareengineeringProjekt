@@ -53,5 +53,21 @@
       "Chlorid",
       "Titan Kation"
     ]
+  },
+  {
+    "label": "PbSO4",
+    "ions": [
+      "Blei Kation",
+      "Sulfat"
+    ]
+  },
+  {
+    "label": "Ammoniak",
+    "ions": [
+      "Stickstoff Kation",
+      "Hydrogen",
+      "Hydrogen",
+      "Hydrogen"
+    ]
   }
 ]

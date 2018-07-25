@@ -93,6 +93,58 @@
   },
   {
     "type": "ion",
+    "element": "Sulfat",
+    "disruptiveElements": {
+      "atoms": [],
+      "ions": [],
+      "molecules": []
+    },
+    "depositElements": {
+      "atoms": [],
+      "ions": [
+        {
+          "id": "Blei Kation",
+          "afterDeposit": {
+            "type": "molecule",
+            "id": "PbSO4"
+          },
+          "properties": {
+            "temperature": 50.0
+          }
+        }
+      ],
+      "molecules": []
+    },
+    "isAnalysable": false
+  },
+  {
+    "type": "molecule",
+    "element": "Ammoniak",
+    "disruptiveElements": {
+      "atoms": [],
+      "ions": [],
+      "molecules": []
+    },
+    "depositElements": {
+      "atoms": [],
+      "ions": [],
+      "molecules": [
+        {
+          "id": "PbSO4",
+          "afterDeposit": {
+            "type": "ion",
+            "id": "Blei Kation"
+          },
+          "properties": {
+            "temperature": 50.0
+          }
+        }
+      ]
+    },
+    "isAnalysable": false
+  },
+  {
+    "type": "ion",
     "element": "Silber Kation",
     "disruptiveElements": {
       "atoms": [],
@@ -105,6 +157,21 @@
       "molecules": []
     },
     "isAnalysable": true
+  },
+  {
+    "type": "molecule",
+    "element": "PbSO4",
+    "disruptiveElements": {
+      "atoms": [],
+      "ions": [],
+      "molecules": []
+    },
+    "depositElements": {
+      "atoms": [],
+      "ions": [],
+      "molecules": []
+    },
+    "isAnalysable": false
   },
   {
     "type": "ion",
