@@ -12,5 +12,19 @@
     "atoms": [
       8
     ]
+  },
+  {
+    "label": "Chlorid",
+    "charge": -1,
+    "atoms": [
+      17
+    ]
+  },
+  {
+    "label": "Silber Kation",
+    "charge": 1,
+    "atoms": [
+      47
+    ]
   }
 ]

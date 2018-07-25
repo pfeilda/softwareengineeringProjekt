@@ -1,40 +1,20 @@
 [
   {
-    "type": "atom",
-    "element": 58,
-    "disruptiveElements": {
-      "atoms": [
-        55
-      ],
-      "ions": [],
-      "molecules": []
-    },
-    "depositElements": {
-      "atoms": [
-        1
-      ],
-      "ions": [
-        "Hydrogen"
-      ],
-      "molecules": [
-        "Water"
-      ]
-    },
-    "isAnalysable": true
-  },
-  {
     "type": "molecule",
-    "element": "Wasserstoffperoxid",
+    "element": "Salzsaeure",
     "disruptiveElements": {
       "atoms": [],
       "ions": [],
       "molecules": []
     },
     "depositElements": {
-      "atoms": [
-        58
+      "atoms": [],
+      "ions": [
+        [
+          "Silber Kation",
+          "test"
+        ]
       ],
-      "ions": [],
       "molecules": []
     },
     "isAnalysable": false

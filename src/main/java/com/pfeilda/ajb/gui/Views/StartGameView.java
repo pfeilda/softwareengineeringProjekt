@@ -33,16 +33,18 @@ public class StartGameView extends View {
         final JPanel elementsPanel = new JPanel();
 
         Arrays.stream(analyseElements).forEach((analyseElement) -> {
-            final JCheckBox elementCheckbox = new JCheckBox(analyseElement.get().getLabel());
-            elementCheckbox.addActionListener((ActionEvent actionEvent) -> {
-                if (elementCheckbox.isSelected()) {
-                    this.analyseElements.add(analyseElement.get());
-                } else {
-                    this.analyseElements.remove(analyseElement.get());
-                }
-            });
+            if (analyseElement.isAnalyzable()) {
+                final JCheckBox elementCheckbox = new JCheckBox(analyseElement.get().getLabel());
+                elementCheckbox.addActionListener((ActionEvent actionEvent) -> {
+                    if (elementCheckbox.isSelected()) {
+                        this.analyseElements.add(analyseElement.get());
+                    } else {
+                        this.analyseElements.remove(analyseElement.get());
+                    }
+                });
 
-            elementsPanel.add(elementCheckbox);
+                elementsPanel.add(elementCheckbox);
+            }
         });
 
         this.add(elementsPanel);
