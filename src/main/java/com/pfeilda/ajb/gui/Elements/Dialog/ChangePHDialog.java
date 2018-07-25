@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.Dimension;
 
 public class ChangePHDialog extends JDialog {
+
+    //todo to procedual
     public ChangePHDialog(final SubstanceContainer substanceContainer) {
         this.setTitle("Aendere PH Wert");
 
