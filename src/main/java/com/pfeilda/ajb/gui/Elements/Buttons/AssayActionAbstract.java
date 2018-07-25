@@ -4,7 +4,7 @@ import com.pfeilda.ajb.equipment.SubstanceContainer;
 
 import javax.swing.JButton;
 
-public class AssayActionAbstract extends JButton {
+public abstract class AssayActionAbstract extends JButton {
     protected final SubstanceContainer substanceContainer;
 
     public AssayActionAbstract(final SubstanceContainer substanceContainer) {
