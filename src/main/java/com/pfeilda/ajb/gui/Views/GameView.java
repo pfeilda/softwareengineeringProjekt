@@ -1,10 +1,12 @@
 package com.pfeilda.ajb.gui.Views;
 
 import com.pfeilda.ajb.equipment.SubstanceContainer;
+import com.pfeilda.ajb.gui.Elements.Menu.DefaultMenu;
 import com.pfeilda.ajb.gui.Elements.Partials.GlobalGameActionButtonGroup;
 import com.pfeilda.ajb.gui.ViewContainerAbstract;
 
-import javax.swing.*;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
@@ -26,18 +28,7 @@ public class GameView extends View {
 
     @Override
     public void addComponents() {
-        final JMenuBar jMenuBar = new JMenuBar();
-
-        final JMenu jMenu = new JMenu("Menü");
-
-        final JMenuItem helpItem = new JMenuItem("Hilfe");
-        final JMenuItem backItem = new JMenuItem("Zurueck zum Menue");
-        jMenu.add(backItem);
-        jMenu.add(helpItem);
-
-        jMenuBar.add(jMenu);
-
-        this.parent.setJMenuBar(jMenuBar);
+        this.parent.setJMenuBar(new DefaultMenu());
 
         this.add(new JLabel("Proben:", SwingConstants.CENTER), BorderLayout.PAGE_START);
     }

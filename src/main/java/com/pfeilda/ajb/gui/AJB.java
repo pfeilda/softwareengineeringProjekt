@@ -1,6 +1,7 @@
 package com.pfeilda.ajb.gui;
 
 import com.pfeilda.ajb.equipment.AlterManager;
+import com.pfeilda.ajb.gui.Views.GameView;
 import com.pfeilda.ajb.gui.Views.MainMenu;
 import com.pfeilda.ajb.gui.Views.View;
 
@@ -25,6 +26,10 @@ public class AJB extends ViewContainerAbstract {
     @Override
     public void changeView(final View newView) {
         this.getContentPane().removeAll();
+
+        if (!(newView instanceof GameView)) {
+            this.setJMenuBar(null);
+        }
 
         final JScrollPane jScrollPane = new JScrollPane(newView, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         jScrollPane.setEnabled(true);

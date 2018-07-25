@@ -7,12 +7,12 @@ import java.awt.Dimension;
 
 public abstract class PropertyLabel extends JLabel {
     public PropertyLabel() {
-        this.setMinimumSize(new Dimension(60, 30));
-        this.setPreferredSize(new Dimension(60, 30));
-        this.setMaximumSize(new Dimension(60, 30));
+        this.setMinimumSize(new Dimension(150, 30));
+        this.setPreferredSize(new Dimension(150, 30));
+        this.setMaximumSize(new Dimension(150, 30));
     }
 
     public void change(final Property property) {
-        this.setText(property.get() + "");
+        this.setText(property.get() + " " + property.getClass().getSimpleName());
     }
 }
