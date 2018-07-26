@@ -51,9 +51,11 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
     }
 
     public final void add(final Element element) {
-        this.elements.add(element);
-        this.generateDeposit(element);
-        this.add(this.volumePerElement);
+        if (element != null) {
+            this.elements.add(element);
+            this.generateDeposit(element);
+            this.add(this.volumePerElement);
+        }
     }
 
     public final void addAll(final Set<Element> elements) {
@@ -139,14 +141,16 @@ public abstract class AbstractSubstance implements AlterInterface, VolumeInterfa
                     this.separation.add(new Separation(-this.separation.get()));
                 }
 
-
                 final AnalyseElement containingAnalyseElement = analyseElementFactory.get(containingElement);
-                final Deposit depositAnalyseElement = containingAnalyseElement.isDeposite(analyseElement.get());
+                //todo dirty
+                if (containingAnalyseElement != null) {
+                    final Deposit depositAnalyseElement = containingAnalyseElement.isDeposite(analyseElement.get());
 
-                if (depositAnalyseElement != null) {
-                    this.deposit.add(depositAnalyseElement.get());
-                    this.elements.remove(analyseElement);
-                    this.separation.add(new Separation(-this.separation.get()));
+                    if (depositAnalyseElement != null) {
+                        this.deposit.add(depositAnalyseElement.get());
+                        this.elements.remove(analyseElement);
+                        this.separation.add(new Separation(-this.separation.get()));
+                    }
                 }
             });
         }

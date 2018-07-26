@@ -33,7 +33,7 @@
         {
           "id": "Blei Kation",
           "afterDeposit": {
-            "type": "molecule",
+            "type": "ion",
             "id": "Blei Kation"
           },
           "properties": {
@@ -43,7 +43,7 @@
         {
           "id": "Titan Kation",
           "afterDeposit": {
-            "type": "molecule",
+            "type": "ion",
             "id": "Titan Kation"
           },
           "properties": {

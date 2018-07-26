@@ -4,12 +4,17 @@ import com.pfeilda.ajb.gui.Elements.Dialog.HelpDialog;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 public class DefaultMenu extends JMenuBar {
     public DefaultMenu() {
         final JMenu help = new JMenu("Hilfe");
 
-        help.addActionListener(actionEvent -> {
+        final JMenuItem jMenuItem = new JMenuItem("open");
+
+        help.add(jMenuItem);
+
+        jMenuItem.addActionListener(actionEvent -> {
             new HelpDialog();
         });
 
